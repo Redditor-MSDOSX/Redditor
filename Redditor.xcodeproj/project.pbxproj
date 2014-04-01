@@ -1,0 +1,454 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A83D36C18EAB23A00A05C58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A83D36B18EAB23A00A05C58 /* Foundation.framework */; };
+		9A83D36E18EAB23A00A05C58 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A83D36D18EAB23A00A05C58 /* CoreGraphics.framework */; };
+		9A83D37018EAB23A00A05C58 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A83D36F18EAB23A00A05C58 /* UIKit.framework */; };
+		9A83D37618EAB23A00A05C58 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A83D37418EAB23A00A05C58 /* InfoPlist.strings */; };
+		9A83D37818EAB23A00A05C58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A83D37718EAB23A00A05C58 /* main.m */; };
+		9A83D37C18EAB23A00A05C58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A83D37B18EAB23A00A05C58 /* AppDelegate.m */; };
+		9A83D37E18EAB23A00A05C58 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A83D37D18EAB23A00A05C58 /* Images.xcassets */; };
+		9A83D38518EAB23A00A05C58 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A83D38418EAB23A00A05C58 /* XCTest.framework */; };
+		9A83D38618EAB23A00A05C58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A83D36B18EAB23A00A05C58 /* Foundation.framework */; };
+		9A83D38718EAB23A00A05C58 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A83D36F18EAB23A00A05C58 /* UIKit.framework */; };
+		9A83D38F18EAB23A00A05C58 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A83D38D18EAB23A00A05C58 /* InfoPlist.strings */; };
+		9A83D39118EAB23A00A05C58 /* RedditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A83D39018EAB23A00A05C58 /* RedditorTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9A83D38818EAB23A00A05C58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A83D36018EAB23A00A05C58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A83D36718EAB23A00A05C58;
+			remoteInfo = Redditor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9A83D36818EAB23A00A05C58 /* Redditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Redditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A83D36B18EAB23A00A05C58 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9A83D36D18EAB23A00A05C58 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9A83D36F18EAB23A00A05C58 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9A83D37318EAB23A00A05C58 /* Redditor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Redditor-Info.plist"; sourceTree = "<group>"; };
+		9A83D37518EAB23A00A05C58 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9A83D37718EAB23A00A05C58 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9A83D37918EAB23A00A05C58 /* Redditor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Redditor-Prefix.pch"; sourceTree = "<group>"; };
+		9A83D37A18EAB23A00A05C58 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9A83D37B18EAB23A00A05C58 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9A83D37D18EAB23A00A05C58 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9A83D38318EAB23A00A05C58 /* RedditorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedditorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A83D38418EAB23A00A05C58 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		9A83D38C18EAB23A00A05C58 /* RedditorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RedditorTests-Info.plist"; sourceTree = "<group>"; };
+		9A83D38E18EAB23A00A05C58 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9A83D39018EAB23A00A05C58 /* RedditorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedditorTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9A83D36518EAB23A00A05C58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A83D36E18EAB23A00A05C58 /* CoreGraphics.framework in Frameworks */,
+				9A83D37018EAB23A00A05C58 /* UIKit.framework in Frameworks */,
+				9A83D36C18EAB23A00A05C58 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A83D38018EAB23A00A05C58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A83D38518EAB23A00A05C58 /* XCTest.framework in Frameworks */,
+				9A83D38718EAB23A00A05C58 /* UIKit.framework in Frameworks */,
+				9A83D38618EAB23A00A05C58 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9A83D35F18EAB23A00A05C58 = {
+			isa = PBXGroup;
+			children = (
+				9A83D37118EAB23A00A05C58 /* Redditor */,
+				9A83D38A18EAB23A00A05C58 /* RedditorTests */,
+				9A83D36A18EAB23A00A05C58 /* Frameworks */,
+				9A83D36918EAB23A00A05C58 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9A83D36918EAB23A00A05C58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A83D36818EAB23A00A05C58 /* Redditor.app */,
+				9A83D38318EAB23A00A05C58 /* RedditorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A83D36A18EAB23A00A05C58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A83D36B18EAB23A00A05C58 /* Foundation.framework */,
+				9A83D36D18EAB23A00A05C58 /* CoreGraphics.framework */,
+				9A83D36F18EAB23A00A05C58 /* UIKit.framework */,
+				9A83D38418EAB23A00A05C58 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A83D37118EAB23A00A05C58 /* Redditor */ = {
+			isa = PBXGroup;
+			children = (
+				9A83D37A18EAB23A00A05C58 /* AppDelegate.h */,
+				9A83D37B18EAB23A00A05C58 /* AppDelegate.m */,
+				9A83D37D18EAB23A00A05C58 /* Images.xcassets */,
+				9A83D37218EAB23A00A05C58 /* Supporting Files */,
+			);
+			path = Redditor;
+			sourceTree = "<group>";
+		};
+		9A83D37218EAB23A00A05C58 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9A83D37318EAB23A00A05C58 /* Redditor-Info.plist */,
+				9A83D37418EAB23A00A05C58 /* InfoPlist.strings */,
+				9A83D37718EAB23A00A05C58 /* main.m */,
+				9A83D37918EAB23A00A05C58 /* Redditor-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9A83D38A18EAB23A00A05C58 /* RedditorTests */ = {
+			isa = PBXGroup;
+			children = (
+				9A83D39018EAB23A00A05C58 /* RedditorTests.m */,
+				9A83D38B18EAB23A00A05C58 /* Supporting Files */,
+			);
+			path = RedditorTests;
+			sourceTree = "<group>";
+		};
+		9A83D38B18EAB23A00A05C58 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9A83D38C18EAB23A00A05C58 /* RedditorTests-Info.plist */,
+				9A83D38D18EAB23A00A05C58 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9A83D36718EAB23A00A05C58 /* Redditor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A83D39418EAB23A00A05C58 /* Build configuration list for PBXNativeTarget "Redditor" */;
+			buildPhases = (
+				9A83D36418EAB23A00A05C58 /* Sources */,
+				9A83D36518EAB23A00A05C58 /* Frameworks */,
+				9A83D36618EAB23A00A05C58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Redditor;
+			productName = Redditor;
+			productReference = 9A83D36818EAB23A00A05C58 /* Redditor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9A83D38218EAB23A00A05C58 /* RedditorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A83D39718EAB23A00A05C58 /* Build configuration list for PBXNativeTarget "RedditorTests" */;
+			buildPhases = (
+				9A83D37F18EAB23A00A05C58 /* Sources */,
+				9A83D38018EAB23A00A05C58 /* Frameworks */,
+				9A83D38118EAB23A00A05C58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A83D38918EAB23A00A05C58 /* PBXTargetDependency */,
+			);
+			name = RedditorTests;
+			productName = RedditorTests;
+			productReference = 9A83D38318EAB23A00A05C58 /* RedditorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9A83D36018EAB23A00A05C58 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Berkeley;
+				TargetAttributes = {
+					9A83D38218EAB23A00A05C58 = {
+						TestTargetID = 9A83D36718EAB23A00A05C58;
+					};
+				};
+			};
+			buildConfigurationList = 9A83D36318EAB23A00A05C58 /* Build configuration list for PBXProject "Redditor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9A83D35F18EAB23A00A05C58;
+			productRefGroup = 9A83D36918EAB23A00A05C58 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9A83D36718EAB23A00A05C58 /* Redditor */,
+				9A83D38218EAB23A00A05C58 /* RedditorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9A83D36618EAB23A00A05C58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A83D37618EAB23A00A05C58 /* InfoPlist.strings in Resources */,
+				9A83D37E18EAB23A00A05C58 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A83D38118EAB23A00A05C58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A83D38F18EAB23A00A05C58 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9A83D36418EAB23A00A05C58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A83D37C18EAB23A00A05C58 /* AppDelegate.m in Sources */,
+				9A83D37818EAB23A00A05C58 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A83D37F18EAB23A00A05C58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A83D39118EAB23A00A05C58 /* RedditorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9A83D38918EAB23A00A05C58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A83D36718EAB23A00A05C58 /* Redditor */;
+			targetProxy = 9A83D38818EAB23A00A05C58 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9A83D37418EAB23A00A05C58 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A83D37518EAB23A00A05C58 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9A83D38D18EAB23A00A05C58 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A83D38E18EAB23A00A05C58 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9A83D39218EAB23A00A05C58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9A83D39318EAB23A00A05C58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9A83D39518EAB23A00A05C58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Redditor/Redditor-Prefix.pch";
+				INFOPLIST_FILE = "Redditor/Redditor-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9A83D39618EAB23A00A05C58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Redditor/Redditor-Prefix.pch";
+				INFOPLIST_FILE = "Redditor/Redditor-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9A83D39818EAB23A00A05C58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Redditor.app/Redditor";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Redditor/Redditor-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "RedditorTests/RedditorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		9A83D39918EAB23A00A05C58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Redditor.app/Redditor";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Redditor/Redditor-Prefix.pch";
+				INFOPLIST_FILE = "RedditorTests/RedditorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9A83D36318EAB23A00A05C58 /* Build configuration list for PBXProject "Redditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A83D39218EAB23A00A05C58 /* Debug */,
+				9A83D39318EAB23A00A05C58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A83D39418EAB23A00A05C58 /* Build configuration list for PBXNativeTarget "Redditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A83D39518EAB23A00A05C58 /* Debug */,
+				9A83D39618EAB23A00A05C58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9A83D39718EAB23A00A05C58 /* Build configuration list for PBXNativeTarget "RedditorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A83D39818EAB23A00A05C58 /* Debug */,
+				9A83D39918EAB23A00A05C58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9A83D36018EAB23A00A05C58 /* Project object */;
+}
