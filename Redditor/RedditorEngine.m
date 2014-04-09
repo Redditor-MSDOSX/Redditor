@@ -14,13 +14,53 @@
  retrieveHotRedditPostsFromSubReddit method retrieves a list of hot posts and returns them as a NSArray of RedditPost object
  if no subreddit is given the root reddit will be retrieved 
 */
--(NSArray*) retrieveHotRedditPostsFromSubReddit: (NSString*) sub{
+-(NSArray*) retrieveHotRedditPostsFromSubReddit: (NSString*) sub {
+    return [self retrieve:@"hot" PostsFrom:sub];
+}
+
+/*
+ retrieveNewRedditPostsFromSubReddit method retrieves a list of hot posts and returns them as a NSArray of RedditPost object
+ if no subreddit is given the root reddit will be retrieved
+ */
+-(NSArray*) retrieveNewRedditPostsFromSubReddit: (NSString*) sub {
+    return [self retrieve:@"new" PostsFrom:sub];
+}
+
+/*
+ retrieveRisingRedditPostsFromSubReddit method retrieves a list of hot posts and returns them as a NSArray of RedditPost object
+ if no subreddit is given the root reddit will be retrieved
+ */
+-(NSArray*) retrieveRisingRedditPostsFromSubReddit: (NSString*) sub {
+    return [self retrieve:@"rising" PostsFrom:sub];
+}
+
+/*
+ retrieveControversialRedditPostsFromSubReddit method retrieves a list of hot posts and returns them as a NSArray of RedditPost object
+ if no subreddit is given the root reddit will be retrieved
+ */
+-(NSArray*) retrieveControversialRedditPostsFromSubReddit: (NSString*) sub {
+    return [self retrieve:@"controversial" PostsFrom:sub];
+}
+
+/*
+ retrieveTopRedditPostsFromSubReddit method retrieves a list of hot posts and returns them as a NSArray of RedditPost object
+ if no subreddit is given the root reddit will be retrieved
+ */
+-(NSArray*) retrieveTopRedditPostsFromSubReddit: (NSString*) sub {
+    return [self retrieve:@"top" PostsFrom:sub];
+}
+
+
+/*
+ internal method to retrieve posts
+*/
+-(NSArray*) retrieve :(NSString*) type PostsFrom: (NSString*) sub {
     NSData* data = nil;
     if ([sub isEqualToString:@""]) {
-        data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:@"http://www.reddit.com/hot.json"]];
+        data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/%@.json", type]]];
     }
     else {
-        data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString: [NSString stringWithFormat:@"http://www.reddit.com/r/%@/hot.json", sub]]];
+        data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString: [NSString stringWithFormat:@"http://www.reddit.com/r/%@/%@.json", sub, type]]];
     }
     
     NSError* error = nil;

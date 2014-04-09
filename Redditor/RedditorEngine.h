@@ -10,6 +10,10 @@
 @interface RedditorEngine : NSObject
 
 -(NSArray*) retrieveHotRedditPostsFromSubReddit: (NSString*) sub;
+-(NSArray*) retrieveNewRedditPostsFromSubReddit: (NSString*) sub;
+-(NSArray*) retrieveRisingRedditPostsFromSubReddit: (NSString*) sub;
+-(NSArray*) retrieveControversialRedditPostsFromSubReddit: (NSString*) sub;
+-(NSArray*) retrieveTopRedditPostsFromSubReddit: (NSString*) sub;
 
 @end
 

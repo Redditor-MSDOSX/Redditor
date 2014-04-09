@@ -13,6 +13,7 @@
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
+        /* just playing around here */
         RedditorEngine* eng = [[RedditorEngine alloc] init];
         [eng retrieveHotRedditPostsFromSubReddit:@""];
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
