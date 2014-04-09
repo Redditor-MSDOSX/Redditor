@@ -1,13 +1,12 @@
-//
-//  RedditAPIConnector.h
-//  Redditor
-//
-//  Created by Eddie Lau on 4/8/14.
-//  Copyright (c) 2014 Berkeley. All rights reserved.
-//
+/*
+ RedditAPIConnector is a class that makes HTTP request to the reddit API
+*/
 
 #import <Foundation/Foundation.h>
 
 @interface RedditAPIConnector : NSObject
 
++(NSData*) makeGetRequestTo: (NSURL*) url;
+
 @end
+

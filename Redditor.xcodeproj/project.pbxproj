@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A1BD6A518F4D4DB00BF468B /* RedditorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BD6A418F4D4DB00BF468B /* RedditorEngine.m */; };
+		9A1BD6A818F4D59A00BF468B /* RedditPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BD6A718F4D59A00BF468B /* RedditPost.m */; };
+		9A1BD6AB18F4DC1500BF468B /* RedditAPIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BD6AA18F4DC1500BF468B /* RedditAPIConnector.m */; };
+		9A205A9818F5214B00316C9C /* iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A205A9718F5214B00316C9C /* iphone.storyboard */; };
 		9A83D36C18EAB23A00A05C58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A83D36B18EAB23A00A05C58 /* Foundation.framework */; };
 		9A83D36E18EAB23A00A05C58 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A83D36D18EAB23A00A05C58 /* CoreGraphics.framework */; };
 		9A83D37018EAB23A00A05C58 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A83D36F18EAB23A00A05C58 /* UIKit.framework */; };
@@ -32,6 +36,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A1BD6A318F4D4DB00BF468B /* RedditorEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedditorEngine.h; sourceTree = "<group>"; };
+		9A1BD6A418F4D4DB00BF468B /* RedditorEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedditorEngine.m; sourceTree = "<group>"; };
+		9A1BD6A618F4D59A00BF468B /* RedditPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedditPost.h; sourceTree = "<group>"; };
+		9A1BD6A718F4D59A00BF468B /* RedditPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedditPost.m; sourceTree = "<group>"; };
+		9A1BD6A918F4DC1500BF468B /* RedditAPIConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedditAPIConnector.h; sourceTree = "<group>"; };
+		9A1BD6AA18F4DC1500BF468B /* RedditAPIConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedditAPIConnector.m; sourceTree = "<group>"; };
+		9A205A9718F5214B00316C9C /* iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iphone.storyboard; sourceTree = "<group>"; };
 		9A83D36818EAB23A00A05C58 /* Redditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Redditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A83D36B18EAB23A00A05C58 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9A83D36D18EAB23A00A05C58 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -111,6 +122,13 @@
 				9A83D37B18EAB23A00A05C58 /* AppDelegate.m */,
 				9A83D37D18EAB23A00A05C58 /* Images.xcassets */,
 				9A83D37218EAB23A00A05C58 /* Supporting Files */,
+				9A1BD6A318F4D4DB00BF468B /* RedditorEngine.h */,
+				9A1BD6A418F4D4DB00BF468B /* RedditorEngine.m */,
+				9A1BD6A618F4D59A00BF468B /* RedditPost.h */,
+				9A1BD6A718F4D59A00BF468B /* RedditPost.m */,
+				9A1BD6A918F4DC1500BF468B /* RedditAPIConnector.h */,
+				9A1BD6AA18F4DC1500BF468B /* RedditAPIConnector.m */,
+				9A205A9718F5214B00316C9C /* iphone.storyboard */,
 			);
 			path = Redditor;
 			sourceTree = "<group>";
@@ -219,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A205A9818F5214B00316C9C /* iphone.storyboard in Resources */,
 				9A83D37618EAB23A00A05C58 /* InfoPlist.strings in Resources */,
 				9A83D37E18EAB23A00A05C58 /* Images.xcassets in Resources */,
 			);
@@ -239,6 +258,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A1BD6A518F4D4DB00BF468B /* RedditorEngine.m in Sources */,
+				9A1BD6AB18F4DC1500BF468B /* RedditAPIConnector.m in Sources */,
+				9A1BD6A818F4D59A00BF468B /* RedditPost.m in Sources */,
 				9A83D37C18EAB23A00A05C58 /* AppDelegate.m in Sources */,
 				9A83D37818EAB23A00A05C58 /* main.m in Sources */,
 			);
@@ -439,6 +461,7 @@
 				9A83D39618EAB23A00A05C58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9A83D39718EAB23A00A05C58 /* Build configuration list for PBXNativeTarget "RedditorTests" */ = {
 			isa = XCConfigurationList;
@@ -447,6 +470,7 @@
 				9A83D39918EAB23A00A05C58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
