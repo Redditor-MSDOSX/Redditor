@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A7C0081190110B200556313 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7C0080190110B200556313 /* MainTableViewController.m */; };
 		9A1BD6A518F4D4DB00BF468B /* RedditorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BD6A418F4D4DB00BF468B /* RedditorEngine.m */; };
 		9A1BD6A818F4D59A00BF468B /* RedditPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BD6A718F4D59A00BF468B /* RedditPost.m */; };
 		9A1BD6AB18F4DC1500BF468B /* RedditAPIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BD6AA18F4DC1500BF468B /* RedditAPIConnector.m */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A7C007F190110B200556313 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTableViewController.h; path = ../MainTableViewController.h; sourceTree = "<group>"; };
+		0A7C0080190110B200556313 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTableViewController.m; path = ../MainTableViewController.m; sourceTree = "<group>"; };
 		9A1BD6A318F4D4DB00BF468B /* RedditorEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedditorEngine.h; sourceTree = "<group>"; };
 		9A1BD6A418F4D4DB00BF468B /* RedditorEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedditorEngine.m; sourceTree = "<group>"; };
 		9A1BD6A618F4D59A00BF468B /* RedditPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedditPost.h; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 			children = (
 				9A83D37A18EAB23A00A05C58 /* AppDelegate.h */,
 				9A83D37B18EAB23A00A05C58 /* AppDelegate.m */,
+				0A7C007F190110B200556313 /* MainTableViewController.h */,
+				0A7C0080190110B200556313 /* MainTableViewController.m */,
 				9A83D37D18EAB23A00A05C58 /* Images.xcassets */,
 				9A83D37218EAB23A00A05C58 /* Supporting Files */,
 				9A1BD6A318F4D4DB00BF468B /* RedditorEngine.h */,
@@ -260,6 +265,7 @@
 			files = (
 				9A1BD6A518F4D4DB00BF468B /* RedditorEngine.m in Sources */,
 				9A1BD6AB18F4DC1500BF468B /* RedditAPIConnector.m in Sources */,
+				0A7C0081190110B200556313 /* MainTableViewController.m in Sources */,
 				9A1BD6A818F4D59A00BF468B /* RedditPost.m in Sources */,
 				9A83D37C18EAB23A00A05C58 /* AppDelegate.m in Sources */,
 				9A83D37818EAB23A00A05C58 /* main.m in Sources */,
