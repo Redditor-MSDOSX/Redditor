@@ -8,6 +8,7 @@
 #import "RedditAPIConnector.h"
 #import "RedditPost.h"
 
+
 @implementation RedditorEngine
 
 /* 
@@ -80,6 +81,47 @@
         
     }
     return [NSArray arrayWithArray:returnData];
+}
+
+/*
+ retrieve comment tree of an article id by ID36
+ */
+-(RedditComment*) retrieveCommentTreeFromArticle:(NSString *)id {
+    /* root of the comment of tree */
+    RedditComment* root = [[RedditComment alloc] init];
+    
+    /* try to make an API call */
+    NSData* data = nil;
+    data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/comments/%@.json", id]]];
+    NSError* error = nil;
+    NSArray* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    
+    if (error != nil) {
+        NSLog(@"Error parsing JSON response.");
+    }
+    else {
+        NSArray* commentList = [[[json objectAtIndex:1] objectForKey:@"data"] objectForKey:@"children"];
+        
+        [self constructTreeWithListing:commentList atRoot:root];
+    }
+    
+    return root;
+}
+
+/* a DFS to construct the comment tree */
+-(void) constructTreeWithListing: (NSArray*)list atRoot: (RedditComment*) root {
+    for (NSDictionary* comment in list) {
+        if ([[comment objectForKey:@"kind"] isEqualToString:@"t1"]) {
+            //NSLog([[comment objectForKey:@"data"] objectForKey:@"body"]);
+            RedditComment* cm = [[RedditComment alloc] initWithDict:[comment objectForKey:@"data"]];
+            NSDictionary* replies =[comment objectForKey:@"data"];
+            if ([[replies valueForKey:@"replies"] isKindOfClass:[NSDictionary class]]) {
+                [self constructTreeWithListing:[[[replies objectForKey:@"replies"] objectForKey:@"data" ] objectForKey:@"children"] atRoot:cm];
+            }
+            [root addChild: cm];
+            
+        }
+    }
 }
 
 

@@ -6,6 +6,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RedditPost.h"
+#import "RedditComment.h"
 
 @interface RedditorEngine : NSObject
 
@@ -14,6 +15,8 @@
 -(NSArray*) retrieveRisingRedditPostsFromSubReddit: (NSString*) sub;
 -(NSArray*) retrieveControversialRedditPostsFromSubReddit: (NSString*) sub;
 -(NSArray*) retrieveTopRedditPostsFromSubReddit: (NSString*) sub;
+
+-(RedditPost*) retrieveCommentTreeFromArticle: (NSString*) id;
 
 @end
 
