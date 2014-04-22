@@ -178,7 +178,7 @@
 -(BOOL) checkIfLoggedIn {
     NSString* modHash =[RedditAPIConnector getModhash];
     if (modHash != nil && ![modHash isEqualToString:@""]) {
-        NSLog([RedditAPIConnector getModhash]);
+        //NSLog(modHash);
         return YES;
     }
     return NO;
