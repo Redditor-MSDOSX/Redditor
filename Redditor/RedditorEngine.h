@@ -16,7 +16,7 @@
 -(NSArray*) retrieveControversialRedditPostsFromSubReddit: (NSString*) sub;
 -(NSArray*) retrieveTopRedditPostsFromSubReddit: (NSString*) sub;
 
--(RedditPost*) retrieveCommentTreeFromArticle: (NSString*) id;
+-(RedditPost*) retrieveCommentTreeFromArticle: (NSString*) id FocusAt: (NSString*) root;
 
 @end
 

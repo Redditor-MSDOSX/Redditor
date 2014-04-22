@@ -86,13 +86,18 @@
 /*
  retrieve comment tree of an article id by ID36
  */
--(RedditComment*) retrieveCommentTreeFromArticle:(NSString *)id {
+-(RedditComment*) retrieveCommentTreeFromArticle:(NSString *)id FocusAt: (NSString *)root{
     /* root of the comment of tree */
-    RedditComment* root = [[RedditComment alloc] init];
+    RedditComment* rootComment = [[RedditComment alloc] init];
     
     /* try to make an API call */
     NSData* data = nil;
-    data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/comments/%@.json", id]]];
+    if ([root isEqualToString:@""]) {
+        data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/comments/%@.json", id]]];
+    }
+    else {
+        data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/comments/%@.json?comment=%@", id, root]]];
+    }
     NSError* error = nil;
     NSArray* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     
@@ -102,10 +107,10 @@
     else {
         NSArray* commentList = [[[json objectAtIndex:1] objectForKey:@"data"] objectForKey:@"children"];
         
-        [self constructTreeWithListing:commentList atRoot:root];
+        [self constructTreeWithListing:commentList atRoot:rootComment];
     }
     
-    return root;
+    return rootComment;
 }
 
 /* a DFS to construct the comment tree */
