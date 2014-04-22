@@ -15,7 +15,14 @@ int main(int argc, char * argv[])
     @autoreleasepool {
         /* just playing around here */
         RedditorEngine* eng = [[RedditorEngine alloc] init];
-        [eng loginWithUsername:@"test1" andPassword:@"wrong"];
+        
+        BOOL login = [eng loginWithUsername:@"reddditortesting" andPassword:@"password"];
+        if (login) {
+            NSLog(@"Successful log in");
+        }
+        else {
+            NSLog(@"Failed log in");
+        }
         if ([eng checkIfLoggedIn]) {
             NSLog(@"Successful");
         }

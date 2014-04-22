@@ -43,7 +43,12 @@
     [request setTimeoutInterval:30];
     
     if (flag) {
-        [request setHTTPShouldHandleCookies:NO];
+        NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+        NSArray *cookies = [cookieStorage cookiesForURL: url];
+        for (NSHTTPCookie *cookie in cookies) {
+            NSLog(@"Deleting cookie for domain: %@", [cookie domain]);
+            [cookieStorage deleteCookie:cookie];
+        }
     }
     //[request addValue: [NSString stringWithFormat:@"%d",[[NSKeyedArchiver archivedDataWithRootObject:data] length]] forHTTPHeaderField:@"Content-Length"] ;
     NSHTTPURLResponse* response = nil;
