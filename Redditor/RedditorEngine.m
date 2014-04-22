@@ -129,6 +129,58 @@
     }
 }
 
-
+/*
+ try to log in user
+ returns Yes/No (sucessful or not)
+ */
+-(BOOL) loginWithUsername:(NSString *)name andPassword:(NSString *)pwd {
+    NSData* data = nil;
+    if ([name isEqualToString:@""] || [pwd isEqualToString:@""]) {
+        return NO;
+    }
+    NSMutableDictionary* postData = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* header = [[NSMutableDictionary alloc] init];
+    [postData setObject:name forKey:@"user"];
+    [postData setObject:pwd forKey:@"passwd"];
+    [postData setObject:@"true" forKey:@"rem"];
+    [postData setObject:@"json" forKey:@"api_type"];
+    
+    //NSInteger contentLength = [name length] + [pwd length] + 4 + 4 + 5 + 8 + 10 + 5;
+    //[header setObject:[NSString stringWithFormat:@"%d", contentLength] forKey:@"Content-Length"];
+    
+    data = [RedditAPIConnector makePostRequestTo:[NSURL URLWithString:@"https://ssl.reddit.com/api/login"] WithData:[NSDictionary dictionaryWithDictionary:postData] andHeaders:[NSDictionary dictionaryWithDictionary:header] isLogin:YES];
+    
+    NSError* error = nil;
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    
+    
+    if (error != nil) {
+        NSLog(@"Error parsing JSON resonse or log in failed");
+        return NO;
+    }
+    else {
+        if ([json valueForKey:@"json"] == nil) {
+            return NO;
+        }
+        json = [json objectForKey:@"json"];
+        if ([[json objectForKey:@"errors" ] count] != 0) {
+            return NO;
+        }
+        if ([json valueForKey:@"data"] == nil) {
+            return NO;
+        }
+        if([[json objectForKey:@"data"] valueForKey:@"modhash"] == nil) {
+            return NO;
+        }
+        return YES;
+    }
+}
+-(BOOL) checkIfLoggedIn {
+    if ([RedditAPIConnector getModhash] != nil && ![[RedditAPIConnector getModhash] isEqualToString:@""]) {
+        NSLog([RedditAPIConnector getModhash]);
+        return YES;
+    }
+    return NO;
+}
 
 @end

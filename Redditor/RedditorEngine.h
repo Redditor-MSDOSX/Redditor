@@ -18,5 +18,9 @@
 
 -(RedditPost*) retrieveCommentTreeFromArticle: (NSString*) id FocusAt: (NSString*) root;
 
+-(BOOL) loginWithUsername: (NSString*) name andPassword: (NSString*) pwd;
+
+-(BOOL) checkIfLoggedIn;
+
 @end
 

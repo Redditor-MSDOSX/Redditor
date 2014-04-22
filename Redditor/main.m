@@ -15,8 +15,13 @@ int main(int argc, char * argv[])
     @autoreleasepool {
         /* just playing around here */
         RedditorEngine* eng = [[RedditorEngine alloc] init];
-        //[eng retrieveHotRedditPostsFromSubReddit:@""];
-        [eng retrieveCommentTreeFromArticle:@"23k5fz" FocusAt:@""];
+        [eng loginWithUsername:@"test1" andPassword:@"wrong"];
+        if ([eng checkIfLoggedIn]) {
+            NSLog(@"Successful");
+        }
+        else {
+            NSLog(@"Fail");
+        }
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }
