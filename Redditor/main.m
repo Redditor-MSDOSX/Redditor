@@ -30,6 +30,11 @@ int main(int argc, char * argv[])
         else {
             NSLog(@"Fail");
         }
+        NSString* iden = [eng getIdenForCaptcha];
+        NSLog(iden);
+        UIImage* img = [eng getCaptchaWithIden:iden];
+        NSLog([NSString stringWithFormat:@"%.2f",[img size].height ]  );
+        
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

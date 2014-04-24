@@ -22,5 +22,9 @@
 
 -(BOOL) checkIfLoggedIn;
 
+-(NSString*) getIdenForCaptcha;
+
+-(UIImage*) getCaptchaWithIden: (NSString*) iden;
+
 @end
 

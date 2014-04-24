@@ -184,4 +184,20 @@
     return NO;
 }
 
+-(NSString*) getIdenForCaptcha {
+    NSData* captcha;
+    NSMutableDictionary* data = [[NSMutableDictionary alloc] init];
+    [data setObject:@"json" forKey:@"api_type"];
+    NSDictionary* header = [[NSDictionary alloc] init];
+    captcha = [RedditAPIConnector makePostRequestTo:[NSURL URLWithString:@"http://www.reddit.com/api/new_captcha"] WithData:data andHeaders:header isLogin:NO];
+    NSError* error = nil;
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:captcha options:kNilOptions error:&error];
+    return [[[json objectForKey:@"json"] objectForKey:@"data"] objectForKey:@"iden"];
+}
+
+-(UIImage*) getCaptchaWithIden:(NSString *)iden {
+    NSData* captcha = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/captcha/%@", iden]]];
+    return [UIImage imageWithData:captcha];
+}
+
 @end
