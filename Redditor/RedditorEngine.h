@@ -26,5 +26,7 @@
 
 -(UIImage*) getCaptchaWithIden: (NSString*) iden;
 
+-(NSArray*) searchPostsWithKeyword: (NSString*) keyword InSubReddit:(NSString *)sub;
+
 @end
 

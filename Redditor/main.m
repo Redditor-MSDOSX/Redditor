@@ -33,7 +33,8 @@ int main(int argc, char * argv[])
         NSString* iden = [eng getIdenForCaptcha];
         NSLog(iden);
         UIImage* img = [eng getCaptchaWithIden:iden];
-        NSLog([NSString stringWithFormat:@"%.2f",[img size].height ]  );
+        NSLog([NSString stringWithFormat:@"%.2f",[img size].height ]);
+        [eng searchPostsWithKeyword:@"test" InSubReddit:@""];
         
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }

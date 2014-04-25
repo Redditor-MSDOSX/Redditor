@@ -175,6 +175,7 @@
         return YES;
     }
 }
+
 -(BOOL) checkIfLoggedIn {
     NSString* modHash =[RedditAPIConnector getModhash];
     if (modHash != nil && ![modHash isEqualToString:@""]) {
@@ -184,6 +185,7 @@
     return NO;
 }
 
+/* get the iden for a captcha image..call before getting a captcha image..also call if user can't read previous one */
 -(NSString*) getIdenForCaptcha {
     NSData* captcha;
     NSMutableDictionary* data = [[NSMutableDictionary alloc] init];
@@ -195,9 +197,43 @@
     return [[[json objectForKey:@"json"] objectForKey:@"data"] objectForKey:@"iden"];
 }
 
+/* get the captcha with the iden..call this method if user typed in a wrong captcha previously */
 -(UIImage*) getCaptchaWithIden:(NSString *)iden {
     NSData* captcha = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/captcha/%@", iden]]];
     return [UIImage imageWithData:captcha];
+}
+
+-(NSArray*) searchPostsWithKeyword: (NSString*) keyword InSubReddit:(NSString *)sub {
+    NSArray* result = [[NSArray alloc] init];
+    if ([keyword isEqualToString:@""]) {
+        // save the time to search
+        return result;
+    }
+    NSURL* url;
+    if ([sub isEqualToString:@""]) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/search.json?q=%@", keyword]];
+    }
+    else {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/r/%@/search.json?q=%@", keyword, sub]];
+    }
+    NSData* data = [RedditAPIConnector makeGetRequestTo:url];
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    NSMutableArray* returnData = [[NSMutableArray alloc] init];
+    
+    if (error != nil) {
+        NSLog(@"Error parsing JSON response.");
+    }
+    else {
+        NSDictionary* temp1 = [json objectForKey:@"data"];
+        NSArray* list = [temp1 objectForKey:@"children"];
+        for (NSDictionary* item in list) {
+            NSLog([[item objectForKey:@"data" ] objectForKey:@"title" ]);
+            [returnData addObject: [[RedditPost alloc] initWithDict:[item objectForKey:@"data"]]];
+        }
+        
+    }
+    return [NSArray arrayWithArray:returnData];
 }
 
 @end
