@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		0A7C0081190110B200556313 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7C0080190110B200556313 /* MainTableViewController.m */; };
 		0ACE6CFC190A060000E5E4DD /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6CFB190A060000E5E4DD /* SWRevealViewController.m */; };
-		0ACE6D0E190A06C700E5E4DD /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D07190A06C700E5E4DD /* MainViewController.m */; };
-		0ACE6D0F190A06C700E5E4DD /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D09190A06C700E5E4DD /* SidebarViewController.m */; };
-		0ACE6D10190A06C700E5E4DD /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D0B190A06C700E5E4DD /* MapViewController.m */; };
-		0ACE6D11190A06C700E5E4DD /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D0D190A06C700E5E4DD /* ListViewController.m */; };
 		0ACE6D22190A122F00E5E4DD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D21190A122F00E5E4DD /* MainStoryboard.storyboard */; };
 		0ACE6D26190A233200E5E4DD /* appbar.settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D24190A233200E5E4DD /* appbar.settings.png */; };
 		0ACE6D27190A233200E5E4DD /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D25190A233200E5E4DD /* gear.png */; };
@@ -20,6 +16,10 @@
 		0ACE6D2B190A255000E5E4DD /* reddit-128-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D2A190A255000E5E4DD /* reddit-128-black.png */; };
 		0ACE6D2D190A268000E5E4DD /* appbar.user.tie.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D2C190A268000E5E4DD /* appbar.user.tie.png */; };
 		0ACE6D2F190A2B4B00E5E4DD /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D2E190A2B4B00E5E4DD /* menu@2x.png */; };
+		0ACE6D38190A3BB200E5E4DD /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D31190A3BB200E5E4DD /* ListViewController.m */; };
+		0ACE6D39190A3BB200E5E4DD /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D33190A3BB200E5E4DD /* MainViewController.m */; };
+		0ACE6D3A190A3BB200E5E4DD /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D35190A3BB200E5E4DD /* MapViewController.m */; };
+		0ACE6D3B190A3BB200E5E4DD /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D37190A3BB200E5E4DD /* SidebarViewController.m */; };
 		9A1BD6A518F4D4DB00BF468B /* RedditorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BD6A418F4D4DB00BF468B /* RedditorEngine.m */; };
 		9A1BD6A818F4D59A00BF468B /* RedditPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BD6A718F4D59A00BF468B /* RedditPost.m */; };
 		9A1BD6AB18F4DC1500BF468B /* RedditAPIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BD6AA18F4DC1500BF468B /* RedditAPIConnector.m */; };
@@ -53,14 +53,6 @@
 		0A7C0080190110B200556313 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTableViewController.m; path = ../MainTableViewController.m; sourceTree = "<group>"; };
 		0ACE6CFA190A060000E5E4DD /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		0ACE6CFB190A060000E5E4DD /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		0ACE6D06190A06C700E5E4DD /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ../../../../Downloads/SidebarDemo/SidebarDemo/MainViewController.h; sourceTree = "<group>"; };
-		0ACE6D07190A06C700E5E4DD /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ../../../../Downloads/SidebarDemo/SidebarDemo/MainViewController.m; sourceTree = "<group>"; };
-		0ACE6D08190A06C700E5E4DD /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SidebarViewController.h; path = ../../../../Downloads/SidebarDemo/SidebarDemo/SidebarViewController.h; sourceTree = "<group>"; };
-		0ACE6D09190A06C700E5E4DD /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SidebarViewController.m; path = ../../../../Downloads/SidebarDemo/SidebarDemo/SidebarViewController.m; sourceTree = "<group>"; };
-		0ACE6D0A190A06C700E5E4DD /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = ../../../../Downloads/SidebarDemo/SidebarDemo/MapViewController.h; sourceTree = "<group>"; };
-		0ACE6D0B190A06C700E5E4DD /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = ../../../../Downloads/SidebarDemo/SidebarDemo/MapViewController.m; sourceTree = "<group>"; };
-		0ACE6D0C190A06C700E5E4DD /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListViewController.h; path = ../../../../Downloads/SidebarDemo/SidebarDemo/ListViewController.h; sourceTree = "<group>"; };
-		0ACE6D0D190A06C700E5E4DD /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListViewController.m; path = ../../../../Downloads/SidebarDemo/SidebarDemo/ListViewController.m; sourceTree = "<group>"; };
 		0ACE6D21190A122F00E5E4DD /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		0ACE6D24190A233200E5E4DD /* appbar.settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.settings.png; sourceTree = "<group>"; };
 		0ACE6D25190A233200E5E4DD /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
@@ -68,6 +60,14 @@
 		0ACE6D2A190A255000E5E4DD /* reddit-128-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reddit-128-black.png"; path = "../Redditor/reddit-128-black.png"; sourceTree = "<group>"; };
 		0ACE6D2C190A268000E5E4DD /* appbar.user.tie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appbar.user.tie.png; path = ../Redditor/appbar.user.tie.png; sourceTree = "<group>"; };
 		0ACE6D2E190A2B4B00E5E4DD /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu@2x.png"; path = "../Redditor/menu@2x.png"; sourceTree = "<group>"; };
+		0ACE6D30190A3BB200E5E4DD /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListViewController.h; path = ../ListViewController.h; sourceTree = "<group>"; };
+		0ACE6D31190A3BB200E5E4DD /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListViewController.m; path = ../ListViewController.m; sourceTree = "<group>"; };
+		0ACE6D32190A3BB200E5E4DD /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ../MainViewController.h; sourceTree = "<group>"; };
+		0ACE6D33190A3BB200E5E4DD /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ../MainViewController.m; sourceTree = "<group>"; };
+		0ACE6D34190A3BB200E5E4DD /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = ../MapViewController.h; sourceTree = "<group>"; };
+		0ACE6D35190A3BB200E5E4DD /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = ../MapViewController.m; sourceTree = "<group>"; };
+		0ACE6D36190A3BB200E5E4DD /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SidebarViewController.h; path = ../SidebarViewController.h; sourceTree = "<group>"; };
+		0ACE6D37190A3BB200E5E4DD /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SidebarViewController.m; path = ../SidebarViewController.m; sourceTree = "<group>"; };
 		9A1BD6A318F4D4DB00BF468B /* RedditorEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedditorEngine.h; sourceTree = "<group>"; };
 		9A1BD6A418F4D4DB00BF468B /* RedditorEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedditorEngine.m; sourceTree = "<group>"; };
 		9A1BD6A618F4D59A00BF468B /* RedditPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedditPost.h; sourceTree = "<group>"; };
@@ -165,6 +165,14 @@
 		9A83D37118EAB23A00A05C58 /* Redditor */ = {
 			isa = PBXGroup;
 			children = (
+				0ACE6D30190A3BB200E5E4DD /* ListViewController.h */,
+				0ACE6D31190A3BB200E5E4DD /* ListViewController.m */,
+				0ACE6D32190A3BB200E5E4DD /* MainViewController.h */,
+				0ACE6D33190A3BB200E5E4DD /* MainViewController.m */,
+				0ACE6D34190A3BB200E5E4DD /* MapViewController.h */,
+				0ACE6D35190A3BB200E5E4DD /* MapViewController.m */,
+				0ACE6D36190A3BB200E5E4DD /* SidebarViewController.h */,
+				0ACE6D37190A3BB200E5E4DD /* SidebarViewController.m */,
 				9A83D37A18EAB23A00A05C58 /* AppDelegate.h */,
 				9A83D37B18EAB23A00A05C58 /* AppDelegate.m */,
 				0A7C007F190110B200556313 /* MainTableViewController.h */,
@@ -180,14 +188,6 @@
 				9AD4DE971904EE8F00666D3C /* RedditComment.m */,
 				9A1BD6A918F4DC1500BF468B /* RedditAPIConnector.h */,
 				9A1BD6AA18F4DC1500BF468B /* RedditAPIConnector.m */,
-				0ACE6D06190A06C700E5E4DD /* MainViewController.h */,
-				0ACE6D07190A06C700E5E4DD /* MainViewController.m */,
-				0ACE6D08190A06C700E5E4DD /* SidebarViewController.h */,
-				0ACE6D09190A06C700E5E4DD /* SidebarViewController.m */,
-				0ACE6D0A190A06C700E5E4DD /* MapViewController.h */,
-				0ACE6D0B190A06C700E5E4DD /* MapViewController.m */,
-				0ACE6D0C190A06C700E5E4DD /* ListViewController.h */,
-				0ACE6D0D190A06C700E5E4DD /* ListViewController.m */,
 				0ACE6CFA190A060000E5E4DD /* SWRevealViewController.h */,
 				0ACE6CFB190A060000E5E4DD /* SWRevealViewController.m */,
 			);
@@ -327,16 +327,16 @@
 			files = (
 				9A1BD6A518F4D4DB00BF468B /* RedditorEngine.m in Sources */,
 				9A1BD6AB18F4DC1500BF468B /* RedditAPIConnector.m in Sources */,
+				0ACE6D38190A3BB200E5E4DD /* ListViewController.m in Sources */,
+				0ACE6D3B190A3BB200E5E4DD /* SidebarViewController.m in Sources */,
+				0ACE6D39190A3BB200E5E4DD /* MainViewController.m in Sources */,
 				0A7C0081190110B200556313 /* MainTableViewController.m in Sources */,
 				0ACE6CFC190A060000E5E4DD /* SWRevealViewController.m in Sources */,
-				0ACE6D0E190A06C700E5E4DD /* MainViewController.m in Sources */,
-				0ACE6D0F190A06C700E5E4DD /* SidebarViewController.m in Sources */,
 				9A1BD6A818F4D59A00BF468B /* RedditPost.m in Sources */,
 				9A83D37C18EAB23A00A05C58 /* AppDelegate.m in Sources */,
 				9A83D37818EAB23A00A05C58 /* main.m in Sources */,
-				0ACE6D11190A06C700E5E4DD /* ListViewController.m in Sources */,
 				9AD4DE981904EE8F00666D3C /* RedditComment.m in Sources */,
-				0ACE6D10190A06C700E5E4DD /* MapViewController.m in Sources */,
+				0ACE6D3A190A3BB200E5E4DD /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
