@@ -16,7 +16,19 @@
 -(NSArray*) retrieveControversialRedditPostsFromSubReddit: (NSString*) sub;
 -(NSArray*) retrieveTopRedditPostsFromSubReddit: (NSString*) sub;
 
--(RedditPost*) retrieveCommentTreeFromArticle: (NSString*) id;
+-(RedditPost*) retrieveCommentTreeFromArticle: (NSString*) id FocusAt: (NSString*) root;
+
+-(BOOL) loginWithUsername: (NSString*) name andPassword: (NSString*) pwd;
+
+-(void) logoutUser;
+
+-(BOOL) checkIfLoggedIn;
+
+-(NSString*) getIdenForCaptcha;
+
+-(UIImage*) getCaptchaWithIden: (NSString*) iden;
+
+-(NSArray*) searchPostsWithKeyword: (NSString*) keyword InSubReddit:(NSString *)sub;
 
 @end
 
