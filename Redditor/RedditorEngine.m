@@ -176,6 +176,15 @@
     }
 }
 
+-(void) logoutUser {
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray *cookies = [cookieStorage cookiesForURL:[NSURL URLWithString:@"http://www.reddit.com"]];
+    for (NSHTTPCookie *cookie in cookies) {
+        NSLog(@"Deleting cookie for domain: %@", [cookie domain]);
+        [cookieStorage deleteCookie:cookie];
+    }
+}
+
 -(BOOL) checkIfLoggedIn {
     NSString* modHash =[RedditAPIConnector getModhash];
     if (modHash != nil && ![modHash isEqualToString:@""]) {

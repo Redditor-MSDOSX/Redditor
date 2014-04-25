@@ -20,6 +20,8 @@
 
 -(BOOL) loginWithUsername: (NSString*) name andPassword: (NSString*) pwd;
 
+-(void) logoutUser;
+
 -(BOOL) checkIfLoggedIn;
 
 -(NSString*) getIdenForCaptcha;
