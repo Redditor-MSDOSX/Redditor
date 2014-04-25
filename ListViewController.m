@@ -30,9 +30,13 @@
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-
+    /*
     // Load image
     self.photoImageView.image = [UIImage imageNamed:self.photoFilename];
+    */
+    if (self.needRefresh) {
+        NSLog(self.sub);
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -14,6 +14,7 @@ int main(int argc, char * argv[])
 {
     @autoreleasepool {
         /* just playing around here */
+        /*
         RedditorEngine* eng = [[RedditorEngine alloc] init];
         
         BOOL login = [eng loginWithUsername:@"redditortesting" andPassword:@"password"];
@@ -29,7 +30,7 @@ int main(int argc, char * argv[])
         }
         else {
             NSLog(@"Fail");
-        }
+        }*/
         /*
         NSString* iden = [eng getIdenForCaptcha];
         NSLog(iden);
@@ -38,6 +39,7 @@ int main(int argc, char * argv[])
         NSLog([NSString stringWithFormat:@"%.2f",[img size].height ]);
         [eng searchPostsWithKeyword:@"test" InSubReddit:@""];
         */
+        /*
         [eng logoutUser];
         if (![eng checkIfLoggedIn]) {
             NSLog(@"Successful");
@@ -45,6 +47,7 @@ int main(int argc, char * argv[])
         else {
             NSLog(@"Fail");
         }
+        */
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

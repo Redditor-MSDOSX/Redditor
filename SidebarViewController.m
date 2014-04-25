@@ -69,6 +69,9 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
     destViewController.title = [[menuItems objectAtIndex:indexPath.row] capitalizedString];
+    ListViewController* dest = (ListViewController*) destViewController;
+    dest.needRefresh = YES;
+    dest.sub = [menuItems objectAtIndex:indexPath.row];
     /*
     // Set the photo if it navigates to the PhotoView
     if ([segue.identifier isEqualToString:@"showPhoto"]) {
