@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
 
-    menuItems = @[@"s_bar",@"settings",@"account",@"title",@"front_head", @"pics", @"funny", @"gaming", @"askreddit", @"world_news",@"news"];
+    menuItems = @[@"s_bar",@"settings",@"account",@"title",@"front_head", @"pics", @"funny", @"gaming", @"askreddit", @"worldnews",@"news"];
     
 }
 

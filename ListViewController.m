@@ -71,6 +71,10 @@
 {
     static NSString *CellIdentifier =@"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    if (cell == nil || indexPath.row >= [self.post count]) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        return cell;
+    }
     NSString* cellText = [[self.post objectAtIndex:indexPath.row] title];
     cell.textLabel.text= cellText;
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -82,6 +86,9 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row >= [self.post count]) {
+        return 44;
+    }
     NSString* cellText = [[self.post objectAtIndex:indexPath.row] title];
 
     UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
@@ -95,8 +102,14 @@
                                          context:nil];
     
     CGSize labelSize = textRect.size;
-    return labelSize.height + 20;
+    return labelSize.height + 10;
 
+}
+- (IBAction)tabChanged:(id)sender {
+    self.post = [[NSArray alloc] init];
+    NSRange range = NSMakeRange(0, [self numberOfSectionsInTableView:self.tableView]);
+    NSIndexSet *sections = [NSIndexSet indexSetWithIndexesInRange:range];
+    [self.contentTable reloadSections:sections withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 @end
