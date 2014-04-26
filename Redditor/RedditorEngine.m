@@ -75,7 +75,7 @@
         NSDictionary* temp1 = [json objectForKey:@"data"];
         NSArray* list = [temp1 objectForKey:@"children"];
         for (NSDictionary* item in list) {
-            NSLog([[item objectForKey:@"data" ] objectForKey:@"title" ]);
+            //NSLog([[item objectForKey:@"data" ] objectForKey:@"title" ]);
             [returnData addObject: [[RedditPost alloc] initWithDict:[item objectForKey:@"data"]]];
         }
         
