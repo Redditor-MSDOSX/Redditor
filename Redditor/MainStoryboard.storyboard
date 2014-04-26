@@ -17,14 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="kQ8-U3-gxo">
-                                <rect key="frame" x="118" y="511" width="84" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </pageControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qkm-W3-N09">
                                 <rect key="frame" x="21" y="73" width="279" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -40,7 +32,7 @@
                                 </connections>
                             </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wrc-zz-9TK">
-                                <rect key="frame" x="0.0" y="109" width="320" height="386"/>
+                                <rect key="frame" x="0.0" y="109" width="320" height="410"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </scrollView>
                         </subviews>
@@ -55,7 +47,6 @@
                         <outlet property="bar" destination="qkm-W3-N09" id="Yti-rh-Wfo"/>
                         <outlet property="controversialTable" destination="MMh-Vt-BAT" id="khU-VJ-kRL"/>
                         <outlet property="hotTable" destination="Cx2-Zj-2bd" id="3u5-rA-4dW"/>
-                        <outlet property="pageControl" destination="kQ8-U3-gxo" id="kIm-8N-VIg"/>
                         <outlet property="risingTable" destination="9Lc-hi-eTr" id="uOm-Gk-bgz"/>
                         <outlet property="scrollView" destination="Wrc-zz-9TK" id="trb-ab-gcE"/>
                         <outlet property="sidebarButton" destination="mXk-4A-iOH" id="5MG-0e-JdI"/>

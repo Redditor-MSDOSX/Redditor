@@ -5,7 +5,6 @@
 @interface ListViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITableView *controversialTable;
-@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UITableView *theNewTable;
 @property (strong, nonatomic) IBOutlet UITableView *hotTable;
 @property (strong, nonatomic) IBOutlet UITableView *risingTable;
@@ -178,7 +177,7 @@
     frame.origin.x = frame.size.width * page;
     frame.origin.y = 0;
     [self.scrollView scrollRectToVisible:frame animated:YES];
-    [self.pageControl setCurrentPage:page];
+    //[self.pageControl setCurrentPage:page];
     
 
     
@@ -187,7 +186,7 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     NSInteger page = scrollView.contentOffset.x / scrollView.frame.size.width;
-    [self.pageControl setCurrentPage:page];
+    //[self.pageControl setCurrentPage:page];
     [self.bar setSelectedSegmentIndex:page]; // set this won't trigger tabChanged
     [self loadContent];
     //NSLog(@"Run");
