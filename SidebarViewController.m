@@ -1,14 +1,7 @@
-//
-//  SidebarViewController.m
-//  SidebarDemo
-//
-//  Created by Simon on 29/6/13.
-//  Copyright (c) 2013 Appcoda. All rights reserved.
-//
-
 #import "SidebarViewController.h"
 #import "SWRevealViewController.h"
 #import "ListViewController.h"
+#import "Redditor/RedditAPIConnector.h"
 
 @interface SidebarViewController ()
 
@@ -71,7 +64,30 @@
     destViewController.title = [[menuItems objectAtIndex:indexPath.row] capitalizedString];
     ListViewController* dest = (ListViewController*) destViewController;
     //dest.needRefresh = YES;
-    dest.sub = [menuItems objectAtIndex:indexPath.row];
+    if ([[segue identifier] isEqualToString:@"front_all_random_segue"]) {
+        NSInteger index = [(UISegmentedControl*)sender selectedSegmentIndex];
+        if (index == 0) {
+            dest.sub = @"";
+            destViewController.title = @"Front Page";
+        }
+        else if (index == 1 ) {
+            dest.sub = @"all";
+            destViewController.title = @"All";
+        }
+        else {
+            /* random page */
+            NSString* sub = [RedditAPIConnector getRedirect:[NSURL URLWithString:@"http://www.reddit.com/r/random"]];
+            NSRange rangeOfSubstring = [sub rangeOfString:@"http://www.reddit.com/r/"];
+            sub = [sub stringByReplacingCharactersInRange:rangeOfSubstring withString:@""];
+            sub = [sub substringToIndex:[sub length] - 1];
+            dest.sub = sub;
+            destViewController.title = sub;
+        }
+       
+    }
+    else {
+        dest.sub = [menuItems objectAtIndex:indexPath.row];
+    }
     /*
     // Set the photo if it navigates to the PhotoView
     if ([segue.identifier isEqualToString:@"showPhoto"]) {

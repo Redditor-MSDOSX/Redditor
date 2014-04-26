@@ -57,7 +57,7 @@
 */
 -(NSArray*) retrieve :(NSString*) type PostsFrom: (NSString*) sub {
     NSData* data = nil;
-    if ([sub isEqualToString:@""]) {
+    if (sub == nil || [sub isEqualToString:@""]) {
         data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/%@.json", type]]];
     }
     else {

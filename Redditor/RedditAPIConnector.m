@@ -14,13 +14,11 @@
     [request setTimeoutInterval:30];
     NSHTTPURLResponse* response = nil;
     NSError* error = [[NSError alloc] init];
-    
     /* now make a request */
     NSData* responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
     /* check the response */
     if ([response statusCode] != 200) {
-        NSLog(@"Error %i", [response statusCode]);
+        NSLog(@"Error %li", (long)[response statusCode]);
         return [[NSData alloc] init];
     }
     return responseData;
@@ -60,7 +58,7 @@
     
     /* check the response */
     if ([response statusCode] != 200) {
-        NSLog(@"Error %i", [response statusCode]);
+        NSLog(@"Error %li", (long)[response statusCode]);
         return [[NSData alloc] init];
     }
     return responseData;
@@ -72,5 +70,16 @@
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     return [[json objectForKey:@"data"] objectForKey:@"modhash"];
 }
+
++(NSString*) getRedirect:(NSURL *)url {
+    NSData *data=nil;
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
+    NSURLResponse *response;
+    NSError *error;
+    data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSURL *lastURL=[response URL];
+    return [lastURL absoluteString];
+}
+
 
 @end

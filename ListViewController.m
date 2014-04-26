@@ -142,7 +142,7 @@
     
     CGRect textRect = [cellText boundingRectWithSize: constraintSize
                                          options:NSStringDrawingUsesLineFragmentOrigin
-                                      attributes:@{NSFontAttributeName:cellFont}
+                                          attributes:@{NSFontAttributeName: cellFont}
                                          context:nil];
     
     CGSize labelSize = textRect.size;
