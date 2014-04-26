@@ -41,8 +41,7 @@
     self.photoImageView.image = [UIImage imageNamed:self.photoFilename];
     */
 
-    [self loadContent];
-    [self.hotTable reloadData];
+    
     //self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, 300)];
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
@@ -65,6 +64,8 @@
     
   
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * viewArray.count, self.scrollView.frame.size.height);
+    
+    [self loadContent];
     
 }
 
