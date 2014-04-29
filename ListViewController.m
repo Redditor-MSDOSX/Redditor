@@ -63,8 +63,9 @@
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * viewArray.count, self.scrollView.frame.size.height);
     [self loadContent];
     
-    __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self; // weak self to prevent retain cycle
     
+    /* adding pull to refresh to tables */
     [self.hotTable addPullToRefreshWithActionHandler:^{
         int64_t delayInSeconds = 1.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -111,6 +112,38 @@
         });
     }];
     
+    /* adding infinite scrolling to tables */
+    [self.hotTable addInfiniteScrollingWithActionHandler:^{
+        RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
+        [weakSelf extendContentAfter:lastPost.name];
+        [weakSelf.hotTable reloadData];
+        [weakSelf.hotTable.infiniteScrollingView stopAnimating];
+    }];
+    [self.theNewTable addInfiniteScrollingWithActionHandler:^{
+        RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
+        [weakSelf extendContentAfter:lastPost.name];
+        [weakSelf.theNewTable reloadData];
+        [weakSelf.theNewTable.infiniteScrollingView stopAnimating];
+    }];
+    [self.risingTable addInfiniteScrollingWithActionHandler:^{
+        RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
+        [weakSelf extendContentAfter:lastPost.name];
+        [weakSelf.risingTable reloadData];
+        [weakSelf.risingTable.infiniteScrollingView stopAnimating];
+    }];
+    [self.controversialTable addInfiniteScrollingWithActionHandler:^{
+        RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
+        [weakSelf extendContentAfter:lastPost.name];
+        [weakSelf.controversialTable reloadData];
+        [weakSelf.controversialTable.infiniteScrollingView stopAnimating];
+    }];
+    [self.topTable addInfiniteScrollingWithActionHandler:^{
+        RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
+        [weakSelf extendContentAfter:lastPost.name];
+        [weakSelf.topTable reloadData];
+        [weakSelf.topTable.infiniteScrollingView stopAnimating];
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -125,24 +158,52 @@
     self.post = [[NSMutableArray alloc] init];
     NSInteger page = [self.bar selectedSegmentIndex];
     if (page == 0) {
-        self.post = [eng retrieveHotRedditPostsFromSubReddit:self.sub]; // default is hot
+        self.post = (NSMutableArray*)[eng retrieveHotRedditPostsFromSubReddit:self.sub]; // default is hot
     }
     else if(page == 1) {
-        self.post = [eng retrieveNewRedditPostsFromSubReddit:self.sub];
+        self.post = (NSMutableArray*)[eng retrieveNewRedditPostsFromSubReddit:self.sub];
     }
     else if(page == 2) {
-        self.post = [eng retrieveRisingRedditPostsFromSubReddit:self.sub];
+        self.post = (NSMutableArray*)[eng retrieveRisingRedditPostsFromSubReddit:self.sub];
     }
     else if(page == 3) {
-        self.post = [eng retrieveControversialRedditPostsFromSubReddit:self.sub];
+        self.post = (NSMutableArray*)[eng retrieveControversialRedditPostsFromSubReddit:self.sub];
     }
     else if(page == 4) {
-        self.post = [eng retrieveTopRedditPostsFromSubReddit:self.sub];
+        self.post = (NSMutableArray*)[eng retrieveTopRedditPostsFromSubReddit:self.sub];
     }
     else {
-        self.post = [eng retrieveHotRedditPostsFromSubReddit:self.sub]; // default is hot
+        self.post = (NSMutableArray*)[eng retrieveHotRedditPostsFromSubReddit:self.sub]; // default is hot
     }
     
+}
+
+-(void) extendContentAfter: (NSString*) name {
+    RedditorEngine* eng = [[RedditorEngine alloc] init];
+    //NSArray* rawContent = [eng retrieveHotRedditPostsFromSubReddit:self.sub]; // default is hot
+    if (self.post == nil) {
+        self.post = [[NSMutableArray alloc] init];
+    }
+    NSInteger page = [self.bar selectedSegmentIndex];
+    if (page == 0) {
+        [self.post addObjectsFromArray:[eng retrieveHotRedditPostsFromSubReddit:self.sub After:name]]; // default is hot
+    }
+    else if(page == 1) {
+        [self.post addObjectsFromArray: [eng retrieveNewRedditPostsFromSubReddit:self.sub After:name]];
+    }
+    else if(page == 2) {
+        [self.post addObjectsFromArray: [eng retrieveRisingRedditPostsFromSubReddit:self.sub After:name]];
+    }
+    else if(page == 3) {
+        [self.post addObjectsFromArray:[eng retrieveControversialRedditPostsFromSubReddit:self.sub After:name]];
+    }
+    else if(page == 4) {
+        [self.post addObjectsFromArray:[eng retrieveTopRedditPostsFromSubReddit:self.sub After:name]];
+    }
+    else {
+        [self.post addObjectsFromArray:[eng retrieveHotRedditPostsFromSubReddit:self.sub After:name]]; // default is hot
+    }
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -165,7 +226,7 @@
         return cell;
     }
     NSString* cellText = [[self.post objectAtIndex:indexPath.row] title];
-    cell.textLabel.text= cellText;
+    cell.textLabel.text= [NSString stringWithFormat:@"%d %@",indexPath.row + 1, cellText ];
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];

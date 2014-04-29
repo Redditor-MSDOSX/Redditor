@@ -16,6 +16,12 @@
 -(NSArray*) retrieveControversialRedditPostsFromSubReddit: (NSString*) sub;
 -(NSArray*) retrieveTopRedditPostsFromSubReddit: (NSString*) sub;
 
+-(NSArray*) retrieveHotRedditPostsFromSubReddit: (NSString*) sub After: (NSString*) name;
+-(NSArray*) retrieveNewRedditPostsFromSubReddit: (NSString*) sub After: (NSString*) name;
+-(NSArray*) retrieveRisingRedditPostsFromSubReddit: (NSString*) sub After: (NSString*) name;
+-(NSArray*) retrieveControversialRedditPostsFromSubReddit: (NSString*) sub After: (NSString*) name;
+-(NSArray*) retrieveTopRedditPostsFromSubReddit: (NSString*) sub After: (NSString*) name;
+
 -(RedditPost*) retrieveCommentTreeFromArticle: (NSString*) id FocusAt: (NSString*) root;
 
 -(BOOL) loginWithUsername: (NSString*) name andPassword: (NSString*) pwd;

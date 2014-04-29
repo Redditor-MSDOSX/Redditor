@@ -5,7 +5,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (strong, nonatomic) NSString *photoFilename;
 @property NSString* sub; // the subreddit
-@property NSArray* post; // the reddit posts
+@property NSMutableArray* post; // the reddit posts
 
 -(NSInteger)numberOfSectionsInTableView: (UITableView *)tableView;
 

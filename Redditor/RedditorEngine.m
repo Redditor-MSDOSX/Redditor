@@ -16,7 +16,7 @@
  if no subreddit is given the root reddit will be retrieved 
 */
 -(NSArray*) retrieveHotRedditPostsFromSubReddit: (NSString*) sub {
-    return [self retrieve:@"hot" PostsFrom:sub];
+    return [self retrieve:@"hot" PostsFrom:sub After:@""];
 }
 
 /*
@@ -24,7 +24,7 @@
  if no subreddit is given the root reddit will be retrieved
  */
 -(NSArray*) retrieveNewRedditPostsFromSubReddit: (NSString*) sub {
-    return [self retrieve:@"new" PostsFrom:sub];
+    return [self retrieve:@"new" PostsFrom:sub After:@""];
 }
 
 /*
@@ -32,7 +32,7 @@
  if no subreddit is given the root reddit will be retrieved
  */
 -(NSArray*) retrieveRisingRedditPostsFromSubReddit: (NSString*) sub {
-    return [self retrieve:@"rising" PostsFrom:sub];
+    return [self retrieve:@"rising" PostsFrom:sub After:@""];
 }
 
 /*
@@ -40,7 +40,7 @@
  if no subreddit is given the root reddit will be retrieved
  */
 -(NSArray*) retrieveControversialRedditPostsFromSubReddit: (NSString*) sub {
-    return [self retrieve:@"controversial" PostsFrom:sub];
+    return [self retrieve:@"controversial" PostsFrom:sub After:@""];
 }
 
 /*
@@ -48,21 +48,48 @@
  if no subreddit is given the root reddit will be retrieved
  */
 -(NSArray*) retrieveTopRedditPostsFromSubReddit: (NSString*) sub {
-    return [self retrieve:@"top" PostsFrom:sub];
+    return [self retrieve:@"top" PostsFrom:sub After:@""];
+}
+
+
+-(NSArray*) retrieveHotRedditPostsFromSubReddit: (NSString*) sub After: (NSString*) name {
+    return [self retrieve:@"hot" PostsFrom:sub After: name];
+}
+-(NSArray*) retrieveNewRedditPostsFromSubReddit: (NSString*) sub After: (NSString*) name {
+    return [self retrieve:@"new" PostsFrom:sub After: name];
+}
+-(NSArray*) retrieveRisingRedditPostsFromSubReddit: (NSString*) sub After: (NSString*) name {
+    return [self retrieve:@"rising" PostsFrom:sub After: name];
+}
+-(NSArray*) retrieveControversialRedditPostsFromSubReddit: (NSString*) sub After: (NSString*) name {
+    return [self retrieve:@"controversial" PostsFrom:sub After: name];
+}
+-(NSArray*) retrieveTopRedditPostsFromSubReddit: (NSString*) sub After: (NSString*) name {
+    return [self retrieve:@"top" PostsFrom:sub After: name];
 }
 
 
 /*
  internal method to retrieve posts
 */
--(NSArray*) retrieve :(NSString*) type PostsFrom: (NSString*) sub {
+-(NSArray*) retrieve :(NSString*) type PostsFrom: (NSString*) sub  After: (NSString*) name{
     NSData* data = nil;
     if (sub == nil || [sub isEqualToString:@""]) {
-        data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/%@.json", type]]];
+        if ([name isEqualToString:@""]) {
+            data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/%@.json", type]]];
+        }
+        else {
+            data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/%@.json?after=%@", type, name]]];
+        }
     }
     else {
         sub = [sub stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString: [NSString stringWithFormat:@"http://www.reddit.com/r/%@/%@.json", sub, type]]];
+        if ([name isEqualToString:@""]) {
+            data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString: [NSString stringWithFormat:@"http://www.reddit.com/r/%@/%@.json", sub, type]]];
+        }
+        else {
+            data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString: [NSString stringWithFormat:@"http://www.reddit.com/r/%@/%@.json?after=%@", sub, type, name]]];
+        }
     }
     
     NSError* error = nil;
@@ -81,7 +108,7 @@
         }
         
     }
-    return [NSArray arrayWithArray:returnData];
+    return returnData;
 }
 
 /*
