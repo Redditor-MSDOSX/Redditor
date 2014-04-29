@@ -240,7 +240,7 @@
     return [UIImage imageWithData:captcha];
 }
 
--(NSArray*) searchPostsWithKeyword: (NSString*) keyword InSubReddit:(NSString *)sub {
+-(NSArray*) searchPostsWithKeyword: (NSString*) keyword InSubReddit:(NSString *)sub After: (NSString*) name{
     NSArray* result = [[NSArray alloc] init];
     if ([keyword isEqualToString:@""]) {
         // save the time to search
@@ -249,10 +249,21 @@
     keyword = [keyword stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL* url;
     if ([sub isEqualToString:@""]) {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/search.json?q=%@", keyword]];
+        if ([name isEqualToString: @""]) {
+            url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/search.json?q=%@", keyword]];
+        }
+        else {
+            url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/search.json?q=%@&after=%@", keyword, name]];
+
+        }
     }
     else {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/r/%@/search.json?q=%@", keyword, sub]];
+        if ([name isEqualToString:@""]) {
+            url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/r/%@/search.json?q=%@", keyword, sub]];
+        }
+        else {
+            url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/r/%@/search.json?q=%@&after=%@", keyword, sub, name]];
+        }
     }
     NSData* data = [RedditAPIConnector makeGetRequestTo:url];
     NSError* error;
@@ -271,7 +282,7 @@
         }
         
     }
-    return [NSArray arrayWithArray:returnData];
+    return returnData;
 }
 
 @end

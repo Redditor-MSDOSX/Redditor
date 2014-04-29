@@ -9,10 +9,12 @@
 #import "SearchListViewController.h"
 #import "SWRevealViewController.h"
 #import "RedditorEngine.h"
+#import "SVPullToRefresh.h"
+#import "RedditPost.h"
 
 @interface SearchListViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
-@property NSArray* post;
+@property NSMutableArray* post;
 @end
 
 @implementation SearchListViewController
@@ -40,8 +42,19 @@
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     RedditorEngine* eng = [[RedditorEngine alloc] init];
-    self.post = [[NSArray alloc] init];
-    self.post = [eng searchPostsWithKeyword:[self searchString] InSubReddit:@""];
+    self.post = [[NSMutableArray alloc] init];
+    self.post = (NSMutableArray*)[eng searchPostsWithKeyword:[self searchString] InSubReddit:@"" After: @""];
+    
+    
+    __weak typeof(self) weakSelf = self; // weak self to prevent retain cycle
+    
+    [self.tableView addInfiniteScrollingWithActionHandler:^ {
+        RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
+        RedditorEngine* eng = [[RedditorEngine alloc] init];
+        [weakSelf.post addObjectsFromArray: [eng searchPostsWithKeyword:weakSelf.searchString InSubReddit:@"" After:lastPost.name]];
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.infiniteScrollingView stopAnimating];
+    }];
     
 }
 
@@ -75,7 +88,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         return cell;
     }
-    NSString* cellText = [[self.post objectAtIndex:indexPath.row] title];
+    NSString* cellText = [NSString stringWithFormat:@"%ld %@", indexPath.row + 1, [[self.post objectAtIndex:indexPath.row] title ]];
     cell.textLabel.text= cellText;
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.numberOfLines = 0;
