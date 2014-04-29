@@ -1,6 +1,7 @@
 #import "ListViewController.h"
 #import "SWRevealViewController.h"
 #import "RedditorEngine.h"
+#import "SVPullToRefresh.h"
 
 @interface ListViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -26,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Change button color
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
     
@@ -36,11 +37,7 @@
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    /*
-    // Load image
-    self.photoImageView.image = [UIImage imageNamed:self.photoFilename];
-    */
-
+    
     
     //self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, 300)];
     self.scrollView.delegate = self;
@@ -57,15 +54,62 @@
         frame.origin.x = self.scrollView.frame.size.width * i;
         frame.origin.y = 0;
         frame.size = self.scrollView.frame.size;
-      
+        
         [[viewArray objectAtIndex:i] setFrame: frame];
         [self.scrollView addSubview:[viewArray objectAtIndex:i]];
     }
     
-  
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * viewArray.count, self.scrollView.frame.size.height);
     
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * viewArray.count, self.scrollView.frame.size.height);
     [self loadContent];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [self.hotTable addPullToRefreshWithActionHandler:^{
+        int64_t delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [weakSelf loadContent];
+            [weakSelf.hotTable reloadData];
+            [weakSelf.hotTable.pullToRefreshView stopAnimating];
+        });
+    }];
+    [self.theNewTable addPullToRefreshWithActionHandler:^{
+        int64_t delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [weakSelf loadContent];
+            [weakSelf.theNewTable reloadData];
+            [weakSelf.theNewTable.pullToRefreshView stopAnimating];
+        });
+    }];
+    [self.controversialTable addPullToRefreshWithActionHandler:^{
+        int64_t delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [weakSelf loadContent];
+            [weakSelf.controversialTable reloadData];
+            [weakSelf.controversialTable.pullToRefreshView stopAnimating];
+        });
+    }];
+    [self.risingTable addPullToRefreshWithActionHandler:^{
+        int64_t delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [weakSelf loadContent];
+            [weakSelf.risingTable reloadData];
+            [weakSelf.risingTable.pullToRefreshView stopAnimating];
+        });
+    }];
+    [self.topTable addPullToRefreshWithActionHandler:^{
+        int64_t delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [weakSelf loadContent];
+            [weakSelf.topTable reloadData];
+            [weakSelf.topTable.pullToRefreshView stopAnimating];
+        });
+    }];
     
 }
 
@@ -126,7 +170,7 @@
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
     
-
+    
     return cell;
 }
 
@@ -135,20 +179,20 @@
         return 44;
     }
     NSString* cellText = [[self.post objectAtIndex:indexPath.row] title];
-
+    
     UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
     CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
     //CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:NSLineBreakByWordWrapping];
     //NSDictionary *attributes = @{NSFontAttributeName: cellFont, NSString.attributes.constrainedToSize: constraintSize, lineBreakMode:NSLineBreakByWordWrapping};
     
     CGRect textRect = [cellText boundingRectWithSize: constraintSize
-                                         options:NSStringDrawingUsesLineFragmentOrigin
+                                             options:NSStringDrawingUsesLineFragmentOrigin
                                           attributes:@{NSFontAttributeName: cellFont}
-                                         context:nil];
+                                             context:nil];
     
     CGSize labelSize = textRect.size;
     return labelSize.height + 10;
-
+    
 }
 - (IBAction)tabChanged:(id)sender {
     // load the content
@@ -180,12 +224,15 @@
     [self.scrollView scrollRectToVisible:frame animated:YES];
     //[self.pageControl setCurrentPage:page];
     
-
+    
     
 }
 
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y != 0.0) {
+        return;
+    }
     NSInteger page = scrollView.contentOffset.x / scrollView.frame.size.width;
     //[self.pageControl setCurrentPage:page];
     [self.bar setSelectedSegmentIndex:page]; // set this won't trigger tabChanged
@@ -194,7 +241,6 @@
     // update the list
     //NSInteger page = [self.bar selectedSegmentIndex];
     if (page == 0) {
-        
         [self.hotTable reloadData];
     }
     else if(page == 1) {
@@ -209,7 +255,7 @@
     else if(page == 4) {
         [self.topTable reloadData];
     }
-
+    
 }
 
 @end

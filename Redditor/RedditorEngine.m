@@ -61,6 +61,7 @@
         data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/%@.json", type]]];
     }
     else {
+        sub = [sub stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString: [NSString stringWithFormat:@"http://www.reddit.com/r/%@/%@.json", sub, type]]];
     }
     
@@ -218,6 +219,7 @@
         // save the time to search
         return result;
     }
+    keyword = [keyword stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL* url;
     if ([sub isEqualToString:@""]) {
         url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/search.json?q=%@", keyword]];
@@ -237,7 +239,7 @@
         NSDictionary* temp1 = [json objectForKey:@"data"];
         NSArray* list = [temp1 objectForKey:@"children"];
         for (NSDictionary* item in list) {
-            NSLog([[item objectForKey:@"data" ] objectForKey:@"title" ]);
+            //NSLog([[item objectForKey:@"data" ] objectForKey:@"title" ]);
             [returnData addObject: [[RedditPost alloc] initWithDict:[item objectForKey:@"data"]]];
         }
         

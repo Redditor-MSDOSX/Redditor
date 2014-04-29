@@ -2,6 +2,7 @@
 #import "SWRevealViewController.h"
 #import "ListViewController.h"
 #import "Redditor/RedditAPIConnector.h"
+#import "Redditor/SearchListViewController.h"
 
 @interface SidebarViewController ()
 
@@ -62,16 +63,16 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
     destViewController.title = [[menuItems objectAtIndex:indexPath.row] capitalizedString];
-    ListViewController* dest = (ListViewController*) destViewController;
+    UIViewController* dest = (UIViewController*)destViewController;
     //dest.needRefresh = YES;
     if ([[segue identifier] isEqualToString:@"front_all_random_segue"]) {
         NSInteger index = [(UISegmentedControl*)sender selectedSegmentIndex];
         if (index == 0) {
-            dest.sub = @"";
+            ((ListViewController*)dest).sub = @"";
             destViewController.title = @"Front Page";
         }
         else if (index == 1 ) {
-            dest.sub = @"all";
+            ((ListViewController*)dest).sub = @"all";
             destViewController.title = @"All";
         }
         else {
@@ -80,13 +81,18 @@
             NSRange rangeOfSubstring = [sub rangeOfString:@"http://www.reddit.com/r/"];
             sub = [sub stringByReplacingCharactersInRange:rangeOfSubstring withString:@""];
             sub = [sub substringToIndex:[sub length] - 1];
-            dest.sub = sub;
+            ((ListViewController*)dest).sub = sub;
             destViewController.title = sub;
         }
        
     }
+    else if ([[segue identifier] isEqualToString:@"search_segue"]){
+        [((SearchListViewController*)dest) setSearchString:[(UISearchBar*)sender text]];
+        destViewController.title = [(UISearchBar*)sender text];
+        
+    }
     else {
-        dest.sub = [menuItems objectAtIndex:indexPath.row];
+        ((ListViewController*)dest).sub = [menuItems objectAtIndex:indexPath.row];
     }
     /*
     // Set the photo if it navigates to the PhotoView
@@ -108,6 +114,11 @@
         
     }
     
+}
+
+-(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [searchBar endEditing:YES];
+    [self performSegueWithIdentifier:@"search_segue" sender:searchBar];
 }
 
 @end

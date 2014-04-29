@@ -20,6 +20,9 @@
 		0ACE6D39190A3BB200E5E4DD /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D33190A3BB200E5E4DD /* MainViewController.m */; };
 		0ACE6D3A190A3BB200E5E4DD /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D35190A3BB200E5E4DD /* MapViewController.m */; };
 		0ACE6D3B190A3BB200E5E4DD /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D37190A3BB200E5E4DD /* SidebarViewController.m */; };
+		9A14FDD8190FA94000B8D141 /* SearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A14FDD7190FA94000B8D141 /* SearchListViewController.m */; };
+		9A14FDDE190FB2AA00B8D141 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A14FDDB190FB2AA00B8D141 /* UIScrollView+SVInfiniteScrolling.m */; };
+		9A14FDDF190FB2AA00B8D141 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A14FDDD190FB2AA00B8D141 /* UIScrollView+SVPullToRefresh.m */; };
 		9A1BD6A518F4D4DB00BF468B /* RedditorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BD6A418F4D4DB00BF468B /* RedditorEngine.m */; };
 		9A1BD6A818F4D59A00BF468B /* RedditPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BD6A718F4D59A00BF468B /* RedditPost.m */; };
 		9A1BD6AB18F4DC1500BF468B /* RedditAPIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BD6AA18F4DC1500BF468B /* RedditAPIConnector.m */; };
@@ -68,6 +71,13 @@
 		0ACE6D35190A3BB200E5E4DD /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = ../MapViewController.m; sourceTree = "<group>"; };
 		0ACE6D36190A3BB200E5E4DD /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SidebarViewController.h; path = ../SidebarViewController.h; sourceTree = "<group>"; };
 		0ACE6D37190A3BB200E5E4DD /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SidebarViewController.m; path = ../SidebarViewController.m; sourceTree = "<group>"; };
+		9A14FDD6190FA94000B8D141 /* SearchListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchListViewController.h; sourceTree = "<group>"; };
+		9A14FDD7190FA94000B8D141 /* SearchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchListViewController.m; sourceTree = "<group>"; };
+		9A14FDD9190FB2AA00B8D141 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		9A14FDDA190FB2AA00B8D141 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		9A14FDDB190FB2AA00B8D141 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		9A14FDDC190FB2AA00B8D141 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		9A14FDDD190FB2AA00B8D141 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		9A1BD6A318F4D4DB00BF468B /* RedditorEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedditorEngine.h; sourceTree = "<group>"; };
 		9A1BD6A418F4D4DB00BF468B /* RedditorEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedditorEngine.m; sourceTree = "<group>"; };
 		9A1BD6A618F4D59A00BF468B /* RedditPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedditPost.h; sourceTree = "<group>"; };
@@ -165,6 +175,11 @@
 		9A83D37118EAB23A00A05C58 /* Redditor */ = {
 			isa = PBXGroup;
 			children = (
+				9A14FDD9190FB2AA00B8D141 /* SVPullToRefresh.h */,
+				9A14FDDA190FB2AA00B8D141 /* UIScrollView+SVInfiniteScrolling.h */,
+				9A14FDDB190FB2AA00B8D141 /* UIScrollView+SVInfiniteScrolling.m */,
+				9A14FDDC190FB2AA00B8D141 /* UIScrollView+SVPullToRefresh.h */,
+				9A14FDDD190FB2AA00B8D141 /* UIScrollView+SVPullToRefresh.m */,
 				0ACE6D30190A3BB200E5E4DD /* ListViewController.h */,
 				0ACE6D31190A3BB200E5E4DD /* ListViewController.m */,
 				0ACE6D32190A3BB200E5E4DD /* MainViewController.h */,
@@ -190,6 +205,8 @@
 				9A1BD6AA18F4DC1500BF468B /* RedditAPIConnector.m */,
 				0ACE6CFA190A060000E5E4DD /* SWRevealViewController.h */,
 				0ACE6CFB190A060000E5E4DD /* SWRevealViewController.m */,
+				9A14FDD6190FA94000B8D141 /* SearchListViewController.h */,
+				9A14FDD7190FA94000B8D141 /* SearchListViewController.m */,
 			);
 			path = Redditor;
 			sourceTree = "<group>";
@@ -334,9 +351,12 @@
 				0ACE6CFC190A060000E5E4DD /* SWRevealViewController.m in Sources */,
 				9A1BD6A818F4D59A00BF468B /* RedditPost.m in Sources */,
 				9A83D37C18EAB23A00A05C58 /* AppDelegate.m in Sources */,
+				9A14FDD8190FA94000B8D141 /* SearchListViewController.m in Sources */,
 				9A83D37818EAB23A00A05C58 /* main.m in Sources */,
 				9AD4DE981904EE8F00666D3C /* RedditComment.m in Sources */,
+				9A14FDDE190FB2AA00B8D141 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				0ACE6D3A190A3BB200E5E4DD /* MapViewController.m in Sources */,
+				9A14FDDF190FB2AA00B8D141 /* UIScrollView+SVPullToRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
