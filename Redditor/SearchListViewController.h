@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchListViewController : UITableViewController
+@interface SearchListViewController : UIViewController <UITableViewDelegate>
 @property NSString* searchString;
 @end

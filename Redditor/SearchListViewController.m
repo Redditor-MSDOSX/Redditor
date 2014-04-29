@@ -13,25 +13,26 @@
 #import "RedditPost.h"
 
 @interface SearchListViewController ()
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property NSMutableArray* post;
 @end
 
 @implementation SearchListViewController
-
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     // Change button color
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
     
@@ -44,9 +45,26 @@
     RedditorEngine* eng = [[RedditorEngine alloc] init];
     self.post = [[NSMutableArray alloc] init];
     self.post = (NSMutableArray*)[eng searchPostsWithKeyword:[self searchString] InSubReddit:@"" After: @""];
+     
+    [[self tableView] setFrame:[self.scrollView bounds]];
+    [self.scrollView addSubview:[self tableView]];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
+    //self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width , self.scrollView.frame.size.height);
     
     __weak typeof(self) weakSelf = self; // weak self to prevent retain cycle
+    
+    [self.tableView addPullToRefreshWithActionHandler:^ {
+        int64_t delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        RedditorEngine* eng = [[RedditorEngine alloc] init];
+        weakSelf.post = (NSMutableArray*)[eng searchPostsWithKeyword:weakSelf.searchString InSubReddit:@"" After:@""];
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.pullToRefreshView stopAnimating];
+        });
+    }];
     
     [self.tableView addInfiniteScrollingWithActionHandler:^ {
         RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
