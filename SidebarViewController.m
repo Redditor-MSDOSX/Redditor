@@ -77,12 +77,9 @@
         }
         else {
             /* random page */
-            NSString* sub = [RedditAPIConnector getRedirect:[NSURL URLWithString:@"http://www.reddit.com/r/random"]];
-            NSRange rangeOfSubstring = [sub rangeOfString:@"http://www.reddit.com/r/"];
-            sub = [sub stringByReplacingCharactersInRange:rangeOfSubstring withString:@""];
-            sub = [sub substringToIndex:[sub length] - 1];
-            ((ListViewController*)dest).sub = sub;
-            destViewController.title = sub;
+            
+            ((ListViewController*)destViewController).title = @"";
+            ((ListViewController*)destViewController).isRandom = YES;
         }
        
     }
@@ -94,14 +91,6 @@
     else {
         ((ListViewController*)dest).sub = [menuItems objectAtIndex:indexPath.row];
     }
-    /*
-    // Set the photo if it navigates to the PhotoView
-    if ([segue.identifier isEqualToString:@"showPhoto"]) {
-        ListViewController *listViewController = (ListViewController*)segue.destinationViewController;
-        NSString *photoFilename = [NSString stringWithFormat:@"%@_photo.jpg", [menuItems objectAtIndex:indexPath.row]];
-        listViewController.photoFilename = photoFilename;
-    }
-    */
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
         SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
         

@@ -5,6 +5,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (strong, nonatomic) NSString *photoFilename;
 @property NSString* sub; // the subreddit
+@property BOOL isRandom;
 @property NSMutableArray* post; // the reddit posts
 
 -(NSInteger)numberOfSectionsInTableView: (UITableView *)tableView;

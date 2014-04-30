@@ -3,8 +3,10 @@
 #import "RedditorEngine.h"
 #import "SVPullToRefresh.h"
 #import "PostViewController.h"
+#import "RedditAPIConnector.h"
 
 @interface ListViewController ()
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITableView *controversialTable;
 @property (strong, nonatomic) IBOutlet UITableView *theNewTable;
@@ -38,6 +40,10 @@
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    self.indicator.center = self.view.center;
+    [self.indicator setHidesWhenStopped:YES];
+    [self.view addSubview:self.indicator];
+    [self.indicator startAnimating];
     
     
     //self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, 300)];
@@ -47,6 +53,7 @@
     self.scrollView.showsVerticalScrollIndicator = NO;
     //[self.view addSubview:self.scrollView];
     
+    dispatch_async(dispatch_get_main_queue(), ^{
     NSArray *viewArray = [NSArray arrayWithObjects: self.hotTable, self.theNewTable, self.risingTable, self.controversialTable, self.topTable, nil];
     
     for(int i=0; i<viewArray.count; i++)
@@ -62,7 +69,7 @@
     
     
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * viewArray.count, self.scrollView.frame.size.height);
-    [self loadContent];
+    
     
     __weak typeof(self) weakSelf = self; // weak self to prevent retain cycle
     
@@ -145,6 +152,20 @@
         [weakSelf.topTable.infiniteScrollingView stopAnimating];
     }];
     
+    if (self.isRandom) {
+        NSString* sub = [RedditAPIConnector getRedirect:[NSURL URLWithString:@"http://www.reddit.com/r/random"]];
+        NSRange rangeOfSubstring = [sub rangeOfString:@"http://www.reddit.com/r/"];
+        sub = [sub stringByReplacingCharactersInRange:rangeOfSubstring withString:@""];
+        sub = [sub substringToIndex:[sub length] - 1];
+        self.sub = sub;
+        self.title = sub;
+    }
+    
+    
+    [self loadContent];
+    [self.hotTable reloadData];
+    [self.indicator stopAnimating];
+    });
 }
 
 - (void)didReceiveMemoryWarning
@@ -258,32 +279,37 @@
 }
 - (IBAction)tabChanged:(id)sender {
     // load the content
-    [self loadContent];
+    
+    
     //NSLog(@"Run");
     // update the list
     NSInteger page = [self.bar selectedSegmentIndex];
-    if (page == 0) {
-        
-        [self.hotTable reloadData];
-    }
-    else if(page == 1) {
-        [self.theNewTable reloadData];
-    }
-    else if(page == 2) {
-        [self.risingTable reloadData];
-    }
-    else if(page == 3) {
-        [self.controversialTable reloadData];
-    }
-    else if(page == 4) {
-        [self.topTable reloadData];
-    }
-    
     /* scroll to that page */
     CGRect frame = self.scrollView.frame;
     frame.origin.x = frame.size.width * page;
     frame.origin.y = 0;
     [self.scrollView scrollRectToVisible:frame animated:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self loadContent];
+        if (page == 0) {
+            
+            [self.hotTable reloadData];
+        }
+        else if(page == 1) {
+            [self.theNewTable reloadData];
+        }
+        else if(page == 2) {
+            [self.risingTable reloadData];
+        }
+        else if(page == 3) {
+            [self.controversialTable reloadData];
+        }
+        else if(page == 4) {
+            [self.topTable reloadData];
+        }
+    });
+    
+    
     //[self.pageControl setCurrentPage:page];
     
     
@@ -298,6 +324,7 @@
     NSInteger page = scrollView.contentOffset.x / scrollView.frame.size.width;
     //[self.pageControl setCurrentPage:page];
     [self.bar setSelectedSegmentIndex:page]; // set this won't trigger tabChanged
+    dispatch_async(dispatch_get_main_queue(), ^{
     [self loadContent];
     //NSLog(@"Run");
     // update the list
@@ -317,6 +344,7 @@
     else if(page == 4) {
         [self.topTable reloadData];
     }
+    });
     
 }
 

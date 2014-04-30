@@ -11,8 +11,10 @@
 #import "RedditorEngine.h"
 #import "SVPullToRefresh.h"
 #import "RedditPost.h"
+#import "PostViewController.h"
 
 @interface SearchListViewController ()
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
@@ -42,6 +44,12 @@
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    self.indicator.center = self.view.center;
+    [self.indicator setHidesWhenStopped:YES];
+    [self.view addSubview:self.indicator];
+    [self.indicator startAnimating];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
     RedditorEngine* eng = [[RedditorEngine alloc] init];
     self.post = [[NSMutableArray alloc] init];
     self.post = (NSMutableArray*)[eng searchPostsWithKeyword:[self searchString] InSubReddit:@"" After: @""];
@@ -73,7 +81,10 @@
         [weakSelf.tableView reloadData];
         [weakSelf.tableView.infiniteScrollingView stopAnimating];
     }];
-    
+        
+        [self.tableView reloadData];
+        [self.indicator stopAnimating];
+    });
 }
 
 - (void)didReceiveMemoryWarning
@@ -134,6 +145,24 @@
     
     CGSize labelSize = textRect.size;
     return labelSize.height + 10;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Value Selected by user
+    RedditPost *selectedPost = [self.post objectAtIndex:indexPath.row];
+    //Initialize new viewController
+    
+    //PostViewController *viewController = [[PostViewController alloc] initWithNibName:@"PostViewController" bundle:nil];
+    UIStoryboard *sb = self.storyboard;
+    PostViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"PostViewController"];
+    //[sb ]
+    [viewController setPost: selectedPost];
+    //Pass selected value to a property declared in NewViewController
+    
+    //viewController.valueToPrint = selectedValue;
+    //Push new view to navigationController stack
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 

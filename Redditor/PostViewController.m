@@ -10,6 +10,7 @@
 #import "RedditorEngine.h"
 
 @interface PostViewController ()
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSArray* comments;
 @end
@@ -30,12 +31,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = [self.post title];
-    RedditorEngine* eng = [[RedditorEngine alloc] init];
-    NSString* id = [[self.post name] substringFromIndex:3];
-    //NSLog(id);
-    RedditComment* commentTree = [eng retrieveCommentTreeFromArticle:id FocusAt:@""];
-    self.comments = [[NSMutableArray alloc ] init];
-    self.comments = [self commentsAry: commentTree Depth:0];
+    self.indicator.center = self.view.center;
+    [self.indicator setHidesWhenStopped:YES];
+    [self.view addSubview:self.indicator];
+    [self.indicator startAnimating];
+    
+    //[self.view addSubview:activityView];
+    
 }
 
 - (NSArray*) commentsAry : (RedditComment*) treeIn Depth: (NSInteger) depth{
@@ -51,6 +53,19 @@
     }
     treeIn.children = nil;
     return cAry;
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear: animated];
+    RedditorEngine* eng = [[RedditorEngine alloc] init];
+    NSString* id = [[self.post name] substringFromIndex:3];
+    //NSLog(id);
+    RedditComment* commentTree = [eng retrieveCommentTreeFromArticle:id FocusAt:@""];
+    self.comments = [[NSMutableArray alloc ] init];
+    self.comments = [self commentsAry: commentTree Depth:0];
+    [self.tableView reloadData];
+    [self.indicator stopAnimating];
+    
 }
 
 - (void)didReceiveMemoryWarning
