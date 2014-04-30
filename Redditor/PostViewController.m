@@ -95,7 +95,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.comments count] - 1;
+    return ([self.comments count] - 1)*2;
 }
 
 
@@ -103,30 +103,66 @@
 {
     static NSString *CellIdentifier =@"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (cell == nil || indexPath.row >= [self.comments count]) {
+    if (cell == nil || indexPath.row >= ([self.comments count] - 1)*2) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         return cell;
     }
-    NSString* cellText = [NSString stringWithFormat:@"%ld %@", indexPath.row + 1, [[self.comments objectAtIndex:indexPath.row+1] body ]];
-    cell.textLabel.text= cellText;
+    [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    if (indexPath.row % 2 == 0) {
+        // author row
+        NSString* cellText = [[self.comments objectAtIndex:(indexPath.row+1)/2 + 1] author ];
+        cell.textLabel.text= cellText;
+        cell.textLabel.textColor = [UIColor blueColor];
+    }
+    else {
+        NSString* cellText = [[self.comments objectAtIndex:(indexPath.row+1) / 2] body ];
+        cell.textLabel.text= cellText;
+        cell.textLabel.textColor = [UIColor blackColor];
+    }
+    /*
     cell.indentationWidth = 15.0;
-    cell.indentationLevel = [[self.comments objectAtIndex:indexPath.row+1] depth ] - 1;
+    NSInteger indentLevel = [[self.comments objectAtIndex:indexPath.row+1] depth ] - 1;
+    cell.indentationLevel = indentLevel;
+     */
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.numberOfLines = 0;
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
-    
-    
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14.0];
+
+    CGFloat lineIndent = 15.0;
+    //NSLog(cellText);
+    //NSLog([NSString stringWithFormat:@"%ld", (long)cell.indentationLevel ]);
+    for (NSInteger i = 1; i <= cell.indentationLevel; i++) {
+        
+        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(cell.bounds.origin.x + lineIndent * i + 3.0, cell.bounds.origin.y, 1, cell.bounds.size.height)];
+        lineView.backgroundColor = [UIColor grayColor];
+        //lineView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleTopMargin;
+        [cell.contentView addSubview:lineView];
+        //NSLog(@"Added");
+    }
+    //NSLog([NSString stringWithFormat:@"%f", cell.contentView.bounds.size.height ]);
     return cell;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row >= [self.comments count]) {
-        return 44;
+    if (indexPath.row >= ([self.comments count]-1)*2 || indexPath.row % 2 == 0) {
+        return 24;
     }
-    NSString* cellText = [[self.comments objectAtIndex:indexPath.row + 1] body];
+    NSInteger row;
+    if (indexPath.row % 2 == 0) {
+        // author
+        row = (indexPath.row + 1)/2 + 1;
+    }
+    else {
+        row = (indexPath.row + 1)/2;
+    }
     
-    UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
-    CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
+    NSString* cellText = [[self.comments objectAtIndex:row] body];
+    
+    UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:14.0];
+    
+    NSInteger indentLevel = [[self.comments objectAtIndex:row] depth ] - 1;
+
+    CGSize constraintSize = CGSizeMake(self.tableView.frame.size.width - 30 - indentLevel * 15.0, MAXFLOAT);
     //CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:NSLineBreakByWordWrapping];
     //NSDictionary *attributes = @{NSFontAttributeName: cellFont, NSString.attributes.constrainedToSize: constraintSize, lineBreakMode:NSLineBreakByWordWrapping};
     
@@ -137,6 +173,21 @@
     
     CGSize labelSize = textRect.size;
     return labelSize.height + 10;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger row;
+    if (indexPath.row % 2 == 0) {
+        // author
+        row = (indexPath.row + 1)/2 + 1;
+    }
+    else {
+        row = (indexPath.row + 1)/2;
+    }
+    
+    
+    NSInteger indentLevel = [[self.comments objectAtIndex:row] depth ] - 1;
+    return indentLevel;
 }
 
 
