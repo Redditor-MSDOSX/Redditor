@@ -80,7 +80,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.comments count];
+    return [self.comments count] - 1;
 }
 
 
@@ -92,8 +92,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         return cell;
     }
-    NSString* cellText = [NSString stringWithFormat:@"%ld %@", indexPath.row + 1, [[self.comments objectAtIndex:indexPath.row] body ]];
+    NSString* cellText = [NSString stringWithFormat:@"%ld %@", indexPath.row + 1, [[self.comments objectAtIndex:indexPath.row+1] body ]];
     cell.textLabel.text= cellText;
+    cell.indentationWidth = 15.0;
+    cell.indentationLevel = [[self.comments objectAtIndex:indexPath.row+1] depth ] - 1;
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
@@ -106,7 +108,7 @@
     if (indexPath.row >= [self.comments count]) {
         return 44;
     }
-    NSString* cellText = [[self.comments objectAtIndex:indexPath.row] body];
+    NSString* cellText = [[self.comments objectAtIndex:indexPath.row + 1] body];
     
     UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
     CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
