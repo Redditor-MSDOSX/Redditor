@@ -14,6 +14,7 @@
 @property NSString* author;
 @property NSString* url;
 @property NSInteger created_utc;
+@property NSString* selfText;
 
 -(id) initWithDict: (NSDictionary*) dict;
 @end

@@ -18,6 +18,7 @@
         self.author = [dict objectForKey:@"author"];
         self.url = [dict objectForKey:@"url"];
         self.created_utc = [[dict objectForKey:@"created_utc"] intValue];
+        self.selfText = [dict objectForKey:@"selftext"];
     }
     return self;
     

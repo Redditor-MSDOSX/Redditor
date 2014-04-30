@@ -162,6 +162,34 @@
             </objects>
             <point key="canvasLocation" x="1129" y="-371"/>
         </scene>
+        <!--Post View Controller-->
+        <scene sceneID="dmK-Dd-Go6">
+            <objects>
+                <viewController storyboardIdentifier="PostViewController" id="79R-Yg-rtb" customClass="PostViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8U7-WX-P4R"/>
+                        <viewControllerLayoutGuide type="bottom" id="DwG-ah-U2r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="89b-TC-OMb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lP1-KB-m4p">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="lP1-KB-m4p" id="L7d-r3-iKF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b1M-pH-kY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1530" y="-371"/>
+        </scene>
         <!--Search List View Controller - Title-->
         <scene sceneID="HCN-cR-Fgi">
             <objects>
@@ -208,7 +236,7 @@
                     </prototypes>
                 </tableView>
             </objects>
-            <point key="canvasLocation" x="246" y="-861"/>
+            <point key="canvasLocation" x="1150" y="-1049"/>
         </scene>
         <!--Sidebar View Controller - Sidebar-->
         <scene sceneID="8EI-Ei-zax">

@@ -2,6 +2,7 @@
 #import "SWRevealViewController.h"
 #import "RedditorEngine.h"
 #import "SVPullToRefresh.h"
+#import "PostViewController.h"
 
 @interface ListViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -317,6 +318,24 @@
         [self.topTable reloadData];
     }
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Value Selected by user
+    RedditPost *selectedPost = [self.post objectAtIndex:indexPath.row];
+    //Initialize new viewController
+    
+    //PostViewController *viewController = [[PostViewController alloc] initWithNibName:@"PostViewController" bundle:nil];
+    UIStoryboard *sb = self.storyboard;
+    PostViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"PostViewController"];
+    //[sb ]
+    [viewController setPost: selectedPost];
+    //Pass selected value to a property declared in NewViewController
+    
+    //viewController.valueToPrint = selectedValue;
+    //Push new view to navigationController stack
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end

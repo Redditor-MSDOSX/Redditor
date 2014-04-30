@@ -11,11 +11,12 @@
 @interface RedditComment : NSObject
 @property NSString* name; // name of the "thing"
 @property NSString* author;
-@property NSInteger* ups;
-@property NSInteger* downs;
+@property NSInteger ups;
+@property NSInteger downs;
 @property NSString* body;
-@property NSInteger* created_utc;
+@property NSInteger created_utc;
 @property NSMutableArray* children;
+@property NSInteger depth;
 
 -(void) addChild: (RedditComment*) comment;
 -(id) initWithDict:(NSDictionary*) dict;
