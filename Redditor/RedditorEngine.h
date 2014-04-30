@@ -22,7 +22,7 @@
 -(NSArray*) retrieveControversialRedditPostsFromSubReddit: (NSString*) sub After: (NSString*) name;
 -(NSArray*) retrieveTopRedditPostsFromSubReddit: (NSString*) sub After: (NSString*) name;
 
--(RedditPost*) retrieveCommentTreeFromArticle: (NSString*) id FocusAt: (NSString*) root;
+-(RedditComment*) retrieveCommentTreeFromArticle: (NSString*) id FocusAt: (NSString*) root;
 
 -(BOOL) loginWithUsername: (NSString*) name andPassword: (NSString*) pwd;
 

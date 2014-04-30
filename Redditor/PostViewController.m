@@ -32,12 +32,10 @@
     self.title = [self.post title];
     RedditorEngine* eng = [[RedditorEngine alloc] init];
     NSString* id = [[self.post name] substringFromIndex:3];
-    NSLog(id);
+    //NSLog(id);
     RedditComment* commentTree = [eng retrieveCommentTreeFromArticle:id FocusAt:@""];
+    self.comments = [[NSMutableArray alloc ] init];
     self.comments = [self commentsAry: commentTree Depth:0];
-    for (RedditComment* comment in self.comments) {
-        NSLog(comment.body);
-    }
 }
 
 - (NSArray*) commentsAry : (RedditComment*) treeIn Depth: (NSInteger) depth{
@@ -45,12 +43,13 @@
     [treeIn setDepth: depth];
     [cAry addObject:treeIn];
     if (treeIn.children.count == 0) {
-        return [[NSArray alloc] init];
+        return cAry;
     }
     
     for (RedditComment* child in treeIn.children) {
         [cAry addObjectsFromArray:[self commentsAry: child Depth: depth + 1]];
     }
+    treeIn.children = nil;
     return cAry;
 }
 
