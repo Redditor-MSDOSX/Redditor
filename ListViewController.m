@@ -4,6 +4,7 @@
 #import "SVPullToRefresh.h"
 #import "PostViewController.h"
 #import "RedditAPIConnector.h"
+#import "LinkViewController.h"
 
 @interface ListViewController ()
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
@@ -359,6 +360,23 @@
     PostViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"PostViewController"];
     //[sb ]
     [viewController setPost: selectedPost];
+    //Pass selected value to a property declared in NewViewController
+    
+    //viewController.valueToPrint = selectedValue;
+    //Push new view to navigationController stack
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)tableView:(UITableView*)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    //Value Selected by user
+    RedditPost *selectedPost = [self.post objectAtIndex:indexPath.row];
+    //Initialize new viewController
+    
+    //PostViewController *viewController = [[PostViewController alloc] initWithNibName:@"PostViewController" bundle:nil];
+    UIStoryboard *sb = self.storyboard;
+    LinkViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"LinkViewController"];
+    //[sb ]
+    [viewController setUrl: selectedPost.url];
     //Pass selected value to a property declared in NewViewController
     
     //viewController.valueToPrint = selectedValue;

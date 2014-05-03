@@ -8,8 +8,10 @@
 
 #import "PostViewController.h"
 #import "RedditorEngine.h"
+#import "SVPullToRefresh.h"
 
 @interface PostViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSArray* comments;
@@ -31,12 +33,31 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = [self.post title];
+    [self.scrollView addSubview:self.tableView];
     self.indicator.center = self.view.center;
     [self.indicator setHidesWhenStopped:YES];
     [self.view addSubview:self.indicator];
     [self.indicator startAnimating];
     
     //[self.view addSubview:activityView];
+    __weak typeof(self) weakSelf = self; // weak self to prevent retain cycle
+    
+    //[self.view addSubview:activityView];
+    [self.tableView addPullToRefreshWithActionHandler:^(){
+        int64_t delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+
+        RedditorEngine* eng = [[RedditorEngine alloc] init];
+        NSString* id = [[self.post name] substringFromIndex:3];
+        //NSLog(id);
+        RedditComment* commentTree = [eng retrieveCommentTreeFromArticle:id FocusAt:@""];
+        weakSelf.comments = [[NSMutableArray alloc ] init];
+        weakSelf.comments = [weakSelf commentsAry: commentTree Depth:0];
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.pullToRefreshView stopAnimating];
+        });
+    }];
     
 }
 

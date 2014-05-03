@@ -39,6 +39,7 @@
 		9A83D38718EAB23A00A05C58 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A83D36F18EAB23A00A05C58 /* UIKit.framework */; };
 		9A83D38F18EAB23A00A05C58 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A83D38D18EAB23A00A05C58 /* InfoPlist.strings */; };
 		9A83D39118EAB23A00A05C58 /* RedditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A83D39018EAB23A00A05C58 /* RedditorTests.m */; };
+		9AB4BE021914E7D700C70313 /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB4BE011914E7D700C70313 /* LinkViewController.m */; };
 		9AD4DE981904EE8F00666D3C /* RedditComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4DE971904EE8F00666D3C /* RedditComment.m */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,8 @@
 		9A83D38C18EAB23A00A05C58 /* RedditorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RedditorTests-Info.plist"; sourceTree = "<group>"; };
 		9A83D38E18EAB23A00A05C58 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9A83D39018EAB23A00A05C58 /* RedditorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedditorTests.m; sourceTree = "<group>"; };
+		9AB4BE001914E7D700C70313 /* LinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkViewController.h; sourceTree = "<group>"; };
+		9AB4BE011914E7D700C70313 /* LinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkViewController.m; sourceTree = "<group>"; };
 		9AD4DE961904EE8F00666D3C /* RedditComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedditComment.h; sourceTree = "<group>"; };
 		9AD4DE971904EE8F00666D3C /* RedditComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedditComment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,6 +215,8 @@
 				0ACE6CFB190A060000E5E4DD /* SWRevealViewController.m */,
 				9A14FDD6190FA94000B8D141 /* SearchListViewController.h */,
 				9A14FDD7190FA94000B8D141 /* SearchListViewController.m */,
+				9AB4BE001914E7D700C70313 /* LinkViewController.h */,
+				9AB4BE011914E7D700C70313 /* LinkViewController.m */,
 			);
 			path = Redditor;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 				0AFE45711910A36E00C127B7 /* PostViewController.m in Sources */,
 				0ACE6D39190A3BB200E5E4DD /* MainViewController.m in Sources */,
 				0A7C0081190110B200556313 /* MainTableViewController.m in Sources */,
+				9AB4BE021914E7D700C70313 /* LinkViewController.m in Sources */,
 				0ACE6CFC190A060000E5E4DD /* SWRevealViewController.m in Sources */,
 				9A1BD6A818F4D59A00BF468B /* RedditPost.m in Sources */,
 				9A83D37C18EAB23A00A05C58 /* AppDelegate.m in Sources */,
