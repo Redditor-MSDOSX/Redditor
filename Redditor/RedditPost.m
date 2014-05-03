@@ -19,6 +19,7 @@
         self.url = [dict objectForKey:@"url"];
         self.created_utc = [[dict objectForKey:@"created_utc"] intValue];
         self.selfText = [dict objectForKey:@"selftext"];
+        self.is_self = [dict objectForKey:@"is_self"];
     }
     return self;
     

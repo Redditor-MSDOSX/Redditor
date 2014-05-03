@@ -121,7 +121,7 @@
     /* try to make an API call */
     NSData* data = nil;
     if ([root isEqualToString:@""]) {
-        data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/comments/%@.json?depth=10&limit=2000", id]]];
+        data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/comments/%@.json?depth=10&limit=500", id]]];
     }
     else {
         data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/comments/%@.json?comment=%@", id, root]]];

@@ -249,9 +249,9 @@
         return cell;
     }
     NSString* cellText = [[self.post objectAtIndex:indexPath.row] title];
-    cell.textLabel.text= [NSString stringWithFormat:@"%d %@",indexPath.row + 1, cellText ];
-    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.text= cellText;
+    cell.textLabel.lineBreakMode = UILineBreakModeTailTruncation;
+    cell.textLabel.numberOfLines = 3;
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
     
     
@@ -259,6 +259,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    /*
     if (indexPath.row >= [self.post count]) {
         return 44;
     }
@@ -276,6 +277,8 @@
     
     CGSize labelSize = textRect.size;
     return labelSize.height + 10;
+     */
+    return 70;
     
 }
 - (IBAction)tabChanged:(id)sender {
@@ -349,7 +352,7 @@
     
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView*)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     //Value Selected by user
     RedditPost *selectedPost = [self.post objectAtIndex:indexPath.row];
@@ -367,21 +370,34 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
-- (void)tableView:(UITableView*)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //Value Selected by user
     RedditPost *selectedPost = [self.post objectAtIndex:indexPath.row];
     //Initialize new viewController
     
     //PostViewController *viewController = [[PostViewController alloc] initWithNibName:@"PostViewController" bundle:nil];
     UIStoryboard *sb = self.storyboard;
-    LinkViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"LinkViewController"];
-    //[sb ]
-    [viewController setUrl: selectedPost.url];
-    //Pass selected value to a property declared in NewViewController
-    
-    //viewController.valueToPrint = selectedValue;
-    //Push new view to navigationController stack
-    [self.navigationController pushViewController:viewController animated:YES];
+    if (!selectedPost.is_self.boolValue) {
+        LinkViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"LinkViewController"];
+        //[sb ]
+        [viewController setUrl: selectedPost.url];
+        viewController.title = selectedPost.title;
+        //Pass selected value to a property declared in NewViewController
+        
+        //viewController.valueToPrint = selectedValue;
+        //Push new view to navigationController stack
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+    else {
+        PostViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"PostViewController"];
+        //[sb ]
+        [viewController setPost: selectedPost];
+        //Pass selected value to a property declared in NewViewController
+        
+        //viewController.valueToPrint = selectedValue;
+        //Push new view to navigationController stack
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
 }
 
 @end

@@ -7,14 +7,15 @@
 @interface RedditPost : NSObject
 @property NSString* title;
 @property NSString* thumbnail;
-@property NSInteger* ups;
-@property NSInteger* downs;
+@property NSInteger ups;
+@property NSInteger downs;
 @property NSString* name; // name of the "thing"
 @property NSString* permalink;
 @property NSString* author;
 @property NSString* url;
 @property NSInteger created_utc;
 @property NSString* selfText;
+@property NSNumber* is_self;
 
 -(id) initWithDict: (NSDictionary*) dict;
 @end

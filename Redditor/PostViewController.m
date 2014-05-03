@@ -110,18 +110,42 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return ([self.comments count] - 1)*2;
+    if (section == 1)
+        return ([self.comments count] - 1)*2;
+    return 2;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 0) {
+        static NSString *CellIdentifier =@"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        if (cell == nil || indexPath.row >= ([self.comments count] - 1)*2) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            return cell;
+        }
+        [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        cell.textLabel.numberOfLines = 0;
+        if (indexPath.row == 0) {
+            cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:15.0];
+            cell.textLabel.text = self.post.title;
+        }
+        else {
+            cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:15.0];
+            cell.textLabel.text = self.post.selfText;
+        }
+        cell.textLabel.textColor = [UIColor blackColor];
+        return cell;
+        
+    }
     static NSString *CellIdentifier =@"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     if (cell == nil || indexPath.row >= ([self.comments count] - 1)*2) {
@@ -165,6 +189,30 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        NSString* cellText;
+        UIFont* cellFont;
+        if (indexPath.row == 0) {
+            cellText = self.post.title;
+            cellFont = [UIFont fontWithName:@"Helvetica-Bold" size:15.0];
+        }
+        else {
+            cellText = self.post.selfText;
+            if ([cellText isEqualToString:@""]) {
+                return 0;
+            }
+            cellFont = [UIFont fontWithName:@"Helvetica" size:15.0];
+        }
+        CGSize constraintSize = CGSizeMake(self.tableView.frame.size.width - 30, MAXFLOAT);
+        CGRect textRect = [cellText boundingRectWithSize: constraintSize
+                                                 options:NSStringDrawingUsesLineFragmentOrigin
+                                              attributes:@{NSFontAttributeName: cellFont}
+                                                 context:nil];
+        
+        CGSize labelSize = textRect.size;
+        return labelSize.height + 10;
+
+    }
     if (indexPath.row >= ([self.comments count]-1)*2 || indexPath.row % 2 == 0) {
         return 24;
     }
@@ -197,6 +245,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 0;
+    }
     NSInteger row;
     if (indexPath.row % 2 == 0) {
         // author
@@ -209,6 +260,14 @@
     
     NSInteger indentLevel = [[self.comments objectAtIndex:row] depth ] - 1;
     return indentLevel;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"Original thread";
+    }
+    return @"Comments";
 }
 
 
