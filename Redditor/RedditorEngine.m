@@ -121,7 +121,7 @@
     /* try to make an API call */
     NSData* data = nil;
     if ([root isEqualToString:@""]) {
-        data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/comments/%@.json?depth=10&limit=500", id]]];
+        data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/comments/%@.json?depth=10&limit=200", id]]];
     }
     else {
         data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/comments/%@.json?comment=%@", id, root]]];
@@ -161,7 +161,7 @@
  try to log in user
  returns Yes/No (sucessful or not)
  */
--(BOOL) loginWithUsername:(NSString *)name andPassword:(NSString *)pwd {
++(BOOL) loginWithUsername:(NSString *)name andPassword:(NSString *)pwd {
     NSData* data = nil;
     if ([name isEqualToString:@""] || [pwd isEqualToString:@""]) {
         return NO;
@@ -204,7 +204,7 @@
     }
 }
 
--(void) logoutUser {
++(void) logoutUser {
     NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     NSArray *cookies = [cookieStorage cookiesForURL:[NSURL URLWithString:@"http://www.reddit.com"]];
     for (NSHTTPCookie *cookie in cookies) {
@@ -213,7 +213,7 @@
     }
 }
 
--(BOOL) checkIfLoggedIn {
++(BOOL) checkIfLoggedIn {
     NSString* modHash =[RedditAPIConnector getModhash];
     if (modHash != nil && ![modHash isEqualToString:@""]) {
         //NSLog(modHash);

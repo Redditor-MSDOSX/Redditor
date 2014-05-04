@@ -24,11 +24,11 @@
 
 -(RedditComment*) retrieveCommentTreeFromArticle: (NSString*) id FocusAt: (NSString*) root;
 
--(BOOL) loginWithUsername: (NSString*) name andPassword: (NSString*) pwd;
++(BOOL) loginWithUsername: (NSString*) name andPassword: (NSString*) pwd;
 
--(void) logoutUser;
++(void) logoutUser;
 
--(BOOL) checkIfLoggedIn;
++(BOOL) checkIfLoggedIn;
 
 -(NSString*) getIdenForCaptcha;
 

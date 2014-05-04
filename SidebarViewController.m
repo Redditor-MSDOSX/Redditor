@@ -88,8 +88,8 @@
         destViewController.title = [(UISearchBar*)sender text];
         
     }
-    else {
-        ((ListViewController*)dest).sub = [menuItems objectAtIndex:indexPath.row];
+    else if ([destViewController respondsToSelector:@selector(setSub:)]){
+        [((ListViewController*)destViewController) setSub: [menuItems objectAtIndex:indexPath.row]];
     }
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
         SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
