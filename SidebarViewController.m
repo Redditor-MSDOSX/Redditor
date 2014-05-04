@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
 
-    menuItems = @[@"s_bar",@"settings",@"account",@"title",@"front_head", @"pics", @"funny", @"gaming", @"askreddit", @"worldnews",@"news"];
+    menuItems = @[@"s_bar",@"settings",@"account",@"title",@"front_head", @"pics", @"funny", @"gaming", @"askreddit", @"worldnews",@"news",@"custom"];
     
 }
 
@@ -88,6 +88,11 @@
         destViewController.title = [(UISearchBar*)sender text];
         
     }
+    else if ([[segue identifier] isEqualToString:@"custom_segue"]){
+        UITextField* field = (UITextField*)[self.view viewWithTag:314]; // can't outlet textfield in prototype cell, use tag=314 instead
+        ((ListViewController*)destViewController).title = field.text;
+        [((ListViewController*)destViewController) setSub:field.text];
+    }
     else if ([destViewController respondsToSelector:@selector(setSub:)]){
         [((ListViewController*)destViewController) setSub: [menuItems objectAtIndex:indexPath.row]];
     }
@@ -107,7 +112,31 @@
 
 -(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     [searchBar endEditing:YES];
-    [self performSegueWithIdentifier:@"search_segue" sender:searchBar];
+    if (searchBar.tag == 313) {
+        // search post
+        [self performSegueWithIdentifier:@"search_segue" sender:searchBar];
+    }
+    else if (searchBar.tag == 314) {
+        // serach subreddit
+        [self performSegueWithIdentifier:@"custom_segue" sender:searchBar];
+    }
+    
+}
+
+
+
+
+/* trying to hide keyboard */
+- (void) tableView: (UITableView*) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [[self.view viewWithTag:313] resignFirstResponder];
+    [[self.view viewWithTag:314] resignFirstResponder];
+    //[self.view endEditing:YES];
+}
+
+- (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [[self.view viewWithTag:313] resignFirstResponder];
+    [[self.view viewWithTag:314] resignFirstResponder];
+    //[self.view endEditing:YES];
 }
 
 @end

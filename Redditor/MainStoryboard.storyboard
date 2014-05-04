@@ -317,7 +317,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search Posts" translatesAutoresizingMaskIntoConstraints="NO" id="8e5-Wj-IWT">
+                                        <searchBar tag="313" contentMode="redraw" fixedFrame="YES" placeholder="Search Posts" translatesAutoresizingMaskIntoConstraints="NO" id="8e5-Wj-IWT">
                                             <rect key="frame" x="0.0" y="0.0" width="260" height="44"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -559,6 +559,30 @@
                                     <segue destination="tiA-fo-4jg" kind="custom" identifier="showPhoto" customClass="SWRevealViewControllerSegue" id="AIW-Sk-7FH"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="custom" id="W4p-Vc-XJV">
+                                <rect key="frame" x="0.0" y="506" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W4p-Vc-XJV" id="4zO-Mh-esh">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <searchBar tag="314" contentMode="redraw" fixedFrame="YES" text="" placeholder="Custom subreddit!" translatesAutoresizingMaskIntoConstraints="NO" id="xzv-8W-FZT">
+                                            <rect key="frame" x="0.0" y="-1" width="260" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="Meq-yH-YF6" id="7CW-s5-bY9"/>
+                                            </connections>
+                                        </searchBar>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="tiA-fo-4jg" kind="custom" identifier="custom_segue" customClass="SWRevealViewControllerSegue" id="d9L-lT-U2p"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
@@ -754,6 +778,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="yHL-kF-6vD"/>
+        <segue reference="d9L-lT-U2p"/>
     </inferredMetricsTieBreakers>
 </document>

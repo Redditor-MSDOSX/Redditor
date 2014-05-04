@@ -92,6 +92,7 @@
     [self.container addSubview:self.loggedOutView];
 }
 
+/* trying to hide keyboard */
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return NO;
