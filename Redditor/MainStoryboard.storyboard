@@ -52,7 +52,6 @@
                             <constraint firstAttribute="centerX" secondItem="qkm-W3-N09" secondAttribute="centerX" id="kwr-CZ-7TE"/>
                             <constraint firstAttribute="centerX" secondItem="ecc-ti-4VY" secondAttribute="centerX" id="pvs-jl-ErL"/>
                             <constraint firstItem="ecc-ti-4VY" firstAttribute="top" secondItem="Wrc-zz-9TK" secondAttribute="bottom" constant="8" id="rWh-MO-uXR"/>
-                            <constraint firstItem="ecc-ti-4VY" firstAttribute="top" secondItem="Wrc-zz-9TK" secondAttribute="bottom" id="vMe-Lo-f5D"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Front Page" id="gfA-bW-XrT">
