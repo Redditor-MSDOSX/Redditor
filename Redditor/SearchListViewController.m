@@ -118,6 +118,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         return cell;
     }
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
     NSString* cellText = [[self.post objectAtIndex:indexPath.row] title ];
     cell.textLabel.text= cellText;
     cell.textLabel.lineBreakMode = UILineBreakModeTailTruncation;

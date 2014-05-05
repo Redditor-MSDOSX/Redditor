@@ -20,6 +20,7 @@
         self.created_utc = [[dict objectForKey:@"created_utc"] intValue];
         self.selfText = [dict objectForKey:@"selftext"];
         self.is_self = [dict objectForKey:@"is_self"];
+        self.num_comments = [[dict objectForKey:@"num_comments"] intValue];
     }
     return self;
     

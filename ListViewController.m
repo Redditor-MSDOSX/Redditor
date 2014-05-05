@@ -6,6 +6,7 @@
 #import "RedditAPIConnector.h"
 #import "LinkViewController.h"
 #import "AddLinkViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ListViewController ()
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
@@ -255,11 +256,57 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         return cell;
     }
-    NSString* cellText = [[self.post objectAtIndex:indexPath.row] title];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    //[cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    RedditPost* postToPrint = [self.post objectAtIndex:indexPath.row];
+    
+    /* update the accessory view */
+    UIButton* num_comments = [[UIButton alloc] init];
+    
+    [num_comments setTitle: [NSString stringWithFormat:@"%ld", postToPrint.num_comments] forState:UIControlStateNormal];
+    [num_comments setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    num_comments.titleLabel.textAlignment= NSTextAlignmentCenter;
+    num_comments.frame = CGRectMake(cell.accessoryView.frame.origin.x, cell.accessoryView.frame.origin.y, 40, 25);
+    num_comments.layer.borderColor = [[[UIColor grayColor] colorWithAlphaComponent:0.5] CGColor];
+    num_comments.layer.borderWidth = 1.0;
+    num_comments.layer.cornerRadius = 5;
+    [num_comments.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
+    cell.accessoryView = num_comments;
+    
+    /* add click event to button */
+    [num_comments addTarget: self
+               action: @selector(accessoryButtonTapped:withEvent:)
+     forControlEvents: UIControlEventTouchUpInside];
+    
+    /* update the textlabel */
+    NSString* cellText = [postToPrint title];
+    
     cell.textLabel.text= cellText;
-    cell.textLabel.lineBreakMode = UILineBreakModeTailTruncation;
+    cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     cell.textLabel.numberOfLines = 3;
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:15.0];
+    
+    /* add the post info */
+    [[cell viewWithTag:3] removeFromSuperview];
+    UITextField* info = [[UITextField alloc] init];
+    [info setEnabled:NO];
+    NSString* infoString = [NSString stringWithFormat:@"Ups: %ld Downs: %ld", (long)postToPrint.ups, postToPrint.downs];
+    info.text = infoString;
+    info.tag = 3;
+    info.textColor = [UIColor grayColor];
+    info.translatesAutoresizingMaskIntoConstraints = NO;
+    [info setFont:[UIFont systemFontOfSize:13.0]];
+    [cell.contentView addSubview:info];
+    
+    //[cell addConstraint:[NSLayoutConstraint constraintWithItem:info attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:cell.textLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:-8]];
+    
+    //[cell addConstraint:[NSLayoutConstraint constraintWithItem:info attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:cell.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:20]];
+    
+    [cell addConstraint:[NSLayoutConstraint constraintWithItem:info attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:cell.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:-4]];
+    
+    [cell addConstraint:[NSLayoutConstraint constraintWithItem:info attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:cell.textLabel attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
+    
+    
     
     
     return cell;
@@ -285,7 +332,7 @@
      CGSize labelSize = textRect.size;
      return labelSize.height + 10;
      */
-    return 70;
+    return 90;
     
 }
 - (IBAction)tabChanged:(id)sender {
@@ -411,6 +458,47 @@
     if ([segue.identifier isEqualToString:@"add_segue"]) {
         AddLinkViewController* destViewController = (AddLinkViewController*)segue.destinationViewController;
         destViewController.sub = self.sub;
+    }
+}
+
+/* a custom accessory view won't trigger accessoryButonTappedForRowWithIndexPath on its own, so we need call it manually */
+- (void) accessoryButtonTapped: (UIControl *) button withEvent: (UIEvent *) event
+{
+    NSInteger page = [self.bar selectedSegmentIndex];
+    if (page == 0) {
+        NSIndexPath * indexPath = [self.hotTable indexPathForRowAtPoint: [[[event touchesForView: button] anyObject] locationInView: self.hotTable]];
+        if ( indexPath == nil )
+            return;
+    
+        [self.hotTable.delegate tableView: self.hotTable accessoryButtonTappedForRowWithIndexPath: indexPath];
+    }
+    else if (page == 1) {
+        NSIndexPath * indexPath = [self.theNewTable indexPathForRowAtPoint: [[[event touchesForView: button] anyObject] locationInView: self.theNewTable]];
+        if ( indexPath == nil )
+            return;
+        
+        [self.theNewTable.delegate tableView: self.theNewTable accessoryButtonTappedForRowWithIndexPath: indexPath];
+    }
+    else if (page == 2) {
+        NSIndexPath * indexPath = [self.risingTable indexPathForRowAtPoint: [[[event touchesForView: button] anyObject] locationInView: self.risingTable]];
+        if ( indexPath == nil )
+            return;
+        
+        [self.risingTable.delegate tableView: self.risingTable accessoryButtonTappedForRowWithIndexPath: indexPath];
+    }
+    else if (page == 3) {
+        NSIndexPath * indexPath = [self.controversialTable indexPathForRowAtPoint: [[[event touchesForView: button] anyObject] locationInView: self.controversialTable]];
+        if ( indexPath == nil )
+            return;
+        
+        [self.controversialTable.delegate tableView: self.controversialTable accessoryButtonTappedForRowWithIndexPath: indexPath];
+    }
+    else if (page == 4) {
+        NSIndexPath * indexPath = [self.topTable indexPathForRowAtPoint: [[[event touchesForView: button] anyObject] locationInView: self.topTable]];
+        if ( indexPath == nil )
+            return;
+        
+        [self.topTable.delegate tableView: self.topTable accessoryButtonTappedForRowWithIndexPath: indexPath];
     }
 }
 

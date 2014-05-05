@@ -16,6 +16,7 @@
 @property NSInteger created_utc;
 @property NSString* selfText;
 @property NSNumber* is_self;
+@property NSInteger num_comments;
 
 -(id) initWithDict: (NSDictionary*) dict;
 @end
