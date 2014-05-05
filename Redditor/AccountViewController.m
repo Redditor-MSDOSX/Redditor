@@ -75,7 +75,7 @@
     }
     if ([RedditorEngine checkIfLoggedIn]) {
         [self.loggedOutView removeFromSuperview];
-        self.username.text = [RedditorEngine getUsername];
+        self.userName.text = [RedditorEngine getUsername]; // update the username after logged in.
         [self.container addSubview: self.loggedInView];
         [self.loggedInView setNeedsDisplay];
     }
