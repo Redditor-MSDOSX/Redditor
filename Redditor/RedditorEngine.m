@@ -308,4 +308,73 @@
 +(NSString*) getModhash {
     return [RedditAPIConnector getModhash];
 }
+
+-(BOOL) addLinkWith:(NSDictionary*)data{
+    NSURL* url = [NSURL URLWithString:@"http://www.reddit.com/api/submit"];
+    NSMutableDictionary* header = [[NSMutableDictionary alloc] init];
+    NSString* modhash = [RedditorEngine getModhash];
+    [header setObject:modhash forKey:@"X-Modhash"];
+    NSData* response = [RedditAPIConnector makePostRequestTo:url WithData:data andHeaders:header isLogin:NO];
+    NSError* error;
+    NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
+    if (error != nil) {
+        NSLog(@"Error parsing JSON object!");
+        return NO;
+    }
+    /*
+     for (NSString* key in [[dict objectForKey:@"json" ] allKeys]) {
+     NSLog([[dict objectForKey:@"json" ] objectForKey:key]);
+     }*/
+    if ([dict valueForKey:@"json"] == nil) {
+        return NO;
+    }
+    if ([[dict objectForKey:@"json"] valueForKey:@"data"] == nil) {
+        return NO;
+    }
+    if ([[[dict objectForKey:@"json"] objectForKey:@"data"] valueForKey:@"id"] == nil) {
+        return NO;
+    }
+    return YES;
+}
+
+-(BOOL) addTextWith:(NSDictionary *)data{
+    NSURL* url = [NSURL URLWithString:@"http://www.reddit.com/api/submit"];
+    NSMutableDictionary* header = [[NSMutableDictionary alloc] init];
+    NSString* modhash = [RedditorEngine getModhash];
+    [header setObject:modhash forKey:@"X-Modhash"];
+    NSData* response = [RedditAPIConnector makePostRequestTo:url WithData:data andHeaders:header isLogin:NO];
+    NSError* error;
+    NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
+    if (error != nil) {
+        NSLog(@"Error parsing JSON object!");
+        return NO;
+    }
+    /*
+    for (NSString* key in [[dict objectForKey:@"json" ] allKeys]) {
+        NSLog([[dict objectForKey:@"json" ] objectForKey:key]);
+    }*/
+    if ([dict valueForKey:@"json"] == nil) {
+        return NO;
+    }
+    if ([[dict objectForKey:@"json"] valueForKey:@"data"] == nil) {
+        return NO;
+    }
+    if ([[[dict objectForKey:@"json"] objectForKey:@"data"] valueForKey:@"id"] == nil) {
+        return NO;
+    }
+    return YES;
+}
+
+-(NSString*) nameOfSubreddit:(NSString *)sub {
+    NSString* url = [NSString stringWithFormat:@"http://www.reddit.com/r/%@/about.json", sub];
+    NSData* response = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:url]];
+    NSError* error;
+    NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
+    
+    if (error!= nil) {
+        NSLog(@"Error parsing JSON object!");
+        return @"";
+    }
+    return [[dict objectForKey:@"data"] objectForKey:@"name"];
+}
 @end

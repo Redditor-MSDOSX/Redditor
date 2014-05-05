@@ -42,7 +42,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vCM-b0-uBv" kind="push" id="9JP-9J-sr2"/>
+                                    <segue destination="vCM-b0-uBv" kind="push" identifier="add_segue" id="9JP-9J-sr2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -63,6 +63,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addButton" destination="ecc-ti-4VY" id="EPz-0p-BJ8"/>
                         <outlet property="bar" destination="qkm-W3-N09" id="Yti-rh-Wfo"/>
                         <outlet property="controversialTable" destination="MMh-Vt-BAT" id="khU-VJ-kRL"/>
                         <outlet property="hotTable" destination="Cx2-Zj-2bd" id="3u5-rA-4dW"/>
@@ -259,35 +260,91 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SHd-oV-YaT">
-                                <rect key="frame" x="100" y="416" width="120" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QGm-ts-PIf">
-                                <rect key="frame" x="92" y="480" width="136" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8G1-We-hcO">
-                                <rect key="frame" x="132" y="518" width="57" height="30"/>
+                                <rect key="frame" x="132" y="297" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitButtonClicked:" destination="vCM-b0-uBv" eventType="touchUpInside" id="WMw-fG-loz"/>
+                                </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NL9-3k-ng2">
+                                <rect key="frame" x="121" y="77" width="79" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Link"/>
+                                    <segment title="Text"/>
+                                </segments>
+                                <connections>
+                                    <action selector="selectionIndexChanged:" destination="vCM-b0-uBv" eventType="valueChanged" id="6aA-gi-QVX"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QGm-ts-PIf">
+                                <rect key="frame" x="92" y="259" width="136" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vCM-b0-uBv" id="9Lj-5j-s8P"/>
+                                </connections>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SHd-oV-YaT">
+                                <rect key="frame" x="100" y="201" width="120" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jp5-wV-O2t">
+                                <rect key="frame" x="61" y="151" width="198" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vCM-b0-uBv" id="fde-io-KgJ"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvi-UL-0jy">
+                                <rect key="frame" x="20" y="155" width="39" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eU5-gc-bdC">
+                                <rect key="frame" x="20" y="116" width="33" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QXI-Ku-Fsg">
+                                <rect key="frame" x="61" y="113" width="198" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vCM-b0-uBv" id="wRJ-vQ-6sM"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gla-ud-hbw" firstAttribute="top" secondItem="8G1-We-hcO" secondAttribute="bottom" constant="20" id="6bu-SI-YCM"/>
-                            <constraint firstItem="8G1-We-hcO" firstAttribute="top" secondItem="QGm-ts-PIf" secondAttribute="bottom" constant="8" id="Yb6-oz-0RP"/>
-                            <constraint firstItem="QGm-ts-PIf" firstAttribute="top" secondItem="SHd-oV-YaT" secondAttribute="bottom" constant="14" id="v9z-18-XRN"/>
+                            <constraint firstItem="QGm-ts-PIf" firstAttribute="top" secondItem="SHd-oV-YaT" secondAttribute="bottom" constant="16" id="4pR-1f-2Jz"/>
+                            <constraint firstItem="SHd-oV-YaT" firstAttribute="top" secondItem="Jp5-wV-O2t" secondAttribute="bottom" constant="8" id="5yr-ef-BEd"/>
+                            <constraint firstItem="NL9-3k-ng2" firstAttribute="top" secondItem="FKn-2t-KeW" secondAttribute="bottom" constant="10" id="A4F-xE-8UM"/>
+                            <constraint firstItem="8G1-We-hcO" firstAttribute="top" secondItem="QGm-ts-PIf" secondAttribute="bottom" constant="14" id="FrX-BZ-iDN"/>
+                            <constraint firstItem="Jp5-wV-O2t" firstAttribute="top" secondItem="QXI-Ku-Fsg" secondAttribute="bottom" constant="8" id="ao1-bd-LCx"/>
+                            <constraint firstItem="QXI-Ku-Fsg" firstAttribute="top" secondItem="NL9-3k-ng2" secondAttribute="bottom" constant="8" id="vdJ-KS-fqF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2C0-rD-K4V"/>
                     <connections>
                         <outlet property="captcha" destination="SHd-oV-YaT" id="mjx-ED-fua"/>
+                        <outlet property="captchaField" destination="QGm-ts-PIf" id="Q9L-Ta-lJh"/>
                         <outlet property="progress" destination="Xi0-kK-Z95" id="1Hl-9p-KQz"/>
+                        <outlet property="segment" destination="NL9-3k-ng2" id="fpg-UD-226"/>
+                        <outlet property="titleField" destination="QXI-Ku-Fsg" id="byk-xv-PZa"/>
+                        <outlet property="urlTextField" destination="Jp5-wV-O2t" id="pMj-dC-4hs"/>
+                        <outlet property="urlTextLabel" destination="bvi-UL-0jy" id="wea-WB-zOm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KE1-dS-Hde" userLabel="First Responder" sceneMemberID="firstResponder"/>

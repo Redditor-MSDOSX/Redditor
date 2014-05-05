@@ -69,18 +69,21 @@
         NSInteger index = [(UISegmentedControl*)sender selectedSegmentIndex];
         if (index == 0) {
             ((ListViewController*)dest).sub = @"";
+            ((ListViewController*)dest).displayAddButton = NO;
             destViewController.title = @"Front Page";
         }
         else if (index == 1 ) {
             ((ListViewController*)dest).sub = @"all";
+            ((ListViewController*)dest).displayAddButton = NO;
             destViewController.title = @"All";
         }
         else {
             /* random page */
-            
+            ((ListViewController*)dest).displayAddButton = YES;
             ((ListViewController*)destViewController).title = @"";
             ((ListViewController*)destViewController).isRandom = YES;
         }
+        
        
     }
     else if ([[segue identifier] isEqualToString:@"search_segue"]){
@@ -92,9 +95,11 @@
         UITextField* field = (UITextField*)[self.view viewWithTag:314]; // can't outlet textfield in prototype cell, use tag=314 instead
         ((ListViewController*)destViewController).title = field.text;
         [((ListViewController*)destViewController) setSub:field.text];
+        ((ListViewController*)dest).displayAddButton = YES;
     }
     else if ([destViewController respondsToSelector:@selector(setSub:)]){
         [((ListViewController*)destViewController) setSub: [menuItems objectAtIndex:indexPath.row]];
+        ((ListViewController*)dest).displayAddButton = YES;
     }
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
         SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;

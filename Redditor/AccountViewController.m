@@ -75,8 +75,9 @@
     }
     if ([RedditorEngine checkIfLoggedIn]) {
         [self.loggedOutView removeFromSuperview];
-        [self.container addSubview: self.loggedInView];
         self.username.text = [RedditorEngine getUsername];
+        [self.container addSubview: self.loggedInView];
+        [self.loggedInView setNeedsDisplay];
     }
     else {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Failed!"

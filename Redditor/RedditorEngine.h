@@ -39,5 +39,11 @@
 +(NSString*) getUsername;
 
 +(NSString*) getModhash;
+
+-(BOOL) addLinkWith: (NSDictionary*) data;
+
+-(BOOL) addTextWith: (NSDictionary*) data;
+
+-(NSString*) nameOfSubreddit: (NSString*) sub;
 @end
 

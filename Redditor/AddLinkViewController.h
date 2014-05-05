@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddLinkViewController : UIViewController <UIAlertViewDelegate>
-
+@interface AddLinkViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate>
+@property NSString* sub;
 @end
