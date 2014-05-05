@@ -36,6 +36,8 @@
 
 -(NSArray*) searchPostsWithKeyword: (NSString*) keyword InSubReddit:(NSString *)sub After: (NSString*) name;
 
++(NSString*) getUsername;
 
++(NSString*) getModhash;
 @end
 

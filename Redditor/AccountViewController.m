@@ -41,6 +41,10 @@
     [self.container addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     if ([RedditorEngine checkIfLoggedIn]) {
+        NSString* cellText = [RedditorEngine getUsername];
+        
+        
+        self.userName.text = cellText;
         [self.container addSubview:self.loggedInView];
     }
     else {
@@ -72,6 +76,7 @@
     if ([RedditorEngine checkIfLoggedIn]) {
         [self.loggedOutView removeFromSuperview];
         [self.container addSubview: self.loggedInView];
+        self.username.text = [RedditorEngine getUsername];
     }
     else {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Failed!"

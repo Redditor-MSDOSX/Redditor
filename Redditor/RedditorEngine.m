@@ -285,4 +285,27 @@
     return returnData;
 }
 
+
++(NSString*) getUsername {
+    NSData* data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:@"http://www.reddit.com/api/me.json"]];
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    
+    if (error != nil) {
+        NSLog(@"Error parsing JSON response");
+        return @"";
+    }
+    else {
+        if ([[json objectForKey:@"data"] objectForKey:@"name"] != nil) {
+            return [[json objectForKey:@"data"] objectForKey:@"name"];
+        }
+        else {
+            return @"";
+        }
+    }
+}
+
++(NSString*) getModhash {
+    return [RedditAPIConnector getModhash];
+}
 @end

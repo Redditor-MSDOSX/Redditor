@@ -42,6 +42,7 @@
 		9A83D39118EAB23A00A05C58 /* RedditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A83D39018EAB23A00A05C58 /* RedditorTests.m */; };
 		9AB4BE021914E7D700C70313 /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB4BE011914E7D700C70313 /* LinkViewController.m */; };
 		9AD4DE981904EE8F00666D3C /* RedditComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4DE971904EE8F00666D3C /* RedditComment.m */; };
+		9AFCE43019171FB6004835CD /* AddLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFCE42F19171FB6004835CD /* AddLinkViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,8 @@
 		9AB4BE011914E7D700C70313 /* LinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkViewController.m; sourceTree = "<group>"; };
 		9AD4DE961904EE8F00666D3C /* RedditComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedditComment.h; sourceTree = "<group>"; };
 		9AD4DE971904EE8F00666D3C /* RedditComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedditComment.m; sourceTree = "<group>"; };
+		9AFCE42E19171FB6004835CD /* AddLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddLinkViewController.h; sourceTree = "<group>"; };
+		9AFCE42F19171FB6004835CD /* AddLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddLinkViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +225,8 @@
 				9AB4BE011914E7D700C70313 /* LinkViewController.m */,
 				9A8369621915E8700048FB2C /* AccountViewController.h */,
 				9A8369631915E8700048FB2C /* AccountViewController.m */,
+				9AFCE42E19171FB6004835CD /* AddLinkViewController.h */,
+				9AFCE42F19171FB6004835CD /* AddLinkViewController.m */,
 			);
 			path = Redditor;
 			sourceTree = "<group>";
@@ -358,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A1BD6A518F4D4DB00BF468B /* RedditorEngine.m in Sources */,
+				9AFCE43019171FB6004835CD /* AddLinkViewController.m in Sources */,
 				9A1BD6AB18F4DC1500BF468B /* RedditAPIConnector.m in Sources */,
 				0ACE6D38190A3BB200E5E4DD /* ListViewController.m in Sources */,
 				0ACE6D3B190A3BB200E5E4DD /* SidebarViewController.m in Sources */,

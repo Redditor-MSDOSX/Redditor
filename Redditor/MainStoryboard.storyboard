@@ -41,6 +41,9 @@
                                 <state key="normal" title="Add new link!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="vCM-b0-uBv" kind="push" id="9JP-9J-sr2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -243,6 +246,57 @@
                 </activityIndicatorView>
             </objects>
             <point key="canvasLocation" x="1533" y="-347"/>
+        </scene>
+        <!--Add Link View Controller-->
+        <scene sceneID="6Gh-yW-c5q">
+            <objects>
+                <viewController id="vCM-b0-uBv" customClass="AddLinkViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FKn-2t-KeW"/>
+                        <viewControllerLayoutGuide type="bottom" id="gla-ud-hbw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1PU-Nq-dBv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SHd-oV-YaT">
+                                <rect key="frame" x="100" y="416" width="120" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QGm-ts-PIf">
+                                <rect key="frame" x="92" y="480" width="136" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8G1-We-hcO">
+                                <rect key="frame" x="132" y="518" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gla-ud-hbw" firstAttribute="top" secondItem="8G1-We-hcO" secondAttribute="bottom" constant="20" id="6bu-SI-YCM"/>
+                            <constraint firstItem="8G1-We-hcO" firstAttribute="top" secondItem="QGm-ts-PIf" secondAttribute="bottom" constant="8" id="Yb6-oz-0RP"/>
+                            <constraint firstItem="QGm-ts-PIf" firstAttribute="top" secondItem="SHd-oV-YaT" secondAttribute="bottom" constant="14" id="v9z-18-XRN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2C0-rD-K4V"/>
+                    <connections>
+                        <outlet property="captcha" destination="SHd-oV-YaT" id="mjx-ED-fua"/>
+                        <outlet property="progress" destination="Xi0-kK-Z95" id="1Hl-9p-KQz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KE1-dS-Hde" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="Xi0-kK-Z95">
+                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
+            </objects>
+            <point key="canvasLocation" x="1376" y="394"/>
         </scene>
         <!--Link View Controller-->
         <scene sceneID="NiA-LQ-cKB">
@@ -682,8 +736,8 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOk-e0-J6X">
-                            <rect key="frame" x="139" y="49" width="42" height="21"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOk-e0-J6X">
+                            <rect key="frame" x="20" y="49" width="280" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="highlightedColor"/>
