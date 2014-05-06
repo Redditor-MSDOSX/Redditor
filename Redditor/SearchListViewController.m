@@ -178,6 +178,11 @@
         
         //[cell addConstraint:[NSLayoutConstraint constraintWithItem:tnView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:cell.textLabel attribute:NSLayoutAttributeLeft multiplier:1 constant:-5]];
     }
+    
+    /* mark nsfw */
+    if ([[postToPrint over_18] boolValue]) {
+        cell.textLabel.textColor = [UIColor redColor];
+    }
 
     
     

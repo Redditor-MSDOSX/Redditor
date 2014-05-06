@@ -44,6 +44,8 @@
 
 -(BOOL) addTextWith: (NSDictionary*) data;
 
+-(BOOL) replyWith: (NSDictionary*) data;
+
 -(NSString*) nameOfSubreddit: (NSString*) sub;
 @end
 

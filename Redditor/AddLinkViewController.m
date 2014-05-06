@@ -41,6 +41,7 @@
     [self.progress setHidesWhenStopped:YES];
     [self.view addSubview:self.progress];
     [self.progress startAnimating];
+    self.submit.enabled = NO;
     
 }
 
@@ -63,6 +64,7 @@
     UIImage* img = [eng getCaptchaWithIden:self.iden];
     self.captcha.image = img;
     [self.progress stopAnimating];
+    self.submit.enabled = YES;
                               
 }
 

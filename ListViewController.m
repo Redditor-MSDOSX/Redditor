@@ -289,12 +289,12 @@
     [[cell viewWithTag:3] removeFromSuperview];
     UITextField* info = [[UITextField alloc] init];
     [info setEnabled:NO];
-    NSString* infoString = [NSString stringWithFormat:@"Ups: %ld Downs: %ld", (long)postToPrint.ups, postToPrint.downs];
+    NSString* infoString = [NSString stringWithFormat:@"(%@)\u2191%ld\u2193%ld",postToPrint.author, (long)postToPrint.ups, postToPrint.downs];
     info.text = infoString;
     info.tag = 3;
     info.textColor = [UIColor grayColor];
     info.translatesAutoresizingMaskIntoConstraints = NO;
-    [info setFont:[UIFont systemFontOfSize:13.0]];
+    [info setFont:[UIFont systemFontOfSize:11.0]];
     [cell.contentView addSubview:info];
     
     //[cell addConstraint:[NSLayoutConstraint constraintWithItem:info attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:cell.textLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:-8]];
@@ -317,6 +317,10 @@
         //[cell addConstraint:[NSLayoutConstraint constraintWithItem:tnView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:cell.textLabel attribute:NSLayoutAttributeLeft multiplier:1 constant:-5]];
     }
     
+    /* mark cell nsfw */
+    if ([[postToPrint over_18] boolValue]) {
+        cell.textLabel.textColor = [UIColor redColor];
+    }
     
     return cell;
 }

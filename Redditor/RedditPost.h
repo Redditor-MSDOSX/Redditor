@@ -17,6 +17,7 @@
 @property NSString* selfText;
 @property NSNumber* is_self;
 @property NSInteger num_comments;
+@property NSNumber* over_18;
 
 -(id) initWithDict: (NSDictionary*) dict;
 @end

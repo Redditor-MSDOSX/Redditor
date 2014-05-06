@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AddLinkViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *submit;
 @property NSString* sub;
 @end

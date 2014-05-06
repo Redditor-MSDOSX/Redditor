@@ -9,6 +9,7 @@
 #import "PostViewController.h"
 #import "RedditorEngine.h"
 #import "SVPullToRefresh.h"
+#import "ReplyViewController.h"
 
 @interface PostViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -132,11 +133,29 @@
             return cell;
         }
         [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        cell.accessoryView = nil;
         cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
         cell.textLabel.numberOfLines = 0;
         if (indexPath.row == 0) {
             cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:15.0];
             cell.textLabel.text = self.post.title;
+            /* add reply button */
+            UIButton* reply = [[UIButton alloc] init];
+            
+            [reply setTitle: @"Reply" forState:UIControlStateNormal];
+            [reply setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            reply.titleLabel.textAlignment= NSTextAlignmentCenter;
+            reply.frame = CGRectMake(cell.accessoryView.frame.origin.x, cell.accessoryView.frame.origin.y, 40, 20);
+            reply.layer.borderColor = [[[UIColor grayColor] colorWithAlphaComponent:0.5] CGColor];
+            reply.layer.borderWidth = 1.0;
+            reply.layer.cornerRadius = 5;
+            [reply.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
+            cell.accessoryView = reply;
+            
+            /* add click event to button */
+            [reply addTarget: self
+                             action: @selector(accessoryButtonTapped:withEvent:)
+                   forControlEvents: UIControlEventTouchUpInside];
         }
         else {
             cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:15.0];
@@ -153,11 +172,33 @@
         return cell;
     }
     [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    cell.accessoryView = nil;
     if (indexPath.row % 2 == 0) {
         // author row
         NSString* cellText = [[self.comments objectAtIndex:(indexPath.row+1)/2 + 1] author ];
         cell.textLabel.text= cellText;
         cell.textLabel.textColor = [UIColor blueColor];
+        
+        /* update the accessory view */
+        /* add reply button */
+        UIButton* reply = [[UIButton alloc] init];
+        
+        [reply setTitle: @"Reply" forState:UIControlStateNormal];
+        [reply setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        reply.titleLabel.textAlignment= NSTextAlignmentCenter;
+        reply.frame = CGRectMake(cell.accessoryView.frame.origin.x, cell.accessoryView.frame.origin.y, 40, 20);
+        reply.layer.borderColor = [[[UIColor grayColor] colorWithAlphaComponent:0.5] CGColor];
+        reply.layer.borderWidth = 1.0;
+        reply.layer.cornerRadius = 5;
+        [reply.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
+        cell.accessoryView = reply;
+        
+        /* add click event to button */
+        [reply addTarget: self
+                         action: @selector(accessoryButtonTapped:withEvent:)
+               forControlEvents: UIControlEventTouchUpInside];
+
+        
     }
     else {
         NSString* cellText = [[self.comments objectAtIndex:(indexPath.row+1) / 2] body ];
@@ -244,6 +285,42 @@
     return labelSize.height + 10;
 }
 
+- (void)tableView:(UITableView*)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    //Value Selected by user
+
+    //Initialize new viewController
+    
+    //PostViewController *viewController = [[PostViewController alloc] initWithNibName:@"PostViewController" bundle:nil];
+    UIStoryboard *sb = self.storyboard;
+    ReplyViewController *viewController = [sb instantiateViewControllerWithIdentifier:@"ReplyViewController"];
+    //[sb ]
+    //[viewController setPost: selectedPost];
+    //Pass selected value to a property declared in NewViewController
+    
+    //viewController.valueToPrint = selectedValue;
+    //Push new view to navigationController stack
+    if (indexPath.section == 0) {
+        viewController.fullname = self.post.name; // replying to original thread
+    }
+    else {
+        viewController.fullname = [[self.comments objectAtIndex: (indexPath.row +1)/2 + 1] name];
+    }
+    
+    viewController.title = @"Reply";
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+/* a custom accessory view won't trigger accessoryButonTappedForRowWithIndexPath on its own, so we need call it manually */
+- (void) accessoryButtonTapped: (UIControl *) button withEvent: (UIEvent *) event
+{
+    NSIndexPath * indexPath = [self.tableView indexPathForRowAtPoint: [[[event touchesForView: button] anyObject] locationInView: self.tableView]];
+    if ( indexPath == nil )
+        return;
+    
+    [self.tableView.delegate tableView: self.tableView accessoryButtonTappedForRowWithIndexPath: indexPath];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return 0;
@@ -261,6 +338,7 @@
     NSInteger indentLevel = [[self.comments objectAtIndex:row] depth ] - 1;
     return indentLevel;
 }
+
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {

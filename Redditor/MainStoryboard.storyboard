@@ -248,6 +248,55 @@
             </objects>
             <point key="canvasLocation" x="1533" y="-347"/>
         </scene>
+        <!--Reply View Controller-->
+        <scene sceneID="du2-jG-hgf">
+            <objects>
+                <viewController storyboardIdentifier="ReplyViewController" id="CH0-XE-oMO" customClass="ReplyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zn0-ZV-bAH"/>
+                        <viewControllerLayoutGuide type="bottom" id="wre-2T-QtJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mmX-sj-neu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O3a-Es-BZk">
+                                <rect key="frame" x="20" y="74" width="280" height="237"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="CH0-XE-oMO" id="cN1-8e-dqn"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cr7-gJ-8UR">
+                                <rect key="frame" x="127" y="319" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitButtonClicked:" destination="CH0-XE-oMO" eventType="touchUpInside" id="QDN-oo-lFO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cr7-gJ-8UR" firstAttribute="top" secondItem="O3a-Es-BZk" secondAttribute="bottom" constant="8" id="2H3-tT-L6c"/>
+                            <constraint firstItem="O3a-Es-BZk" firstAttribute="top" secondItem="zn0-ZV-bAH" secondAttribute="bottom" constant="10" id="iHQ-hi-c2w"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="comment" destination="O3a-Es-BZk" id="0g7-kb-KPM"/>
+                        <outlet property="submit" destination="cr7-gJ-8UR" id="9Me-Um-hnh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XNM-do-E60" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1912" y="-347"/>
+        </scene>
         <!--Add Link View Controller-->
         <scene sceneID="6Gh-yW-c5q">
             <objects>
@@ -342,6 +391,7 @@
                         <outlet property="captchaField" destination="QGm-ts-PIf" id="Q9L-Ta-lJh"/>
                         <outlet property="progress" destination="Xi0-kK-Z95" id="1Hl-9p-KQz"/>
                         <outlet property="segment" destination="NL9-3k-ng2" id="fpg-UD-226"/>
+                        <outlet property="submit" destination="8G1-We-hcO" id="csC-92-J2A"/>
                         <outlet property="titleField" destination="QXI-Ku-Fsg" id="byk-xv-PZa"/>
                         <outlet property="urlTextField" destination="Jp5-wV-O2t" id="pMj-dC-4hs"/>
                         <outlet property="urlTextLabel" destination="bvi-UL-0jy" id="wea-WB-zOm"/>
@@ -380,7 +430,7 @@
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </webView>
             </objects>
-            <point key="canvasLocation" x="1883" y="-347"/>
+            <point key="canvasLocation" x="1553" y="-1041"/>
         </scene>
         <!--Search List View Controller - Title-->
         <scene sceneID="HCN-cR-Fgi">

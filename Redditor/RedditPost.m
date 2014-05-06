@@ -21,6 +21,7 @@
         self.selfText = [dict objectForKey:@"selftext"];
         self.is_self = [dict objectForKey:@"is_self"];
         self.num_comments = [[dict objectForKey:@"num_comments"] intValue];
+        self.over_18 = [dict objectForKey:@"over_18"];
     }
     return self;
     

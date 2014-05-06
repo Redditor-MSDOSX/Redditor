@@ -365,6 +365,25 @@
     return YES;
 }
 
+-(BOOL) replyWith:(NSDictionary *)data {
+    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.reddit.com/api/comment"]];
+    NSMutableDictionary* header = [[NSMutableDictionary alloc] init];
+    NSString* modhash = [RedditorEngine getModhash];
+    [header setObject:modhash forKey:@"X-Modhash"];
+    NSData* response = [RedditAPIConnector makePostRequestTo:url WithData:data andHeaders:header isLogin:NO];
+    NSError* error;
+    NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
+    
+    if (error != nil) {
+        NSLog(@"Error parsing JSON object!");
+        return NO;
+    }
+    if ([[dict objectForKey:@"errors"] count] != 0) {
+        return NO;
+    }
+    return YES;
+}
+
 -(NSString*) nameOfSubreddit:(NSString *)sub {
     NSString* url = [NSString stringWithFormat:@"http://www.reddit.com/r/%@/about.json", sub];
     NSData* response = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:url]];
