@@ -13,6 +13,7 @@
 #import "RedditPost.h"
 #import "PostViewController.h"
 #import "LinkViewController.h"
+#import "RedditAPIConnector.h"
 
 @interface SearchListViewController ()
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
@@ -119,12 +120,65 @@
         return cell;
     }
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    RedditPost* postToPrint = [self.post objectAtIndex:indexPath.row];
     
+    /* add num of comments */
+    UIButton* num_comments = [[UIButton alloc] init];
+    
+    [num_comments setTitle: [NSString stringWithFormat:@"%ld", postToPrint.num_comments] forState:UIControlStateNormal];
+    [num_comments setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    num_comments.titleLabel.textAlignment= NSTextAlignmentCenter;
+    num_comments.frame = CGRectMake(cell.accessoryView.frame.origin.x, cell.accessoryView.frame.origin.y, 40, 25);
+    num_comments.layer.borderColor = [[[UIColor grayColor] colorWithAlphaComponent:0.5] CGColor];
+    num_comments.layer.borderWidth = 1.0;
+    num_comments.layer.cornerRadius = 5;
+    [num_comments.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
+    cell.accessoryView = num_comments;
+    
+    /* add click event to button */
+    [num_comments addTarget: self
+                     action: @selector(accessoryButtonTapped:withEvent:)
+           forControlEvents: UIControlEventTouchUpInside];
+    
+    /* add content */
     NSString* cellText = [[self.post objectAtIndex:indexPath.row] title ];
     cell.textLabel.text= cellText;
-    cell.textLabel.lineBreakMode = UILineBreakModeTailTruncation;
-    cell.textLabel.numberOfLines = 0;
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+    cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    cell.textLabel.numberOfLines = 3;
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:15.0];
+    
+    /* add the post info */
+    [[cell viewWithTag:3] removeFromSuperview];
+    UITextField* info = [[UITextField alloc] init];
+    [info setEnabled:NO];
+    NSString* infoString = [NSString stringWithFormat:@"Ups: %ld Downs: %ld", (long)postToPrint.ups, postToPrint.downs];
+    info.text = infoString;
+    info.tag = 3;
+    info.textColor = [UIColor grayColor];
+    info.translatesAutoresizingMaskIntoConstraints = NO;
+    [info setFont:[UIFont systemFontOfSize:13.0]];
+    [cell.contentView addSubview:info];
+    
+    //[cell addConstraint:[NSLayoutConstraint constraintWithItem:info attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:cell.textLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:-8]];
+    
+    //[cell addConstraint:[NSLayoutConstraint constraintWithItem:info attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:cell.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:20]];
+    
+    [cell addConstraint:[NSLayoutConstraint constraintWithItem:info attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:cell.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:-2]];
+    
+    [cell addConstraint:[NSLayoutConstraint constraintWithItem:info attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:cell.textLabel attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
+    
+    cell.imageView.image = nil;
+    /* get the thumbnail */
+    if (!([postToPrint.thumbnail isEqualToString:@""] || [postToPrint.thumbnail isEqualToString:@"self"])) {
+        //NSLog(postToPrint.thumbnail);
+        
+        NSData* data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:postToPrint.thumbnail]];
+        UIImage* thumbnail = [UIImage imageWithData:data];
+        cell.imageView.image = thumbnail;
+        
+        //[cell addConstraint:[NSLayoutConstraint constraintWithItem:tnView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:cell.textLabel attribute:NSLayoutAttributeLeft multiplier:1 constant:-5]];
+    }
+
     
     
     return cell;
@@ -150,7 +204,7 @@
     CGSize labelSize = textRect.size;
     return labelSize.height + 10;
      */
-    return 70;
+    return 90;
 }
 
 - (void)tableView:(UITableView*)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
@@ -201,9 +255,19 @@
     }
 }
 
+/* a custom accessory view won't trigger accessoryButonTappedForRowWithIndexPath on its own, so we need call it manually */
+- (void) accessoryButtonTapped: (UIControl *) button withEvent: (UIEvent *) event
+{
+    NSIndexPath * indexPath = [self.tableView indexPathForRowAtPoint: [[[event touchesForView: button] anyObject] locationInView: self.tableView]];
+    if ( indexPath == nil )
+        return;
+    
+    [self.tableView.delegate tableView: self.tableView accessoryButtonTappedForRowWithIndexPath: indexPath];
+}
+
 
 /*
-// Override to support conditional editing of the table view.
+ // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
