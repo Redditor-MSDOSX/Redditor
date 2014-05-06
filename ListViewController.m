@@ -280,7 +280,6 @@
     
     /* update the textlabel */
     NSString* cellText = [postToPrint title];
-    
     cell.textLabel.text= cellText;
     cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     cell.textLabel.numberOfLines = 3;
@@ -302,11 +301,21 @@
     
     //[cell addConstraint:[NSLayoutConstraint constraintWithItem:info attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:cell.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:20]];
     
-    [cell addConstraint:[NSLayoutConstraint constraintWithItem:info attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:cell.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:-4]];
+    [cell addConstraint:[NSLayoutConstraint constraintWithItem:info attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:cell.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:-2]];
     
     [cell addConstraint:[NSLayoutConstraint constraintWithItem:info attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:cell.textLabel attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
     
-    
+    cell.imageView.image = nil;
+    /* get the thumbnail */
+    if (!([postToPrint.thumbnail isEqualToString:@""] || [postToPrint.thumbnail isEqualToString:@"self"])) {
+        //NSLog(postToPrint.thumbnail);
+        
+        NSData* data = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:postToPrint.thumbnail]];
+        UIImage* thumbnail = [UIImage imageWithData:data];
+        cell.imageView.image = thumbnail;
+        
+        //[cell addConstraint:[NSLayoutConstraint constraintWithItem:tnView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:cell.textLabel attribute:NSLayoutAttributeLeft multiplier:1 constant:-5]];
+    }
     
     
     return cell;
