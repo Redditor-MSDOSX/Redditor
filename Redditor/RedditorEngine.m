@@ -170,7 +170,7 @@
     NSMutableDictionary* header = [[NSMutableDictionary alloc] init];
     [postData setObject:name forKey:@"user"];
     [postData setObject:pwd forKey:@"passwd"];
-    [postData setObject:@"true" forKey:@"rem"];
+    [postData setObject:@"True" forKey:@"rem"];
     [postData setObject:@"json" forKey:@"api_type"];
     
     //NSInteger contentLength = [name length] + [pwd length] + 4 + 4 + 5 + 8 + 10 + 5;
@@ -395,5 +395,31 @@
         return @"";
     }
     return [[dict objectForKey:@"data"] objectForKey:@"name"];
+}
+
+-(BOOL) changePasswordCurr:(NSString *)curp New:(NSString *)newp Ver:(NSString *)verp {
+    NSString* url = @"http://www.reddit.com/api/update_password";
+    
+    NSMutableDictionary* data = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* header = [[NSMutableDictionary alloc] init];
+    [header setObject:[RedditAPIConnector getModhash] forKey:@"X-Modhash"];
+    [data setObject:@"json" forKey:@"api_type"];
+    [data setObject:curp forKey:@"curpass"];
+    [data setObject:newp forKey:@"newpass"];
+    [data setObject:verp forKey:@"verpass"];
+    
+    NSData* response = [RedditAPIConnector makePostRequestTo:[NSURL URLWithString:url] WithData:data andHeaders:header isLogin:NO];
+    
+    NSError* error;
+    NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
+    
+    if (error!= nil) {
+        NSLog(@"Error parsing JSON object!");
+        return @"";
+    }
+    if ([[dict objectForKey:@"errors"] count] != 0) {
+        return NO;
+    }
+    return YES;
 }
 @end

@@ -47,5 +47,7 @@
 -(BOOL) replyWith: (NSDictionary*) data;
 
 -(NSString*) nameOfSubreddit: (NSString*) sub;
+
+-(BOOL) changePasswordCurr: (NSString*)curp New: (NSString*)newp Ver: (NSString*)verp;
 @end
 
