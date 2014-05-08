@@ -529,7 +529,7 @@
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gear.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Sh-Zb-7co">
-                                            <rect key="frame" x="7" y="9" width="28" height="26"/>
+                                            <rect key="frame" x="7" y="9" width="28" height="28"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                         </imageView>
@@ -549,7 +549,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="appbar.user.tie.png" translatesAutoresizingMaskIntoConstraints="NO" id="4V2-lv-3ST">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="account.png" translatesAutoresizingMaskIntoConstraints="NO" id="4V2-lv-3ST">
                                             <rect key="frame" x="20" y="3" width="38" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -618,7 +618,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comments.png" translatesAutoresizingMaskIntoConstraints="NO" id="kbu-bk-igf">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PICS.png" translatesAutoresizingMaskIntoConstraints="NO" id="kbu-bk-igf">
                                             <rect key="frame" x="20" y="3" width="38" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -641,7 +641,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map.png" translatesAutoresizingMaskIntoConstraints="NO" id="NHE-ui-a5w">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="running.png" translatesAutoresizingMaskIntoConstraints="NO" id="NHE-ui-a5w">
                                             <rect key="frame" x="20" y="3" width="38" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -664,7 +664,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="eka-gb-AQc">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="games.png" translatesAutoresizingMaskIntoConstraints="NO" id="eka-gb-AQc">
                                             <rect key="frame" x="20" y="3" width="38" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -687,7 +687,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wishlist.png" translatesAutoresizingMaskIntoConstraints="NO" id="mfd-G3-GSh">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="askreddit.png" translatesAutoresizingMaskIntoConstraints="NO" id="mfd-G3-GSh">
                                             <rect key="frame" x="20" y="3" width="38" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -710,7 +710,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bookmark.png" translatesAutoresizingMaskIntoConstraints="NO" id="5dv-tp-R3T">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="worldnews.png" translatesAutoresizingMaskIntoConstraints="NO" id="5dv-tp-R3T">
                                             <rect key="frame" x="20" y="3" width="38" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -733,7 +733,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tag.png" translatesAutoresizingMaskIntoConstraints="NO" id="fRy-GW-RjC">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="news.png" translatesAutoresizingMaskIntoConstraints="NO" id="fRy-GW-RjC">
                                             <rect key="frame" x="20" y="3" width="38" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -1021,7 +1021,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxK-TX-dv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613" y="-1000"/>
+            <point key="canvasLocation" x="623" y="-1071"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="Km2-4s-uzW">
@@ -1047,16 +1047,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appbar.user.tie.png" width="76" height="76"/>
-        <image name="bookmark.png" width="1024" height="1024"/>
-        <image name="calendar.png" width="1024" height="1024"/>
-        <image name="comments.png" width="1024" height="1024"/>
-        <image name="gear.png" width="47" height="47"/>
-        <image name="map.png" width="1024" height="1024"/>
+        <image name="PICS.png" width="128" height="128"/>
+        <image name="account.png" width="128" height="128"/>
+        <image name="askreddit.png" width="128" height="128"/>
+        <image name="games.png" width="128" height="128"/>
+        <image name="gear.png" width="128" height="128"/>
         <image name="menu.png" width="28" height="20"/>
+        <image name="news.png" width="128" height="128"/>
         <image name="reddit-128-black.png" width="128" height="128"/>
-        <image name="tag.png" width="1024" height="1024"/>
-        <image name="wishlist.png" width="1024" height="1024"/>
+        <image name="running.png" width="128" height="128"/>
+        <image name="worldnews.png" width="128" height="128"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

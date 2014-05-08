@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		0A7C0081190110B200556313 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7C0080190110B200556313 /* MainTableViewController.m */; };
+		0A7EBC02191B5076008F4F1E /* account.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBBFC191B5076008F4F1E /* account.png */; };
+		0A7EBC03191B5076008F4F1E /* askreddit.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBBFD191B5076008F4F1E /* askreddit.png */; };
+		0A7EBC04191B5076008F4F1E /* games.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBBFE191B5076008F4F1E /* games.png */; };
+		0A7EBC05191B5076008F4F1E /* news.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBBFF191B5076008F4F1E /* news.png */; };
+		0A7EBC06191B5076008F4F1E /* PICS.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBC00191B5076008F4F1E /* PICS.png */; };
+		0A7EBC07191B5076008F4F1E /* worldnews.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBC01191B5076008F4F1E /* worldnews.png */; };
+		0A7EBC09191B50D3008F4F1E /* running.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBC08191B50D3008F4F1E /* running.png */; };
 		0ACE6CFC190A060000E5E4DD /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6CFB190A060000E5E4DD /* SWRevealViewController.m */; };
 		0ACE6D22190A122F00E5E4DD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D21190A122F00E5E4DD /* MainStoryboard.storyboard */; };
-		0ACE6D26190A233200E5E4DD /* appbar.settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D24190A233200E5E4DD /* appbar.settings.png */; };
 		0ACE6D27190A233200E5E4DD /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D25190A233200E5E4DD /* gear.png */; };
 		0ACE6D29190A24D900E5E4DD /* reddit-32-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D28190A24D900E5E4DD /* reddit-32-black.png */; };
 		0ACE6D2B190A255000E5E4DD /* reddit-128-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D2A190A255000E5E4DD /* reddit-128-black.png */; };
-		0ACE6D2D190A268000E5E4DD /* appbar.user.tie.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D2C190A268000E5E4DD /* appbar.user.tie.png */; };
 		0ACE6D2F190A2B4B00E5E4DD /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D2E190A2B4B00E5E4DD /* menu@2x.png */; };
 		0ACE6D38190A3BB200E5E4DD /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D31190A3BB200E5E4DD /* ListViewController.m */; };
 		0ACE6D39190A3BB200E5E4DD /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D33190A3BB200E5E4DD /* MainViewController.m */; };
@@ -60,14 +65,19 @@
 /* Begin PBXFileReference section */
 		0A7C007F190110B200556313 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTableViewController.h; path = ../MainTableViewController.h; sourceTree = "<group>"; };
 		0A7C0080190110B200556313 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTableViewController.m; path = ../MainTableViewController.m; sourceTree = "<group>"; };
+		0A7EBBFC191B5076008F4F1E /* account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = account.png; sourceTree = "<group>"; };
+		0A7EBBFD191B5076008F4F1E /* askreddit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = askreddit.png; sourceTree = "<group>"; };
+		0A7EBBFE191B5076008F4F1E /* games.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = games.png; sourceTree = "<group>"; };
+		0A7EBBFF191B5076008F4F1E /* news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news.png; sourceTree = "<group>"; };
+		0A7EBC00191B5076008F4F1E /* PICS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PICS.png; sourceTree = "<group>"; };
+		0A7EBC01191B5076008F4F1E /* worldnews.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = worldnews.png; sourceTree = "<group>"; };
+		0A7EBC08191B50D3008F4F1E /* running.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = running.png; sourceTree = "<group>"; };
 		0ACE6CFA190A060000E5E4DD /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		0ACE6CFB190A060000E5E4DD /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		0ACE6D21190A122F00E5E4DD /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		0ACE6D24190A233200E5E4DD /* appbar.settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.settings.png; sourceTree = "<group>"; };
 		0ACE6D25190A233200E5E4DD /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		0ACE6D28190A24D900E5E4DD /* reddit-32-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reddit-32-black.png"; path = "../Redditor/reddit-32-black.png"; sourceTree = "<group>"; };
 		0ACE6D2A190A255000E5E4DD /* reddit-128-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reddit-128-black.png"; path = "../Redditor/reddit-128-black.png"; sourceTree = "<group>"; };
-		0ACE6D2C190A268000E5E4DD /* appbar.user.tie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appbar.user.tie.png; path = ../Redditor/appbar.user.tie.png; sourceTree = "<group>"; };
 		0ACE6D2E190A2B4B00E5E4DD /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu@2x.png"; path = "../Redditor/menu@2x.png"; sourceTree = "<group>"; };
 		0ACE6D30190A3BB200E5E4DD /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListViewController.h; path = ../ListViewController.h; sourceTree = "<group>"; };
 		0ACE6D31190A3BB200E5E4DD /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListViewController.m; path = ../ListViewController.m; sourceTree = "<group>"; };
@@ -149,8 +159,13 @@
 		0ACE6D23190A233200E5E4DD /* Icon */ = {
 			isa = PBXGroup;
 			children = (
-				0ACE6D2C190A268000E5E4DD /* appbar.user.tie.png */,
-				0ACE6D24190A233200E5E4DD /* appbar.settings.png */,
+				0A7EBC08191B50D3008F4F1E /* running.png */,
+				0A7EBBFC191B5076008F4F1E /* account.png */,
+				0A7EBBFD191B5076008F4F1E /* askreddit.png */,
+				0A7EBBFE191B5076008F4F1E /* games.png */,
+				0A7EBBFF191B5076008F4F1E /* news.png */,
+				0A7EBC00191B5076008F4F1E /* PICS.png */,
+				0A7EBC01191B5076008F4F1E /* worldnews.png */,
 				0ACE6D28190A24D900E5E4DD /* reddit-32-black.png */,
 				0ACE6D2A190A255000E5E4DD /* reddit-128-black.png */,
 				0ACE6D25190A233200E5E4DD /* gear.png */,
@@ -346,14 +361,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ACE6D22190A122F00E5E4DD /* MainStoryboard.storyboard in Resources */,
-				0ACE6D2D190A268000E5E4DD /* appbar.user.tie.png in Resources */,
+				0A7EBC04191B5076008F4F1E /* games.png in Resources */,
+				0A7EBC02191B5076008F4F1E /* account.png in Resources */,
 				0ACE6D2B190A255000E5E4DD /* reddit-128-black.png in Resources */,
 				0ACE6D27190A233200E5E4DD /* gear.png in Resources */,
 				0ACE6D2F190A2B4B00E5E4DD /* menu@2x.png in Resources */,
+				0A7EBC07191B5076008F4F1E /* worldnews.png in Resources */,
 				0ACE6D29190A24D900E5E4DD /* reddit-32-black.png in Resources */,
+				0A7EBC06191B5076008F4F1E /* PICS.png in Resources */,
 				9A83D37618EAB23A00A05C58 /* InfoPlist.strings in Resources */,
+				0A7EBC05191B5076008F4F1E /* news.png in Resources */,
+				0A7EBC03191B5076008F4F1E /* askreddit.png in Resources */,
 				9A83D37E18EAB23A00A05C58 /* Images.xcassets in Resources */,
-				0ACE6D26190A233200E5E4DD /* appbar.settings.png in Resources */,
+				0A7EBC09191B50D3008F4F1E /* running.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
