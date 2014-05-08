@@ -45,6 +45,14 @@
                                     <segue destination="vCM-b0-uBv" kind="push" identifier="add_segue" id="9JP-9J-sr2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJ9-on-CyY">
+                                <rect key="frame" x="240" y="531" width="60" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Shuffle!"/>
+                                <connections>
+                                    <action selector="shuffleButtonClicked:" destination="tiA-fo-4jg" eventType="touchUpInside" id="f06-Fe-Zl7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -70,6 +78,7 @@
                         <outlet property="indicator" destination="MF8-e1-TrB" id="PVL-1s-9sR"/>
                         <outlet property="risingTable" destination="9Lc-hi-eTr" id="uOm-Gk-bgz"/>
                         <outlet property="scrollView" destination="Wrc-zz-9TK" id="trb-ab-gcE"/>
+                        <outlet property="shuffleButton" destination="FJ9-on-CyY" id="x1R-Jy-2IU"/>
                         <outlet property="sidebarButton" destination="mXk-4A-iOH" id="5MG-0e-JdI"/>
                         <outlet property="theNewTable" destination="lpn-CN-XDI" id="bDN-5m-9rM"/>
                         <outlet property="topTable" destination="qIX-FZ-Ifg" id="HPn-43-AIb"/>
@@ -591,13 +600,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GUK-hh-WOD">
-                                            <rect key="frame" x="20" y="8" width="217" height="29"/>
+                                            <rect key="frame" x="0.0" y="8" width="259" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="FRONT"/>
                                                 <segment title="ALL"/>
                                                 <segment title="RANDOM"/>
                                             </segments>
+                                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <segue destination="tiA-fo-4jg" kind="custom" identifier="front_all_random_segue" customClass="SWRevealViewControllerSegue" id="yHL-kF-6vD"/>
                                             </connections>

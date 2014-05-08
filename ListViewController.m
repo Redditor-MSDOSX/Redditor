@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *risingTable;
 @property (strong, nonatomic) IBOutlet UITableView *topTable;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak, nonatomic) IBOutlet UIButton *shuffleButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *bar;
 @end
 
@@ -61,7 +62,14 @@
     if (!self.displayAddButton) {
         [self.addButton removeFromSuperview];
     }
+    /* configure the buttons */
     self.addButton.enabled = NO;
+    if (self.isRandom) {
+        self.shuffleButton.enabled = NO;
+    }
+    else {
+        [self.shuffleButton removeFromSuperview];
+    }
     
     self.post = [[NSMutableArray alloc] init];
     
@@ -228,6 +236,7 @@
         [self loadContent];
         [self.hotTable reloadData];
         self.addButton.enabled = YES;
+        self.shuffleButton.enabled = YES;
         [self.indicator stopAnimating];
     });
 }
@@ -626,6 +635,61 @@
         
         [self.topTable.delegate tableView: self.topTable accessoryButtonTappedForRowWithIndexPath: indexPath];
     }
+}
+- (IBAction)shuffleButtonClicked:(id)sender {
+    [self.indicator startAnimating];
+    self.title = @"";
+    NSInteger page = self.bar.selectedSegmentIndex;
+    if (page == 0) {
+        [self.hotTable setAlpha:.1];
+    }
+    else if(page == 1) {
+        [self.theNewTable setAlpha:.1];
+    }
+    else if(page == 2) {
+        [self.risingTable setAlpha:.1];
+    }
+    else if(page == 3) {
+        [self.controversialTable setAlpha:.1];
+    }
+    else if(page == 4) {
+        [self.topTable setAlpha:.1];
+    }
+    int64_t delayInSeconds = 1.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        if (self.isRandom) {
+            NSString* sub = [RedditAPIConnector getRedirect:[NSURL URLWithString:@"http://www.reddit.com/r/random"]];
+            NSRange rangeOfSubstring = [sub rangeOfString:@"http://www.reddit.com/r/"];
+            sub = [sub stringByReplacingCharactersInRange:rangeOfSubstring withString:@""];
+            sub = [sub substringToIndex:[sub length] - 1];
+            self.sub = sub;
+            self.title = sub;
+        }
+    [self loadContent];
+    if (page == 0) {
+        [self.hotTable reloadData];
+        [self.hotTable setAlpha:1];
+    }
+    else if(page == 1) {
+        [self.theNewTable reloadData];
+        [self.theNewTable setAlpha:1];
+    }
+    else if(page == 2) {
+        [self.risingTable reloadData];
+        [self.risingTable setAlpha:1];
+    }
+    else if(page == 3) {
+        [self.controversialTable reloadData];
+        [self.controversialTable setAlpha:1];
+    }
+    else if(page == 4) {
+        [self.topTable reloadData];
+        [self.topTable setAlpha:1];
+    }
+    [self.indicator stopAnimating];
+    });
+    
 }
 
 /*
