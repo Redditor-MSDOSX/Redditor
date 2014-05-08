@@ -763,6 +763,17 @@
                                     <segue destination="tiA-fo-4jg" kind="custom" identifier="custom_segue" customClass="SWRevealViewControllerSegue" id="d9L-lT-U2p"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ownsub" id="sho-6Y-yq2">
+                                <rect key="frame" x="0.0" y="550" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sho-6Y-yq2" id="aiQ-Al-cld">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="tiA-fo-4jg" kind="custom" identifier="ownsub_segue" customClass="SWRevealViewControllerSegue" trigger="accessoryAction" id="C5a-Uj-I50"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
@@ -1054,6 +1065,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="d9L-lT-U2p"/>
+        <segue reference="C5a-Uj-I50"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,6 +11,7 @@
 
 @implementation SidebarViewController {
     NSArray *menuItems;
+    NSArray *ownSubs;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -26,8 +27,8 @@
 {
     [super viewDidLoad];
 
-    menuItems = @[@"s_bar",@"settings",@"account",@"title",@"front_head", @"pics", @"funny", @"gaming", @"askreddit", @"worldnews",@"news",@"custom"];
-    
+    menuItems = @[@"s_bar",@"settings",@"account",@"title",@"front_head", @"pics", @"funny", @"gaming", @"askreddit", @"worldnews",@"news", @"custom", @"ownsub"];
+    ownSubs = [RedditorEngine getUserSubscribedSubReddit];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,12 +48,18 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [menuItems count];
+    return [menuItems count] - 1 + [ownSubs count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *CellIdentifier = [menuItems objectAtIndex:indexPath.row];
+    NSString *CellIdentifier;
+    if (indexPath.row > 11) {
+        CellIdentifier = [menuItems objectAtIndex:12];
+    }
+    else {
+        CellIdentifier = [menuItems objectAtIndex:indexPath.row];
+    }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     return cell;
