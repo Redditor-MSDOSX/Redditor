@@ -14,7 +14,9 @@
 
 @end
 
-@implementation LinkViewController
+@implementation LinkViewController {
+    BOOL isFullscreen;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,7 +40,15 @@
     
     NSURLRequest* request = [NSURLRequest requestWithURL:nsUrl cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:30];
     
+    // For FullSCreen Entry
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(youTubeVideofullScreen:) name:@"UIMoviePlayerControllerDidEnterFullscreenNotification" object:nil];
+    
+    // For FullSCreen Exit
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(youTubeVideoExit:) name:@"UIMoviePlayerControllerDidExitFullscreenNotification" object:nil];
+    
+    isFullscreen = NO;
     [self.webView loadRequest:request];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,11 +59,32 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [self.webView loadHTMLString:@"" baseURL:nil];
+    if (!isFullscreen) {
+        [super viewDidDisappear:animated];
+        [self.webView loadHTMLString:@"" baseURL:nil];
+    }
 }
 
 
+- (void)youTubeVideofullScreen:(id)sender
+{   //Set Flag True.
+    isFullscreen = YES;
+    
+}
+
+- (void)youTubeVideoExit:(id)sender
+{
+    //Set Flag False.
+    isFullscreen = NO;
+}
+
+
+-(void)viewWillDisappear:(BOOL)animated{
+    //Just Check If Flag is TRUE Then Avoid The Execution of Code which Intrupting the Video Playing.
+    if(!isFullscreen)
+        //here avoid the thing which you want. genrally you were stopping the Video when you will leave the This Video view.
+        [super viewWillDisappear:animated];
+}
 
 /*
 #pragma mark - Navigation
