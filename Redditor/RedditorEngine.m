@@ -422,4 +422,31 @@
     }
     return YES;
 }
+
++(NSArray*) getUserSubscribedSubReddit {
+    NSMutableArray* subs = [[NSMutableArray alloc] init];
+    NSData* response = [RedditAPIConnector makeGetRequestTo:[NSURL URLWithString:@"http://www.reddit.com/subreddits/mine.json"]];
+    
+    NSError* error;
+    NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
+    
+    if (error != nil) {
+        NSLog(@"Error parsing JSON object!");
+        return subs;
+    }
+    if ([dict valueForKey:@"data"] == nil) {
+        return subs;
+    }
+    dict = [dict objectForKey:@"data"];
+    
+    if ([dict valueForKey:@"children"] == nil) {
+        return subs;
+    }
+    for (NSDictionary* sub in [dict objectForKey:@"children"]) {
+        NSString* subName = [[sub objectForKey:@"data"] objectForKey:@"display_name"];
+        [subs addObject:subName];
+    }
+    return subs;
+    
+}
 @end

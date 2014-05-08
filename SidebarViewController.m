@@ -3,6 +3,7 @@
 #import "ListViewController.h"
 #import "Redditor/RedditAPIConnector.h"
 #import "Redditor/SearchListViewController.h"
+#import "RedditorEngine.h"
 
 @interface SidebarViewController ()
 
