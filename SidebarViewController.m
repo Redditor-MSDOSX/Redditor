@@ -26,11 +26,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     menuItems = @[@"s_bar",@"settings",@"account",@"title",@"front_head", @"pics", @"funny", @"gaming", @"askreddit", @"worldnews",@"news", @"custom", @"ownsub"];
-    ownSubs = [RedditorEngine getUserSubscribedSubReddit];
+    
 }
 
+-(void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    ownSubs = [RedditorEngine getUserSubscribedSubReddit];
+    [self.tableView reloadData];
+}
+
+/*
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"Appearing");
+    
+    [self.tableView reloadData];
+}
+*/
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
