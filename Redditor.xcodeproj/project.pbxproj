@@ -18,6 +18,7 @@
 		0A7EBC0D191B51DC008F4F1E /* gear-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBC0C191B51DC008F4F1E /* gear-2.png */; };
 		0A7EBC0F191B5629008F4F1E /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBC0E191B5629008F4F1E /* login.png */; };
 		0A7EBC13191B6BAC008F4F1E /* appIcon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBC12191B6BAC008F4F1E /* appIcon-120.png */; };
+		0A7EBC1B191B75D1008F4F1E /* Appicon-120R.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBC1A191B75D1008F4F1E /* Appicon-120R.png */; };
 		0ACE6CFC190A060000E5E4DD /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6CFB190A060000E5E4DD /* SWRevealViewController.m */; };
 		0ACE6D22190A122F00E5E4DD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D21190A122F00E5E4DD /* MainStoryboard.storyboard */; };
 		0ACE6D29190A24D900E5E4DD /* reddit-32-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D28190A24D900E5E4DD /* reddit-32-black.png */; };
@@ -75,6 +76,7 @@
 		0A7EBC0C191B51DC008F4F1E /* gear-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear-2.png"; sourceTree = "<group>"; };
 		0A7EBC0E191B5629008F4F1E /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		0A7EBC12191B6BAC008F4F1E /* appIcon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon-120.png"; sourceTree = "<group>"; };
+		0A7EBC1A191B75D1008F4F1E /* Appicon-120R.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Appicon-120R.png"; sourceTree = "<group>"; };
 		0ACE6CFA190A060000E5E4DD /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		0ACE6CFB190A060000E5E4DD /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		0ACE6D21190A122F00E5E4DD /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		0ACE6D23190A233200E5E4DD /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				0A7EBC1A191B75D1008F4F1E /* Appicon-120R.png */,
 				0A7EBC12191B6BAC008F4F1E /* appIcon-120.png */,
 				0A7EBC0E191B5629008F4F1E /* login.png */,
 				0A7EBC0C191B51DC008F4F1E /* gear-2.png */,
@@ -372,6 +375,7 @@
 				9A83D37E18EAB23A00A05C58 /* Images.xcassets in Resources */,
 				0A7EBC0D191B51DC008F4F1E /* gear-2.png in Resources */,
 				0A7EBC09191B50D3008F4F1E /* running.png in Resources */,
+				0A7EBC1B191B75D1008F4F1E /* Appicon-120R.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
