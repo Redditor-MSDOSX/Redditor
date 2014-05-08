@@ -105,7 +105,7 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
+    //NSLog(@"Hi");
     [self.view endEditing:YES]; // dismiss the keyboard
     
     [super touchesBegan:touches withEvent:event];

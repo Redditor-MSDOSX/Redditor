@@ -20,7 +20,9 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *bar;
 @end
 
-@implementation ListViewController:UIViewController
+@implementation ListViewController:UIViewController {
+    NSInteger prevPage;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    prevPage = 0;
     // Change button color
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
     
@@ -61,7 +63,7 @@
     }
     self.addButton.enabled = NO;
     
-    self.post = [[NSArray alloc] init];
+    self.post = [[NSMutableArray alloc] init];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
@@ -403,37 +405,62 @@
 }
 - (IBAction)tabChanged:(id)sender {
     // load the content
-    [self.indicator startAnimating];
     
+    [self.indicator startAnimating];
     //NSLog(@"Run");
     // update the list
     NSInteger page = [self.bar selectedSegmentIndex];
+    prevPage = page;
     /* scroll to that page */
     CGRect frame = self.scrollView.frame;
     frame.origin.x = frame.size.width * page;
     frame.origin.y = 0;
     
+    [self.scrollView scrollRectToVisible:frame animated:YES];
+    if (page == 0) {
+        [self.hotTable setAlpha:.1];
+    }
+    else if(page == 1) {
+        [self.theNewTable setAlpha:.1];
+    }
+    else if(page == 2) {
+        [self.risingTable setAlpha:.1];
+    }
+    else if(page == 3) {
+        [self.controversialTable setAlpha:.1];
+    }
+    else if(page == 4) {
+        [self.topTable setAlpha:.1];
+    }
+
     
-    [self.scrollView scrollRectToVisible:frame animated:NO];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
+    int64_t delayInSeconds = 1.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+       
         [self loadContent];
         if (page == 0) {
-            
             [self.hotTable reloadData];
+            [self.hotTable setAlpha:1];
         }
         else if(page == 1) {
             [self.theNewTable reloadData];
+            [self.theNewTable setAlpha:1];
         }
         else if(page == 2) {
             [self.risingTable reloadData];
+            [self.risingTable setAlpha:1];
         }
         else if(page == 3) {
             [self.controversialTable reloadData];
+            [self.controversialTable setAlpha:1];
         }
         else if(page == 4) {
             [self.topTable reloadData];
+            [self.topTable setAlpha:1];
         }
+
+    
         [self.indicator stopAnimating];
     });
     
@@ -450,27 +477,32 @@
     if (scrollView.contentOffset.y != 0.0) {
         return;
     }
+    
     NSInteger page = scrollView.contentOffset.x / scrollView.frame.size.width;
+    if (page == prevPage) {
+        return;
+    }
+    [self.indicator startAnimating];
     //[self.pageControl setCurrentPage:page];
     [self.bar setSelectedSegmentIndex:page]; // set this won't trigger tabChanged
     
-    [self.post removeAllObjects];
+    //[self.post removeAllObjects];
     if (page == 0) {
-        [self.hotTable reloadData];
+        [self.hotTable setAlpha:.1];
     }
     else if(page == 1) {
-        [self.theNewTable reloadData];
+        [self.theNewTable setAlpha:.1];
     }
     else if(page == 2) {
-        [self.risingTable reloadData];
+        [self.risingTable setAlpha:.1];
     }
     else if(page == 3) {
-        [self.controversialTable reloadData];
+        [self.controversialTable setAlpha:.1];
     }
     else if(page == 4) {
-        [self.topTable reloadData];
+        [self.topTable setAlpha:.1];
     }
-    [self.indicator startAnimating];
+    prevPage = page;
     dispatch_async(dispatch_get_main_queue(), ^{
         [self loadContent];
         //NSLog(@"Run");
@@ -478,18 +510,23 @@
         //NSInteger page = [self.bar selectedSegmentIndex];
         if (page == 0) {
             [self.hotTable reloadData];
+            [self.hotTable setAlpha:1];
         }
         else if(page == 1) {
             [self.theNewTable reloadData];
+            [self.theNewTable setAlpha:1];
         }
         else if(page == 2) {
             [self.risingTable reloadData];
+            [self.risingTable setAlpha:1];
         }
         else if(page == 3) {
             [self.controversialTable reloadData];
+            [self.controversialTable setAlpha:1];
         }
         else if(page == 4) {
             [self.topTable reloadData];
+            [self.topTable setAlpha:1];
         }
         [self.indicator stopAnimating];
     });
