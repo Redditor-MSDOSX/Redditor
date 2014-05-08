@@ -39,6 +39,7 @@
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
     
     // Set the side bar button action. When it's tapped, it'll show up the sidebar.
+    self.revealViewController.delegate = self;
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
     
@@ -566,6 +567,36 @@
         
         [self.topTable.delegate tableView: self.topTable accessoryButtonTappedForRowWithIndexPath: indexPath];
     }
+}
+
+- (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
+{
+    if (revealController.frontViewPosition == FrontViewPositionRight) {
+        UIView *lockingView = [UIView new];
+        lockingView.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:revealController action:@selector(revealToggle:)];
+        [lockingView addGestureRecognizer:tap];
+        [lockingView addGestureRecognizer:revealController.panGestureRecognizer];
+        [lockingView setTag:1000];
+        [revealController.frontViewController.view addSubview:lockingView];
+        
+        NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(lockingView);
+        
+        [revealController.frontViewController.view addConstraints:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"|[lockingView]|"
+                                                 options:0
+                                                 metrics:nil
+                                                   views:viewsDictionary]];
+        [revealController.frontViewController.view addConstraints:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[lockingView]|"
+                                                 options:0
+                                                 metrics:nil
+                                                   views:viewsDictionary]];
+        [lockingView sizeToFit];
+    }
+    else
+        [[revealController.frontViewController.view viewWithTag:1000] removeFromSuperview];
 }
 
 @end
