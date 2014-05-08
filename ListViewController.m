@@ -473,11 +473,10 @@
 
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    
-    if (scrollView.contentOffset.y != 0.0) {
+    //NSLog([scrollView.class description]);
+    if (scrollView.class != UIScrollView.class) {
         return;
     }
-    
     NSInteger page = scrollView.contentOffset.x / scrollView.frame.size.width;
     if (page == prevPage) {
         return;
