@@ -86,7 +86,7 @@
     // Set the title of navigation bar by using the menu items
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
-    destViewController.title = [[menuItems objectAtIndex:indexPath.row] capitalizedString];
+    //destViewController.title = [[menuItems objectAtIndex:indexPath.row] capitalizedString];
     UIViewController* dest = (UIViewController*)destViewController;
     //dest.needRefresh = YES;
     if ([[segue identifier] isEqualToString:@"front_all_random_segue"]) {
@@ -121,6 +121,13 @@
         [((ListViewController*)destViewController) setSub:field.text];
         ((ListViewController*)dest).displayAddButton = YES;
     }
+    else if ([[segue identifier] isEqualToString:@"ownsub_segue"]){
+        NSString* sub = ((UITableViewCell*)sender).textLabel.text;
+        ((ListViewController*)destViewController).title = sub;
+        [((ListViewController*)destViewController) setSub:[sub lowercaseString]]; // just lower case for precaution
+        ((ListViewController*)dest).displayAddButton = YES;
+    }
+
     else if ([destViewController respondsToSelector:@selector(setSub:)]){
         [((ListViewController*)destViewController) setSub: [menuItems objectAtIndex:indexPath.row]];
         ((ListViewController*)dest).displayAddButton = YES;
@@ -159,6 +166,11 @@
 - (void) tableView: (UITableView*) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [[self.view viewWithTag:313] resignFirstResponder];
     [[self.view viewWithTag:314] resignFirstResponder];
+    /*
+    if (indexPath.row > 11) {
+        [self performSegueWithIdentifier:@"ownsub_segue" sender:[tableView cellForRowAtIndexPath:indexPath]];
+    }
+     */
     //[self.view endEditing:YES];
 }
 

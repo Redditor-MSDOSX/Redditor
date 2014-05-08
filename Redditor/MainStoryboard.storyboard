@@ -771,7 +771,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="tiA-fo-4jg" kind="custom" identifier="ownsub_segue" customClass="SWRevealViewControllerSegue" trigger="accessoryAction" id="C5a-Uj-I50"/>
+                                    <segue destination="tiA-fo-4jg" kind="custom" identifier="ownsub_segue" customClass="SWRevealViewControllerSegue" id="TNd-11-qxf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1063,6 +1063,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="C5a-Uj-I50"/>
+        <segue reference="TNd-11-qxf"/>
     </inferredMetricsTieBreakers>
 </document>
