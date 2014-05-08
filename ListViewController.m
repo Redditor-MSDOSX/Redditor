@@ -569,6 +569,7 @@
     }
 }
 
+/*
 - (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
 {
     if (revealController.frontViewPosition == FrontViewPositionRight) {
@@ -598,5 +599,5 @@
     else
         [[revealController.frontViewController.view viewWithTag:1000] removeFromSuperview];
 }
-
+*/
 @end

@@ -12,6 +12,7 @@
 @implementation SidebarViewController {
     NSArray *menuItems;
     NSArray *ownSubs;
+    BOOL searchBarClicked;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -27,7 +28,7 @@
 {
     [super viewDidLoad];
     menuItems = @[@"s_bar",@"settings",@"account",@"title",@"front_head", @"pics", @"funny", @"gaming", @"askreddit", @"worldnews",@"news", @"custom", @"ownsub"];
-    
+    searchBarClicked = NO;
 }
 
 -(void) viewDidAppear:(BOOL)animated {
@@ -79,6 +80,18 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         return cell;
     }
+}
+
+- (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([identifier isEqualToString:@"search_segue"]) {
+        searchBarClicked = NO;
+        return YES;
+    }
+    else if (searchBarClicked == YES) {
+        searchBarClicked = NO;
+        return NO;
+    }
+    return YES;
 }
 
 - (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
@@ -151,16 +164,20 @@
     [searchBar endEditing:YES];
     if (searchBar.tag == 313) {
         // search post
+        searchBarClicked = NO;
         [self performSegueWithIdentifier:@"search_segue" sender:searchBar];
     }
     else if (searchBar.tag == 314) {
         // serach subreddit
+        searchBarClicked = NO;
         [self performSegueWithIdentifier:@"custom_segue" sender:searchBar];
     }
     
 }
 
-
+- (void) searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    searchBarClicked = YES;
+}
 
 
 /* trying to hide keyboard */
