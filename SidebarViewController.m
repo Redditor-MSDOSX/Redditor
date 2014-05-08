@@ -195,6 +195,9 @@
 - (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     [[self.view viewWithTag:313] resignFirstResponder];
     [[self.view viewWithTag:314] resignFirstResponder];
+    if (searchBarClicked) {
+        searchBarClicked = NO;
+    }
     //[self.view endEditing:YES];
 }
 
