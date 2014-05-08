@@ -49,5 +49,7 @@
 -(NSString*) nameOfSubreddit: (NSString*) sub;
 
 -(BOOL) changePasswordCurr: (NSString*)curp New: (NSString*)newp Ver: (NSString*)verp;
+
++(NSArray*) getUserSubscribedSubReddit;
 @end
 
