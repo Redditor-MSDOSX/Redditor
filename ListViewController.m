@@ -46,7 +46,7 @@
     _sidebarButton.action = @selector(revealToggle:);
     
     // Set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];    
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     self.indicator.center = self.view.center;
     [self.indicator setHidesWhenStopped:YES];
     [self.view addSubview:self.indicator];
@@ -97,13 +97,13 @@
         /* adding pull to refresh to tables */
         [self.hotTable addPullToRefreshWithActionHandler:^{
             if ([weakSelf.post count] > 0) {
-            int64_t delayInSeconds = 1.0;
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                [weakSelf loadContent];
-                [weakSelf.hotTable reloadData];
-                [weakSelf.hotTable.pullToRefreshView stopAnimating];
-            });
+                int64_t delayInSeconds = 1.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [weakSelf loadContent];
+                    [weakSelf.hotTable reloadData];
+                    [weakSelf.hotTable.pullToRefreshView stopAnimating];
+                });
             }
             else {
                 [weakSelf.hotTable.pullToRefreshView stopAnimating];
@@ -111,13 +111,13 @@
         }];
         [self.theNewTable addPullToRefreshWithActionHandler:^{
             if ([weakSelf.post count] > 0) {
-            int64_t delayInSeconds = 1.0;
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                [weakSelf loadContent];
-                [weakSelf.theNewTable reloadData];
-                [weakSelf.theNewTable.pullToRefreshView stopAnimating];
-            });
+                int64_t delayInSeconds = 1.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [weakSelf loadContent];
+                    [weakSelf.theNewTable reloadData];
+                    [weakSelf.theNewTable.pullToRefreshView stopAnimating];
+                });
             }
             else {
                 [weakSelf.theNewTable.pullToRefreshView stopAnimating];
@@ -125,13 +125,13 @@
         }];
         [self.controversialTable addPullToRefreshWithActionHandler:^{
             if ([weakSelf.post count] > 0) {
-            int64_t delayInSeconds = 1.0;
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                [weakSelf loadContent];
-                [weakSelf.controversialTable reloadData];
-                [weakSelf.controversialTable.pullToRefreshView stopAnimating];
-            });
+                int64_t delayInSeconds = 1.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [weakSelf loadContent];
+                    [weakSelf.controversialTable reloadData];
+                    [weakSelf.controversialTable.pullToRefreshView stopAnimating];
+                });
             }
             else {
                 [weakSelf.controversialTable.pullToRefreshView stopAnimating];
@@ -139,13 +139,13 @@
         }];
         [self.risingTable addPullToRefreshWithActionHandler:^{
             if ([weakSelf.post count] > 0) {
-            int64_t delayInSeconds = 1.0;
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                [weakSelf loadContent];
-                [weakSelf.risingTable reloadData];
-                [weakSelf.risingTable.pullToRefreshView stopAnimating];
-            });
+                int64_t delayInSeconds = 1.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [weakSelf loadContent];
+                    [weakSelf.risingTable reloadData];
+                    [weakSelf.risingTable.pullToRefreshView stopAnimating];
+                });
             }
             else {
                 [weakSelf.risingTable.pullToRefreshView stopAnimating];
@@ -153,13 +153,13 @@
         }];
         [self.topTable addPullToRefreshWithActionHandler:^{
             if ([weakSelf.post count] > 0) {
-            int64_t delayInSeconds = 1.0;
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                [weakSelf loadContent];
-                [weakSelf.topTable reloadData];
-                [weakSelf.topTable.pullToRefreshView stopAnimating];
-            });
+                int64_t delayInSeconds = 1.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [weakSelf loadContent];
+                    [weakSelf.topTable reloadData];
+                    [weakSelf.topTable.pullToRefreshView stopAnimating];
+                });
             }
             else {
                 [weakSelf.topTable.pullToRefreshView stopAnimating];
@@ -169,10 +169,10 @@
         /* adding infinite scrolling to tables */
         [self.hotTable addInfiniteScrollingWithActionHandler:^{
             if ([weakSelf.post count] > 0) {
-            RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
-            [weakSelf extendContentAfter:lastPost.name];
-            [weakSelf.hotTable reloadData];
-            [weakSelf.hotTable.infiniteScrollingView stopAnimating];
+                RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
+                [weakSelf extendContentAfter:lastPost.name];
+                [weakSelf.hotTable reloadData];
+                [weakSelf.hotTable.infiniteScrollingView stopAnimating];
             }
             else {
                 [weakSelf.hotTable.infiniteScrollingView stopAnimating];
@@ -180,10 +180,10 @@
         }];
         [self.theNewTable addInfiniteScrollingWithActionHandler:^{
             if ([weakSelf.post count] > 0) {
-            RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
-            [weakSelf extendContentAfter:lastPost.name];
-            [weakSelf.theNewTable reloadData];
-            [weakSelf.theNewTable.infiniteScrollingView stopAnimating];
+                RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
+                [weakSelf extendContentAfter:lastPost.name];
+                [weakSelf.theNewTable reloadData];
+                [weakSelf.theNewTable.infiniteScrollingView stopAnimating];
             }
             else {
                 [weakSelf.theNewTable.infiniteScrollingView stopAnimating];
@@ -191,21 +191,21 @@
         }];
         [self.risingTable addInfiniteScrollingWithActionHandler:^{
             if ([weakSelf.post count] > 0) {
-            RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
-            [weakSelf extendContentAfter:lastPost.name];
-            [weakSelf.risingTable reloadData];
-            [weakSelf.risingTable.infiniteScrollingView stopAnimating];
+                RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
+                [weakSelf extendContentAfter:lastPost.name];
+                [weakSelf.risingTable reloadData];
+                [weakSelf.risingTable.infiniteScrollingView stopAnimating];
             }
             else {
-            [weakSelf.risingTable.infiniteScrollingView stopAnimating];
+                [weakSelf.risingTable.infiniteScrollingView stopAnimating];
             }
         }];
         [self.controversialTable addInfiniteScrollingWithActionHandler:^{
             if ([weakSelf.post count] > 0) {
-            RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
-            [weakSelf extendContentAfter:lastPost.name];
-            [weakSelf.controversialTable reloadData];
-            [weakSelf.controversialTable.infiniteScrollingView stopAnimating];
+                RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
+                [weakSelf extendContentAfter:lastPost.name];
+                [weakSelf.controversialTable reloadData];
+                [weakSelf.controversialTable.infiniteScrollingView stopAnimating];
             }
             else {
                 [weakSelf.controversialTable.infiniteScrollingView stopAnimating];
@@ -213,10 +213,10 @@
         }];
         [self.topTable addInfiniteScrollingWithActionHandler:^{
             if ([weakSelf.post count] > 0) {
-            RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
-            [weakSelf extendContentAfter:lastPost.name];
-            [weakSelf.topTable reloadData];
-            [weakSelf.topTable.infiniteScrollingView stopAnimating];
+                RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
+                [weakSelf extendContentAfter:lastPost.name];
+                [weakSelf.topTable reloadData];
+                [weakSelf.topTable.infiniteScrollingView stopAnimating];
             }
             else {
                 [weakSelf.topTable.infiniteScrollingView stopAnimating];
@@ -339,8 +339,8 @@
     
     /* add click event to button */
     [num_comments addTarget: self
-               action: @selector(accessoryButtonTapped:withEvent:)
-     forControlEvents: UIControlEventTouchUpInside];
+                     action: @selector(accessoryButtonTapped:withEvent:)
+           forControlEvents: UIControlEventTouchUpInside];
     
     /* update the textlabel */
     NSString* cellText = [postToPrint title];
@@ -441,12 +441,12 @@
     else if(page == 4) {
         [self.topTable setAlpha:.1];
     }
-
+    
     
     int64_t delayInSeconds = 1.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-       
+        
         [self loadContent];
         if (page == 0) {
             [self.hotTable reloadData];
@@ -468,8 +468,8 @@
             [self.topTable reloadData];
             [self.topTable setAlpha:1];
         }
-
-    
+        
+        
         [self.indicator stopAnimating];
     });
     
@@ -604,7 +604,7 @@
         NSIndexPath * indexPath = [self.hotTable indexPathForRowAtPoint: [[[event touchesForView: button] anyObject] locationInView: self.hotTable]];
         if ( indexPath == nil )
             return;
-    
+        
         [self.hotTable.delegate tableView: self.hotTable accessoryButtonTappedForRowWithIndexPath: indexPath];
     }
     else if (page == 1) {
@@ -638,6 +638,8 @@
 }
 - (IBAction)shuffleButtonClicked:(id)sender {
     [self.indicator startAnimating];
+    self.shuffleButton.enabled = NO;
+    self.addButton.enabled = NO;
     self.title = @"";
     NSInteger page = self.bar.selectedSegmentIndex;
     if (page == 0) {
@@ -666,61 +668,63 @@
             self.sub = sub;
             self.title = sub;
         }
-    [self loadContent];
-    if (page == 0) {
-        [self.hotTable reloadData];
-        [self.hotTable setAlpha:1];
-    }
-    else if(page == 1) {
-        [self.theNewTable reloadData];
-        [self.theNewTable setAlpha:1];
-    }
-    else if(page == 2) {
-        [self.risingTable reloadData];
-        [self.risingTable setAlpha:1];
-    }
-    else if(page == 3) {
-        [self.controversialTable reloadData];
-        [self.controversialTable setAlpha:1];
-    }
-    else if(page == 4) {
-        [self.topTable reloadData];
-        [self.topTable setAlpha:1];
-    }
-    [self.indicator stopAnimating];
+        [self loadContent];
+        if (page == 0) {
+            [self.hotTable reloadData];
+            [self.hotTable setAlpha:1];
+        }
+        else if(page == 1) {
+            [self.theNewTable reloadData];
+            [self.theNewTable setAlpha:1];
+        }
+        else if(page == 2) {
+            [self.risingTable reloadData];
+            [self.risingTable setAlpha:1];
+        }
+        else if(page == 3) {
+            [self.controversialTable reloadData];
+            [self.controversialTable setAlpha:1];
+        }
+        else if(page == 4) {
+            [self.topTable reloadData];
+            [self.topTable setAlpha:1];
+        }
+        self.shuffleButton.enabled = YES;
+        self.addButton.enabled = YES;
+        [self.indicator stopAnimating];
     });
     
 }
 
 /*
-- (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
-{
-    if (revealController.frontViewPosition == FrontViewPositionRight) {
-        UIView *lockingView = [UIView new];
-        lockingView.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:revealController action:@selector(revealToggle:)];
-        [lockingView addGestureRecognizer:tap];
-        [lockingView addGestureRecognizer:revealController.panGestureRecognizer];
-        [lockingView setTag:1000];
-        [revealController.frontViewController.view addSubview:lockingView];
-        
-        NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(lockingView);
-        
-        [revealController.frontViewController.view addConstraints:
-         [NSLayoutConstraint constraintsWithVisualFormat:@"|[lockingView]|"
-                                                 options:0
-                                                 metrics:nil
-                                                   views:viewsDictionary]];
-        [revealController.frontViewController.view addConstraints:
-         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[lockingView]|"
-                                                 options:0
-                                                 metrics:nil
-                                                   views:viewsDictionary]];
-        [lockingView sizeToFit];
-    }
-    else
-        [[revealController.frontViewController.view viewWithTag:1000] removeFromSuperview];
-}
-*/
+ - (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
+ {
+ if (revealController.frontViewPosition == FrontViewPositionRight) {
+ UIView *lockingView = [UIView new];
+ lockingView.translatesAutoresizingMaskIntoConstraints = NO;
+ 
+ UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:revealController action:@selector(revealToggle:)];
+ [lockingView addGestureRecognizer:tap];
+ [lockingView addGestureRecognizer:revealController.panGestureRecognizer];
+ [lockingView setTag:1000];
+ [revealController.frontViewController.view addSubview:lockingView];
+ 
+ NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(lockingView);
+ 
+ [revealController.frontViewController.view addConstraints:
+ [NSLayoutConstraint constraintsWithVisualFormat:@"|[lockingView]|"
+ options:0
+ metrics:nil
+ views:viewsDictionary]];
+ [revealController.frontViewController.view addConstraints:
+ [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[lockingView]|"
+ options:0
+ metrics:nil
+ views:viewsDictionary]];
+ [lockingView sizeToFit];
+ }
+ else
+ [[revealController.frontViewController.view viewWithTag:1000] removeFromSuperview];
+ }
+ */
 @end
