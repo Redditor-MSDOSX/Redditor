@@ -69,7 +69,7 @@
     if (indexPath.row > 11) {
         CellIdentifier = [menuItems objectAtIndex:12];
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        cell.textLabel.text = [[ownSubs objectAtIndex:indexPath.row - 12] uppercaseString]; // hardcoding 12 to it right now
+        cell.textLabel.text = [[ownSubs objectAtIndex:indexPath.row - 12] capitalizedString]; // hardcoding 12 to it right now
         cell.textLabel.font = [UIFont fontWithName:@"Helvetica Light" size:25.0];
         cell.textLabel.textColor = [UIColor darkGrayColor];
         return cell;
