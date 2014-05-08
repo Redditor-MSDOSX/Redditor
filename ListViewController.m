@@ -60,6 +60,9 @@
         [self.addButton removeFromSuperview];
     }
     self.addButton.enabled = NO;
+    
+    self.post = [[NSArray alloc] init];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         
         NSArray *viewArray = [NSArray arrayWithObjects: self.hotTable, self.theNewTable, self.risingTable, self.controversialTable, self.topTable, nil];
@@ -83,6 +86,7 @@
         
         /* adding pull to refresh to tables */
         [self.hotTable addPullToRefreshWithActionHandler:^{
+            if ([weakSelf.post count] > 0) {
             int64_t delayInSeconds = 1.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -90,8 +94,13 @@
                 [weakSelf.hotTable reloadData];
                 [weakSelf.hotTable.pullToRefreshView stopAnimating];
             });
+            }
+            else {
+                [weakSelf.hotTable.pullToRefreshView stopAnimating];
+            }
         }];
         [self.theNewTable addPullToRefreshWithActionHandler:^{
+            if ([weakSelf.post count] > 0) {
             int64_t delayInSeconds = 1.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -99,8 +108,13 @@
                 [weakSelf.theNewTable reloadData];
                 [weakSelf.theNewTable.pullToRefreshView stopAnimating];
             });
+            }
+            else {
+                [weakSelf.theNewTable.pullToRefreshView stopAnimating];
+            }
         }];
         [self.controversialTable addPullToRefreshWithActionHandler:^{
+            if ([weakSelf.post count] > 0) {
             int64_t delayInSeconds = 1.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -108,8 +122,13 @@
                 [weakSelf.controversialTable reloadData];
                 [weakSelf.controversialTable.pullToRefreshView stopAnimating];
             });
+            }
+            else {
+                [weakSelf.controversialTable.pullToRefreshView stopAnimating];
+            }
         }];
         [self.risingTable addPullToRefreshWithActionHandler:^{
+            if ([weakSelf.post count] > 0) {
             int64_t delayInSeconds = 1.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -117,8 +136,13 @@
                 [weakSelf.risingTable reloadData];
                 [weakSelf.risingTable.pullToRefreshView stopAnimating];
             });
+            }
+            else {
+                [weakSelf.risingTable.pullToRefreshView stopAnimating];
+            }
         }];
         [self.topTable addPullToRefreshWithActionHandler:^{
+            if ([weakSelf.post count] > 0) {
             int64_t delayInSeconds = 1.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -126,38 +150,67 @@
                 [weakSelf.topTable reloadData];
                 [weakSelf.topTable.pullToRefreshView stopAnimating];
             });
+            }
+            else {
+                [weakSelf.topTable.pullToRefreshView stopAnimating];
+            }
         }];
         
         /* adding infinite scrolling to tables */
         [self.hotTable addInfiniteScrollingWithActionHandler:^{
+            if ([weakSelf.post count] > 0) {
             RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
             [weakSelf extendContentAfter:lastPost.name];
             [weakSelf.hotTable reloadData];
             [weakSelf.hotTable.infiniteScrollingView stopAnimating];
+            }
+            else {
+                [weakSelf.hotTable.infiniteScrollingView stopAnimating];
+            }
         }];
         [self.theNewTable addInfiniteScrollingWithActionHandler:^{
+            if ([weakSelf.post count] > 0) {
             RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
             [weakSelf extendContentAfter:lastPost.name];
             [weakSelf.theNewTable reloadData];
             [weakSelf.theNewTable.infiniteScrollingView stopAnimating];
+            }
+            else {
+                [weakSelf.theNewTable.infiniteScrollingView stopAnimating];
+            }
         }];
         [self.risingTable addInfiniteScrollingWithActionHandler:^{
+            if ([weakSelf.post count] > 0) {
             RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
             [weakSelf extendContentAfter:lastPost.name];
             [weakSelf.risingTable reloadData];
             [weakSelf.risingTable.infiniteScrollingView stopAnimating];
+            }
+            else {
+            [weakSelf.risingTable.infiniteScrollingView stopAnimating];
+            }
         }];
         [self.controversialTable addInfiniteScrollingWithActionHandler:^{
+            if ([weakSelf.post count] > 0) {
             RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
             [weakSelf extendContentAfter:lastPost.name];
             [weakSelf.controversialTable reloadData];
             [weakSelf.controversialTable.infiniteScrollingView stopAnimating];
+            }
+            else {
+                [weakSelf.controversialTable.infiniteScrollingView stopAnimating];
+            }
         }];
         [self.topTable addInfiniteScrollingWithActionHandler:^{
+            if ([weakSelf.post count] > 0) {
             RedditPost* lastPost = [weakSelf.post objectAtIndex:([weakSelf.post count] - 1)];
             [weakSelf extendContentAfter:lastPost.name];
             [weakSelf.topTable reloadData];
             [weakSelf.topTable.infiniteScrollingView stopAnimating];
+            }
+            else {
+                [weakSelf.topTable.infiniteScrollingView stopAnimating];
+            }
         }];
         
         if (self.isRandom) {
@@ -252,7 +305,7 @@
 {
     static NSString *CellIdentifier =@"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (cell == nil || indexPath.row >= [self.post count]) {
+    if (cell == nil || indexPath.row >= [self.post count] || indexPath.row < 0) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         return cell;
     }
