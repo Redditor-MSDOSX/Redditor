@@ -428,6 +428,9 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="delegate" destination="rWb-P4-1Cg" id="n4j-ks-fQR"/>
+                    </connections>
                 </webView>
             </objects>
             <point key="canvasLocation" x="1553" y="-1041"/>
@@ -804,7 +807,7 @@
             </objects>
             <point key="canvasLocation" x="577" y="349"/>
         </scene>
-        <!--Account View Controller - Title-->
+        <!--Account View Controller - Account-->
         <scene sceneID="tD5-NY-Sdt">
             <objects>
                 <viewController id="wFZ-Jg-uD5" customClass="AccountViewController" sceneMemberID="viewController">
@@ -824,7 +827,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="f88-vq-zEp">
+                    <navigationItem key="navigationItem" title="Account" id="f88-vq-zEp">
                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="clP-nG-bsQ"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
