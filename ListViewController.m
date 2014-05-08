@@ -39,7 +39,6 @@
     _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
     
     // Set the side bar button action. When it's tapped, it'll show up the sidebar.
-    self.revealViewController.delegate = self;
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
     
@@ -404,7 +403,7 @@
 }
 - (IBAction)tabChanged:(id)sender {
     // load the content
-    
+    [self.indicator startAnimating];
     
     //NSLog(@"Run");
     // update the list
@@ -413,7 +412,10 @@
     CGRect frame = self.scrollView.frame;
     frame.origin.x = frame.size.width * page;
     frame.origin.y = 0;
-    [self.scrollView scrollRectToVisible:frame animated:YES];
+    
+    
+    [self.scrollView scrollRectToVisible:frame animated:NO];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self loadContent];
         if (page == 0) {
@@ -432,6 +434,7 @@
         else if(page == 4) {
             [self.topTable reloadData];
         }
+        [self.indicator stopAnimating];
     });
     
     
@@ -443,12 +446,31 @@
 
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
     if (scrollView.contentOffset.y != 0.0) {
         return;
     }
     NSInteger page = scrollView.contentOffset.x / scrollView.frame.size.width;
     //[self.pageControl setCurrentPage:page];
     [self.bar setSelectedSegmentIndex:page]; // set this won't trigger tabChanged
+    
+    [self.post removeAllObjects];
+    if (page == 0) {
+        [self.hotTable reloadData];
+    }
+    else if(page == 1) {
+        [self.theNewTable reloadData];
+    }
+    else if(page == 2) {
+        [self.risingTable reloadData];
+    }
+    else if(page == 3) {
+        [self.controversialTable reloadData];
+    }
+    else if(page == 4) {
+        [self.topTable reloadData];
+    }
+    [self.indicator startAnimating];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self loadContent];
         //NSLog(@"Run");
@@ -469,6 +491,7 @@
         else if(page == 4) {
             [self.topTable reloadData];
         }
+        [self.indicator stopAnimating];
     });
     
 }

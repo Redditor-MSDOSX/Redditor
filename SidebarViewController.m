@@ -35,6 +35,7 @@
     [super viewDidAppear:animated];
     ownSubs = [RedditorEngine getUserSubscribedSubReddit];
     [self.tableView reloadData];
+    
 }
 
 /*
