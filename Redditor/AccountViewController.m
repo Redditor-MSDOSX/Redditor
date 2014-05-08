@@ -9,6 +9,7 @@
 #import "AccountViewController.h"
 #import "SWRevealViewController.h"
 #import "RedditorEngine.h"
+#import "SidebarViewController.h"
 
 @interface AccountViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
@@ -77,7 +78,8 @@
         [self.loggedOutView removeFromSuperview];
         self.userName.text = [RedditorEngine getUsername]; // update the username after logged in.
         [self.container addSubview: self.loggedInView];
-        [self.loggedInView setNeedsDisplay];
+        [((SidebarViewController*)self.delegate) updateSubscription]; // call the sidebar to update subscription after logged in
+        [((SidebarViewController*)self.delegate).tableView reloadData];
     }
     else {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Failed!"
@@ -96,6 +98,8 @@
     }
     [self.loggedInView removeFromSuperview];
     [self.container addSubview:self.loggedOutView];
+    [((SidebarViewController*)self.delegate) updateSubscription];
+    [((SidebarViewController*)self.delegate).tableView reloadData];
 }
 
 /* trying to hide keyboard */

@@ -4,6 +4,7 @@
 #import "Redditor/RedditAPIConnector.h"
 #import "Redditor/SearchListViewController.h"
 #import "RedditorEngine.h"
+#import "AccountViewController.h"
 
 @interface SidebarViewController ()
 
@@ -28,14 +29,10 @@
 {
     [super viewDidLoad];
     menuItems = @[@"s_bar",@"settings",@"account",@"title",@"front_head", @"pics", @"funny", @"gaming", @"askreddit", @"worldnews",@"news", @"custom", @"ownsub"];
-    searchBarClicked = NO;
-}
-
--(void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    
     ownSubs = [RedditorEngine getUserSubscribedSubReddit];
     [self.tableView reloadData];
-    
+    searchBarClicked = NO;
 }
 
 /*
@@ -56,22 +53,34 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [menuItems count] - 1 + [ownSubs count];
+    if (section == 0) {
+        return [menuItems count] - 1;
+    }
+    else {
+        return [ownSubs count];
+    }
+}
+
+- (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return @"";
+    }
+    return @"Your Subscription";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *CellIdentifier;
-    if (indexPath.row > 11) {
+    if (indexPath.section == 1) { // own subscription
         CellIdentifier = [menuItems objectAtIndex:12];
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        cell.textLabel.text = [[ownSubs objectAtIndex:indexPath.row - 12] capitalizedString]; // hardcoding 12 to it right now
+        cell.textLabel.text = [[ownSubs objectAtIndex:indexPath.row ] capitalizedString];
         cell.textLabel.font = [UIFont fontWithName:@"Helvetica Light" size:25.0];
         cell.textLabel.textColor = [UIColor darkGrayColor];
         return cell;
@@ -141,6 +150,9 @@
         [((ListViewController*)destViewController) setSub:[sub lowercaseString]]; // just lower case for precaution
         ((ListViewController*)dest).displayAddButton = YES;
     }
+    else if ([[segue identifier] isEqualToString:@"account_segue"]){
+        ((AccountViewController*)dest).delegate = self;
+    }
 
     else if ([destViewController respondsToSelector:@selector(setSub:)]){
         ((ListViewController*)dest).title = [[menuItems objectAtIndex:indexPath.row] capitalizedString];
@@ -200,6 +212,10 @@
         searchBarClicked = NO;
     }
     //[self.view endEditing:YES];
+}
+
+- (void) updateSubscription {
+    ownSubs = [RedditorEngine getUserSubscribedSubReddit];
 }
 
 @end

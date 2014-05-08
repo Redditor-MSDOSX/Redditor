@@ -46,7 +46,7 @@
     _sidebarButton.action = @selector(revealToggle:);
     
     // Set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];    
     self.indicator.center = self.view.center;
     [self.indicator setHidesWhenStopped:YES];
     [self.view addSubview:self.indicator];
