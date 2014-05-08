@@ -129,6 +129,7 @@
     }
 
     else if ([destViewController respondsToSelector:@selector(setSub:)]){
+        ((ListViewController*)dest).title = [[menuItems objectAtIndex:indexPath.row] capitalizedString];
         [((ListViewController*)destViewController) setSub: [menuItems objectAtIndex:indexPath.row]];
         ((ListViewController*)dest).displayAddButton = YES;
     }

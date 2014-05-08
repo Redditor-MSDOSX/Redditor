@@ -428,6 +428,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                     <connections>
                         <outlet property="delegate" destination="rWb-P4-1Cg" id="n4j-ks-fQR"/>
                     </connections>
@@ -1066,6 +1067,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="TNd-11-qxf"/>
+        <segue reference="pIr-UM-1Sj"/>
     </inferredMetricsTieBreakers>
 </document>
