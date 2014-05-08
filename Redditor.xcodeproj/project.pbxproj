@@ -17,6 +17,7 @@
 		0A7EBC09191B50D3008F4F1E /* running.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBC08191B50D3008F4F1E /* running.png */; };
 		0A7EBC0D191B51DC008F4F1E /* gear-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBC0C191B51DC008F4F1E /* gear-2.png */; };
 		0A7EBC0F191B5629008F4F1E /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBC0E191B5629008F4F1E /* login.png */; };
+		0A7EBC13191B6BAC008F4F1E /* appIcon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBC12191B6BAC008F4F1E /* appIcon-120.png */; };
 		0ACE6CFC190A060000E5E4DD /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6CFB190A060000E5E4DD /* SWRevealViewController.m */; };
 		0ACE6D22190A122F00E5E4DD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D21190A122F00E5E4DD /* MainStoryboard.storyboard */; };
 		0ACE6D29190A24D900E5E4DD /* reddit-32-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D28190A24D900E5E4DD /* reddit-32-black.png */; };
@@ -73,6 +74,7 @@
 		0A7EBC08191B50D3008F4F1E /* running.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = running.png; sourceTree = "<group>"; };
 		0A7EBC0C191B51DC008F4F1E /* gear-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear-2.png"; sourceTree = "<group>"; };
 		0A7EBC0E191B5629008F4F1E /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		0A7EBC12191B6BAC008F4F1E /* appIcon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon-120.png"; sourceTree = "<group>"; };
 		0ACE6CFA190A060000E5E4DD /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		0ACE6CFB190A060000E5E4DD /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		0ACE6D21190A122F00E5E4DD /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 		0ACE6D23190A233200E5E4DD /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				0A7EBC12191B6BAC008F4F1E /* appIcon-120.png */,
 				0A7EBC0E191B5629008F4F1E /* login.png */,
 				0A7EBC0C191B51DC008F4F1E /* gear-2.png */,
 				0A7EBC08191B50D3008F4F1E /* running.png */,
@@ -365,6 +368,7 @@
 				9A83D37618EAB23A00A05C58 /* InfoPlist.strings in Resources */,
 				0A7EBC05191B5076008F4F1E /* news.png in Resources */,
 				0A7EBC03191B5076008F4F1E /* askreddit.png in Resources */,
+				0A7EBC13191B6BAC008F4F1E /* appIcon-120.png in Resources */,
 				9A83D37E18EAB23A00A05C58 /* Images.xcassets in Resources */,
 				0A7EBC0D191B51DC008F4F1E /* gear-2.png in Resources */,
 				0A7EBC09191B50D3008F4F1E /* running.png in Resources */,
@@ -527,6 +531,7 @@
 				GCC_PREFIX_HEADER = "Redditor/Redditor-Prefix.pch";
 				INFOPLIST_FILE = "Redditor/Redditor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -540,6 +545,7 @@
 				GCC_PREFIX_HEADER = "Redditor/Redditor-Prefix.pch";
 				INFOPLIST_FILE = "Redditor/Redditor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
