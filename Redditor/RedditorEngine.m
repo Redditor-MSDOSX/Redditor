@@ -378,7 +378,7 @@
         NSLog(@"Error parsing JSON object!");
         return NO;
     }
-    if ([[dict objectForKey:@"errors"] count] != 0) {
+    if ([[[dict objectForKey:@"json"] objectForKey:@"errors"] count] != 0) {
         return NO;
     }
     return YES;
@@ -417,7 +417,7 @@
         NSLog(@"Error parsing JSON object!");
         return @"";
     }
-    if ([[dict objectForKey:@"errors"] count] != 0) {
+    if ([[[dict objectForKey:@"json"] objectForKey:@"errors"] count] != 0) {
         return NO;
     }
     return YES;
@@ -448,5 +448,22 @@
     }
     return subs;
     
+}
+
++(BOOL) registerUserWith:(NSDictionary *)data {
+    NSData* response = [RedditAPIConnector makePostRequestTo:[NSURL URLWithString:@"https://ssl.reddit.com/api/register"] WithData:data andHeaders:[[NSDictionary alloc] init] isLogin:NO];
+    
+    NSError* error;
+    NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
+    
+    if (error != nil) {
+        NSLog(@"Error parsing JSON object!");
+        return NO;
+    }
+    if ([[[dict objectForKey:@"json"] objectForKey:@"errors" ] count] > 0) {
+        return NO;
+    }
+    return YES;
+
 }
 @end

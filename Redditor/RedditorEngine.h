@@ -51,5 +51,7 @@
 -(BOOL) changePasswordCurr: (NSString*)curp New: (NSString*)newp Ver: (NSString*)verp;
 
 +(NSArray*) getUserSubscribedSubReddit;
+
++(BOOL) registerUserWith: (NSDictionary*) data;
 @end
 

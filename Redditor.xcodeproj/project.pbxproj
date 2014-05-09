@@ -50,6 +50,7 @@
 		9A83D39118EAB23A00A05C58 /* RedditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A83D39018EAB23A00A05C58 /* RedditorTests.m */; };
 		9AB4BE021914E7D700C70313 /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB4BE011914E7D700C70313 /* LinkViewController.m */; };
 		9AD4DE981904EE8F00666D3C /* RedditComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4DE971904EE8F00666D3C /* RedditComment.m */; };
+		9AF32020191C8CFC00109D7E /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3201F191C8CFC00109D7E /* RegisterViewController.m */; };
 		9AFCE43019171FB6004835CD /* AddLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFCE42F19171FB6004835CD /* AddLinkViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +129,8 @@
 		9AB4BE011914E7D700C70313 /* LinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkViewController.m; sourceTree = "<group>"; };
 		9AD4DE961904EE8F00666D3C /* RedditComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedditComment.h; sourceTree = "<group>"; };
 		9AD4DE971904EE8F00666D3C /* RedditComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedditComment.m; sourceTree = "<group>"; };
+		9AF3201E191C8CFC00109D7E /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		9AF3201F191C8CFC00109D7E /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		9AFCE42E19171FB6004835CD /* AddLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddLinkViewController.h; sourceTree = "<group>"; };
 		9AFCE42F19171FB6004835CD /* AddLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddLinkViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -251,6 +254,8 @@
 				9A61F21D1918A6FC00CD209F /* ReplyViewController.m */,
 				9A393684191A4A85002BA5D5 /* ChangePWViewController.h */,
 				9A393685191A4A85002BA5D5 /* ChangePWViewController.m */,
+				9AF3201E191C8CFC00109D7E /* RegisterViewController.h */,
+				9AF3201F191C8CFC00109D7E /* RegisterViewController.m */,
 			);
 			path = Redditor;
 			sourceTree = "<group>";
@@ -409,6 +414,7 @@
 				9A1BD6A818F4D59A00BF468B /* RedditPost.m in Sources */,
 				9A83D37C18EAB23A00A05C58 /* AppDelegate.m in Sources */,
 				9A14FDD8190FA94000B8D141 /* SearchListViewController.m in Sources */,
+				9AF32020191C8CFC00109D7E /* RegisterViewController.m in Sources */,
 				9A83D37818EAB23A00A05C58 /* main.m in Sources */,
 				9AD4DE981904EE8F00666D3C /* RedditComment.m in Sources */,
 				9A14FDDE190FB2AA00B8D141 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
