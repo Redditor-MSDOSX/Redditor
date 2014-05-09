@@ -8,6 +8,7 @@
 
 #import "RegisterViewController.h"
 #import "RedditorEngine.h"
+#import "AccountViewController.h"
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
@@ -114,6 +115,7 @@
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [((AccountViewController*) self.delegate) reloadView];
     [self.navigationController popViewControllerAnimated:YES];
 }
 /*

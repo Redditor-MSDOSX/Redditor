@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface RegisterViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
-
+@property (nonatomic, assign) id delegate;
 @end

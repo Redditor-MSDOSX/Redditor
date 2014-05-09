@@ -19,4 +19,6 @@
 - (IBAction)loginClicked:(id)sender;
 
 - (IBAction)logoutClicked:(id)sender;
+
+-(void)reloadView;
 @end

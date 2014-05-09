@@ -10,6 +10,7 @@
 #import "SWRevealViewController.h"
 #import "RedditorEngine.h"
 #import "SidebarViewController.h"
+#import "RegisterViewController.h"
 
 @interface AccountViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
@@ -113,5 +114,25 @@
     [self.view endEditing:YES]; // dismiss the keyboard
     
     [super touchesBegan:touches withEvent:event];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"register_segue"]) {
+        RegisterViewController* dest = (RegisterViewController*)segue.destinationViewController;
+        dest.delegate = self;
+    }
+    [super prepareForSegue:segue sender:sender];
+}
+
+- (void) reloadView {
+    if ([RedditorEngine checkIfLoggedIn]) {
+        [self.container.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        self.userName.text = [RedditorEngine getUsername];
+        [self.container addSubview:self.loggedInView];
+    }
+    else {
+        [self.container.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        [self.container addSubview:self.loggedOutView];
+    }
 }
 @end
