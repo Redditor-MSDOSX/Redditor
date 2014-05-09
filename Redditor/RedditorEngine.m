@@ -398,6 +398,9 @@
 }
 
 -(BOOL) changePasswordCurr:(NSString *)curp New:(NSString *)newp Ver:(NSString *)verp {
+    if (![newp isEqualToString:verp]) {
+        return NO;
+    }
     NSString* url = @"http://www.reddit.com/api/update_password";
     
     NSMutableDictionary* data = [[NSMutableDictionary alloc] init];

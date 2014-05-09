@@ -65,6 +65,9 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+        self.curpass.text = @"";
+        self.newpass.text = @"";
+        self.verpass.text = @"";
     }
 }
 
