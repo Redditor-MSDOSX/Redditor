@@ -218,4 +218,12 @@
     ownSubs = [RedditorEngine getUserSubscribedSubReddit];
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //[cell setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
+    //[UIColor colorWithPatternImage:[UIImage imageNamed:@"IMG_5649.JPG"]];
+
+    
+}
+
 @end

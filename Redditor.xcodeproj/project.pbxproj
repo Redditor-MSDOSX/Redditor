@@ -27,6 +27,7 @@
 		0ACE6D38190A3BB200E5E4DD /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D31190A3BB200E5E4DD /* ListViewController.m */; };
 		0ACE6D3B190A3BB200E5E4DD /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D37190A3BB200E5E4DD /* SidebarViewController.m */; };
 		0AFE45711910A36E00C127B7 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE45701910A36E00C127B7 /* PostViewController.m */; };
+		283B45B01942352200197CE9 /* sibebar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 283B45AF1942352200197CE9 /* sibebar_bg.png */; };
 		9A14FDD8190FA94000B8D141 /* SearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A14FDD7190FA94000B8D141 /* SearchListViewController.m */; };
 		9A14FDDE190FB2AA00B8D141 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A14FDDB190FB2AA00B8D141 /* UIScrollView+SVInfiniteScrolling.m */; };
 		9A14FDDF190FB2AA00B8D141 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A14FDDD190FB2AA00B8D141 /* UIScrollView+SVPullToRefresh.m */; };
@@ -90,6 +91,7 @@
 		0ACE6D37190A3BB200E5E4DD /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SidebarViewController.m; path = ../SidebarViewController.m; sourceTree = "<group>"; };
 		0AFE456F1910A36E00C127B7 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		0AFE45701910A36E00C127B7 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
+		283B45AF1942352200197CE9 /* sibebar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sibebar_bg.png; sourceTree = "<group>"; };
 		9A14FDD6190FA94000B8D141 /* SearchListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchListViewController.h; sourceTree = "<group>"; };
 		9A14FDD7190FA94000B8D141 /* SearchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchListViewController.m; sourceTree = "<group>"; };
 		9A14FDD9190FB2AA00B8D141 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		0ACE6D23190A233200E5E4DD /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				283B45AF1942352200197CE9 /* sibebar_bg.png */,
 				0A7EBC1A191B75D1008F4F1E /* Appicon-120R.png */,
 				0A7EBC12191B6BAC008F4F1E /* appIcon-120.png */,
 				0A7EBC0E191B5629008F4F1E /* login.png */,
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ACE6D22190A122F00E5E4DD /* MainStoryboard.storyboard in Resources */,
+				283B45B01942352200197CE9 /* sibebar_bg.png in Resources */,
 				0A7EBC0F191B5629008F4F1E /* login.png in Resources */,
 				0A7EBC04191B5076008F4F1E /* games.png in Resources */,
 				0A7EBC02191B5076008F4F1E /* account.png in Resources */,
