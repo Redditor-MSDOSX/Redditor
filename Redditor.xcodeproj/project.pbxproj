@@ -35,6 +35,7 @@
 		9A1BD6A818F4D59A00BF468B /* RedditPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BD6A718F4D59A00BF468B /* RedditPost.m */; };
 		9A1BD6AB18F4DC1500BF468B /* RedditAPIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BD6AA18F4DC1500BF468B /* RedditAPIConnector.m */; };
 		9A393686191A4A85002BA5D5 /* ChangePWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A393685191A4A85002BA5D5 /* ChangePWViewController.m */; };
+		9A5428E71948453F00D0831F /* Menu_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A5428E61948453F00D0831F /* Menu_new@2x.png */; };
 		9A61F21E1918A6FC00CD209F /* ReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61F21D1918A6FC00CD209F /* ReplyViewController.m */; };
 		9A8369641915E8700048FB2C /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8369631915E8700048FB2C /* AccountViewController.m */; };
 		9A83D36C18EAB23A00A05C58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A83D36B18EAB23A00A05C58 /* Foundation.framework */; };
@@ -107,6 +108,7 @@
 		9A1BD6AA18F4DC1500BF468B /* RedditAPIConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedditAPIConnector.m; sourceTree = "<group>"; };
 		9A393684191A4A85002BA5D5 /* ChangePWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePWViewController.h; sourceTree = "<group>"; };
 		9A393685191A4A85002BA5D5 /* ChangePWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePWViewController.m; sourceTree = "<group>"; };
+		9A5428E61948453F00D0831F /* Menu_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu_new@2x.png"; sourceTree = "<group>"; };
 		9A61F21C1918A6FC00CD209F /* ReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyViewController.h; sourceTree = "<group>"; };
 		9A61F21D1918A6FC00CD209F /* ReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyViewController.m; sourceTree = "<group>"; };
 		9A8369621915E8700048FB2C /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		0ACE6D23190A233200E5E4DD /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				9A5428E61948453F00D0831F /* Menu_new@2x.png */,
 				283B45AF1942352200197CE9 /* sibebar_bg.png */,
 				0A0785201948399900B91895 /* menu@2x.png */,
 				0A7EBC1A191B75D1008F4F1E /* Appicon-120R.png */,
@@ -368,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ACE6D22190A122F00E5E4DD /* MainStoryboard.storyboard in Resources */,
+				9A5428E71948453F00D0831F /* Menu_new@2x.png in Resources */,
 				283B45B01942352200197CE9 /* sibebar_bg.png in Resources */,
 				0A7EBC0F191B5629008F4F1E /* login.png in Resources */,
 				0A7EBC04191B5076008F4F1E /* games.png in Resources */,

@@ -58,17 +58,17 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1690864685568248" green="0.13322726952065225" blue="0.25490274234693877" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="qkm-W3-N09" firstAttribute="top" secondItem="JDC-Ik-BRt" secondAttribute="bottom" constant="1" id="CNj-zU-0mX"/>
+                            <constraint firstItem="lmK-mo-c0l" firstAttribute="top" secondItem="ecc-ti-4VY" secondAttribute="bottom" constant="11" id="2xr-sI-jiQ"/>
                             <constraint firstItem="Wrc-zz-9TK" firstAttribute="top" secondItem="qkm-W3-N09" secondAttribute="bottom" constant="11" id="E28-eK-6rm"/>
                             <constraint firstAttribute="centerX" secondItem="Wrc-zz-9TK" secondAttribute="centerX" id="EGO-pp-Nac"/>
-                            <constraint firstItem="lmK-mo-c0l" firstAttribute="top" secondItem="ecc-ti-4VY" secondAttribute="bottom" constant="11" id="bUX-Dv-IbE"/>
+                            <constraint firstItem="qkm-W3-N09" firstAttribute="top" secondItem="JDC-Ik-BRt" secondAttribute="bottom" constant="1" id="Pai-LS-OGh"/>
                             <constraint firstAttribute="centerX" secondItem="qkm-W3-N09" secondAttribute="centerX" id="kwr-CZ-7TE"/>
                             <constraint firstAttribute="centerX" secondItem="ecc-ti-4VY" secondAttribute="centerX" id="pvs-jl-ErL"/>
                             <constraint firstItem="ecc-ti-4VY" firstAttribute="top" secondItem="Wrc-zz-9TK" secondAttribute="bottom" constant="8" id="rWh-MO-uXR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Front Page" id="gfA-bW-XrT">
-                        <barButtonItem key="leftBarButtonItem" image="menu.png" style="plain" id="mXk-4A-iOH"/>
+                        <barButtonItem key="leftBarButtonItem" image="Menu_new.png" style="plain" id="mXk-4A-iOH"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -1185,6 +1185,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Menu_new.png" width="32" height="32"/>
         <image name="PICS.png" width="128" height="128"/>
         <image name="account.png" width="128" height="128"/>
         <image name="askreddit.png" width="128" height="128"/>
