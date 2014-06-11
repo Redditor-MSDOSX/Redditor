@@ -18,9 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qkm-W3-N09">
-                                <rect key="frame" x="21" y="73" width="279" height="29"/>
+                                <rect key="frame" x="21" y="65" width="279" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.16908646860000001" green="0.1332272695" blue="0.25490274229999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <segments>
                                     <segment title="Hot"/>
                                     <segment title="New"/>
@@ -28,6 +28,7 @@
                                     <segment title="Contro"/>
                                     <segment title="Top"/>
                                 </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="tabChanged:" destination="tiA-fo-4jg" eventType="valueChanged" id="eV3-2K-Bwe"/>
                                 </connections>
@@ -55,10 +56,10 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.1690864685568248" green="0.13322726952065225" blue="0.25490274234693877" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="qkm-W3-N09" firstAttribute="top" secondItem="JDC-Ik-BRt" secondAttribute="bottom" constant="9" id="CNj-zU-0mX"/>
-                            <constraint firstItem="Wrc-zz-9TK" firstAttribute="top" secondItem="qkm-W3-N09" secondAttribute="bottom" constant="8" id="E28-eK-6rm"/>
+                            <constraint firstItem="qkm-W3-N09" firstAttribute="top" secondItem="JDC-Ik-BRt" secondAttribute="bottom" constant="1" id="CNj-zU-0mX"/>
+                            <constraint firstItem="Wrc-zz-9TK" firstAttribute="top" secondItem="qkm-W3-N09" secondAttribute="bottom" constant="11" id="E28-eK-6rm"/>
                             <constraint firstAttribute="centerX" secondItem="Wrc-zz-9TK" secondAttribute="centerX" id="EGO-pp-Nac"/>
                             <constraint firstItem="lmK-mo-c0l" firstAttribute="top" secondItem="ecc-ti-4VY" secondAttribute="bottom" constant="11" id="bUX-Dv-IbE"/>
                             <constraint firstAttribute="centerX" secondItem="qkm-W3-N09" secondAttribute="centerX" id="kwr-CZ-7TE"/>
@@ -67,7 +68,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Front Page" id="gfA-bW-XrT">
-                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="mXk-4A-iOH"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" style="plain" id="mXk-4A-iOH"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -825,7 +826,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="vZe-S4-iQp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.12158355469186503" green="0.10019754437472431" blue="0.22265625" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.16908646860000001" green="0.1332272695" blue="0.25490274229999998" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
@@ -1200,6 +1203,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="pIr-UM-1Sj"/>
+        <segue reference="BdS-Tj-f3w"/>
     </inferredMetricsTieBreakers>
 </document>
