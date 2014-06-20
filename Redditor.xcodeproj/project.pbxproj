@@ -22,8 +22,6 @@
 		0A7EBC1B191B75D1008F4F1E /* Appicon-120R.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7EBC1A191B75D1008F4F1E /* Appicon-120R.png */; };
 		0ACE6CFC190A060000E5E4DD /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6CFB190A060000E5E4DD /* SWRevealViewController.m */; };
 		0ACE6D22190A122F00E5E4DD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D21190A122F00E5E4DD /* MainStoryboard.storyboard */; };
-		0ACE6D29190A24D900E5E4DD /* reddit-32-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D28190A24D900E5E4DD /* reddit-32-black.png */; };
-		0ACE6D2B190A255000E5E4DD /* reddit-128-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE6D2A190A255000E5E4DD /* reddit-128-black.png */; };
 		0ACE6D38190A3BB200E5E4DD /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D31190A3BB200E5E4DD /* ListViewController.m */; };
 		0ACE6D3B190A3BB200E5E4DD /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6D37190A3BB200E5E4DD /* SidebarViewController.m */; };
 		0AFD526D195165FB009152E4 /* new_link.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD526B195165FB009152E4 /* new_link.png */; };
@@ -32,6 +30,8 @@
 		0AFD5272195175B1009152E4 /* Redditor_account.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD5271195175B1009152E4 /* Redditor_account.png */; };
 		0AFE45711910A36E00C127B7 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE45701910A36E00C127B7 /* PostViewController.m */; };
 		283B45B01942352200197CE9 /* sibebar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 283B45AF1942352200197CE9 /* sibebar_bg.png */; };
+		28EE0A821954C06100581385 /* subreddits.png in Resources */ = {isa = PBXBuildFile; fileRef = 28EE0A811954C06100581385 /* subreddits.png */; };
+		28EE0A861954E82300581385 /* Icon_color.png in Resources */ = {isa = PBXBuildFile; fileRef = 28EE0A851954E82300581385 /* Icon_color.png */; };
 		9A14FDD8190FA94000B8D141 /* SearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A14FDD7190FA94000B8D141 /* SearchListViewController.m */; };
 		9A14FDDE190FB2AA00B8D141 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A14FDDB190FB2AA00B8D141 /* UIScrollView+SVInfiniteScrolling.m */; };
 		9A14FDDF190FB2AA00B8D141 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A14FDDD190FB2AA00B8D141 /* UIScrollView+SVPullToRefresh.m */; };
@@ -88,8 +88,6 @@
 		0ACE6CFA190A060000E5E4DD /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		0ACE6CFB190A060000E5E4DD /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		0ACE6D21190A122F00E5E4DD /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		0ACE6D28190A24D900E5E4DD /* reddit-32-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reddit-32-black.png"; path = "../Redditor/reddit-32-black.png"; sourceTree = "<group>"; };
-		0ACE6D2A190A255000E5E4DD /* reddit-128-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reddit-128-black.png"; path = "../Redditor/reddit-128-black.png"; sourceTree = "<group>"; };
 		0ACE6D30190A3BB200E5E4DD /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListViewController.h; path = ../ListViewController.h; sourceTree = "<group>"; };
 		0ACE6D31190A3BB200E5E4DD /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListViewController.m; path = ../ListViewController.m; sourceTree = "<group>"; };
 		0ACE6D36190A3BB200E5E4DD /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SidebarViewController.h; path = ../SidebarViewController.h; sourceTree = "<group>"; };
@@ -101,6 +99,8 @@
 		0AFE456F1910A36E00C127B7 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		0AFE45701910A36E00C127B7 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		283B45AF1942352200197CE9 /* sibebar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sibebar_bg.png; sourceTree = "<group>"; };
+		28EE0A811954C06100581385 /* subreddits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = subreddits.png; sourceTree = "<group>"; };
+		28EE0A851954E82300581385 /* Icon_color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_color.png; sourceTree = "<group>"; };
 		9A14FDD6190FA94000B8D141 /* SearchListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchListViewController.h; sourceTree = "<group>"; };
 		9A14FDD7190FA94000B8D141 /* SearchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchListViewController.m; sourceTree = "<group>"; };
 		9A14FDD9190FB2AA00B8D141 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
@@ -174,6 +174,8 @@
 		0ACE6D23190A233200E5E4DD /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				28EE0A851954E82300581385 /* Icon_color.png */,
+				28EE0A811954C06100581385 /* subreddits.png */,
 				0AFD526B195165FB009152E4 /* new_link.png */,
 				0AFD526C195165FB009152E4 /* shuffle.png */,
 				9A5428E61948453F00D0831F /* Menu_new@2x.png */,
@@ -191,8 +193,6 @@
 				0A7EBC00191B5076008F4F1E /* PICS.png */,
 				0A7EBC01191B5076008F4F1E /* worldnews.png */,
 				0AFD526F19516845009152E4 /* Next.png */,
-				0ACE6D28190A24D900E5E4DD /* reddit-32-black.png */,
-				0ACE6D2A190A255000E5E4DD /* reddit-128-black.png */,
 				0AFD5271195175B1009152E4 /* Redditor_account.png */,
 			);
 			path = Icon;
@@ -383,15 +383,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ACE6D22190A122F00E5E4DD /* MainStoryboard.storyboard in Resources */,
+				28EE0A861954E82300581385 /* Icon_color.png in Resources */,
 				9A5428E71948453F00D0831F /* Menu_new@2x.png in Resources */,
 				283B45B01942352200197CE9 /* sibebar_bg.png in Resources */,
 				0A7EBC0F191B5629008F4F1E /* login.png in Resources */,
 				0A7EBC04191B5076008F4F1E /* games.png in Resources */,
 				0A7EBC02191B5076008F4F1E /* account.png in Resources */,
-				0ACE6D2B190A255000E5E4DD /* reddit-128-black.png in Resources */,
 				0A7EBC07191B5076008F4F1E /* worldnews.png in Resources */,
-				0ACE6D29190A24D900E5E4DD /* reddit-32-black.png in Resources */,
 				0A7EBC06191B5076008F4F1E /* PICS.png in Resources */,
+				28EE0A821954C06100581385 /* subreddits.png in Resources */,
 				9A83D37618EAB23A00A05C58 /* InfoPlist.strings in Resources */,
 				0A7EBC05191B5076008F4F1E /* news.png in Resources */,
 				0A7EBC03191B5076008F4F1E /* askreddit.png in Resources */,
