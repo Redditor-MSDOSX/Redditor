@@ -327,7 +327,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8G1-We-hcO">
-                                <rect key="frame" x="132" y="297" width="57" height="30"/>
+                                <rect key="frame" x="132" y="209" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -360,7 +360,7 @@
                                 </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SHd-oV-YaT">
-                                <rect key="frame" x="100" y="201" width="120" height="50"/>
+                                <rect key="frame" x="100" y="201" width="120" height="51"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jp5-wV-O2t">
@@ -372,13 +372,13 @@
                                     <outlet property="delegate" destination="vCM-b0-uBv" id="fde-io-KgJ"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvi-UL-0jy">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvi-UL-0jy">
                                 <rect key="frame" x="20" y="155" width="39" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eU5-gc-bdC">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eU5-gc-bdC">
                                 <rect key="frame" x="20" y="116" width="33" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -402,7 +402,9 @@
                             <constraint firstItem="NL9-3k-ng2" firstAttribute="top" secondItem="FKn-2t-KeW" secondAttribute="bottom" constant="10" id="A4F-xE-8UM"/>
                             <constraint firstItem="gla-ud-hbw" firstAttribute="top" secondItem="8G1-We-hcO" secondAttribute="bottom" constant="241" id="Dka-LT-TtV"/>
                             <constraint firstItem="8G1-We-hcO" firstAttribute="top" secondItem="QGm-ts-PIf" secondAttribute="bottom" constant="14" id="FrX-BZ-iDN"/>
+                            <constraint firstItem="bvi-UL-0jy" firstAttribute="top" secondItem="eU5-gc-bdC" secondAttribute="bottom" constant="18" id="XLn-b3-i2V"/>
                             <constraint firstItem="Jp5-wV-O2t" firstAttribute="top" secondItem="QXI-Ku-Fsg" secondAttribute="bottom" constant="8" id="ao1-bd-LCx"/>
+                            <constraint firstItem="eU5-gc-bdC" firstAttribute="top" secondItem="FKn-2t-KeW" secondAttribute="bottom" constant="52" id="pz8-n8-m0h"/>
                             <constraint firstItem="QXI-Ku-Fsg" firstAttribute="top" secondItem="NL9-3k-ng2" secondAttribute="bottom" constant="8" id="vdJ-KS-fqF"/>
                         </constraints>
                     </view>
@@ -470,7 +472,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y3U-Af-FHo">
-                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                         </subviews>
