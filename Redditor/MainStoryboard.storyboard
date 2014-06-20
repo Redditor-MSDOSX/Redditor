@@ -339,6 +339,9 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NL9-3k-ng2">
                                 <rect key="frame" x="121" y="77" width="79" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="dbz-t0-Tgb"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Link"/>
                                     <segment title="Text"/>
@@ -397,6 +400,7 @@
                             <constraint firstItem="QGm-ts-PIf" firstAttribute="top" secondItem="SHd-oV-YaT" secondAttribute="bottom" constant="16" id="4pR-1f-2Jz"/>
                             <constraint firstItem="SHd-oV-YaT" firstAttribute="top" secondItem="Jp5-wV-O2t" secondAttribute="bottom" constant="8" id="5yr-ef-BEd"/>
                             <constraint firstItem="NL9-3k-ng2" firstAttribute="top" secondItem="FKn-2t-KeW" secondAttribute="bottom" constant="10" id="A4F-xE-8UM"/>
+                            <constraint firstItem="gla-ud-hbw" firstAttribute="top" secondItem="8G1-We-hcO" secondAttribute="bottom" constant="241" id="Dka-LT-TtV"/>
                             <constraint firstItem="8G1-We-hcO" firstAttribute="top" secondItem="QGm-ts-PIf" secondAttribute="bottom" constant="14" id="FrX-BZ-iDN"/>
                             <constraint firstItem="Jp5-wV-O2t" firstAttribute="top" secondItem="QXI-Ku-Fsg" secondAttribute="bottom" constant="8" id="ao1-bd-LCx"/>
                             <constraint firstItem="QXI-Ku-Fsg" firstAttribute="top" secondItem="NL9-3k-ng2" secondAttribute="bottom" constant="8" id="vdJ-KS-fqF"/>
