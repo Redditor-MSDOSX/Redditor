@@ -28,6 +28,7 @@
 		0AFD526E195165FB009152E4 /* shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD526C195165FB009152E4 /* shuffle.png */; };
 		0AFD527019516845009152E4 /* Next.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD526F19516845009152E4 /* Next.png */; };
 		0AFD5272195175B1009152E4 /* Redditor_account.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD5271195175B1009152E4 /* Redditor_account.png */; };
+		0AFD527419565C7B009152E4 /* LaunchIMG.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD527319565C7B009152E4 /* LaunchIMG.png */; };
 		0AFE45711910A36E00C127B7 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE45701910A36E00C127B7 /* PostViewController.m */; };
 		283B45B01942352200197CE9 /* sibebar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 283B45AF1942352200197CE9 /* sibebar_bg.png */; };
 		28EE0A821954C06100581385 /* subreddits.png in Resources */ = {isa = PBXBuildFile; fileRef = 28EE0A811954C06100581385 /* subreddits.png */; };
@@ -96,6 +97,7 @@
 		0AFD526C195165FB009152E4 /* shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuffle.png; sourceTree = "<group>"; };
 		0AFD526F19516845009152E4 /* Next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Next.png; sourceTree = "<group>"; };
 		0AFD5271195175B1009152E4 /* Redditor_account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Redditor_account.png; sourceTree = "<group>"; };
+		0AFD527319565C7B009152E4 /* LaunchIMG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchIMG.png; sourceTree = "<group>"; };
 		0AFE456F1910A36E00C127B7 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		0AFE45701910A36E00C127B7 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		283B45AF1942352200197CE9 /* sibebar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sibebar_bg.png; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		0ACE6D23190A233200E5E4DD /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				0AFD527319565C7B009152E4 /* LaunchIMG.png */,
 				28EE0A851954E82300581385 /* Icon_color.png */,
 				28EE0A811954C06100581385 /* subreddits.png */,
 				0AFD526B195165FB009152E4 /* new_link.png */,
@@ -382,6 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AFD527419565C7B009152E4 /* LaunchIMG.png in Resources */,
 				0ACE6D22190A122F00E5E4DD /* MainStoryboard.storyboard in Resources */,
 				28EE0A861954E82300581385 /* Icon_color.png in Resources */,
 				9A5428E71948453F00D0831F /* Menu_new@2x.png in Resources */,
