@@ -13,6 +13,7 @@
 #import "RegisterViewController.h"
 
 @interface AccountViewController ()
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @end
@@ -31,14 +32,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view.
     // Change button color
-    _sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
+    //_sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
     
     // Set the side bar button action. When it's tapped, it'll show up the sidebar.
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
-    
+
     // Set the gesture
     [self.container addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     

@@ -32,6 +32,9 @@
     
     ownSubs = [RedditorEngine getUserSubscribedSubReddit];
     [self.tableView reloadData];
+    UIImageView* bgView = [[UIImageView alloc] init];
+    [bgView setImage:[UIImage imageNamed:@"sibebar_bg.png"]];
+    [self.tableView setBackgroundView: bgView];
     searchBarClicked = NO;
 }
 
@@ -81,8 +84,8 @@
         CellIdentifier = [menuItems objectAtIndex:12];
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         cell.textLabel.text = [[ownSubs objectAtIndex:indexPath.row ] capitalizedString];
-        cell.textLabel.font = [UIFont fontWithName:@"Helvetica Light" size:25.0];
-        cell.textLabel.textColor = [UIColor darkGrayColor];
+        cell.textLabel.font = [UIFont fontWithName:@"Helvetica Light" size:20.0];
+        cell.textLabel.textColor = [UIColor whiteColor];
         return cell;
     }
     else {
@@ -216,6 +219,14 @@
 
 - (void) updateSubscription {
     ownSubs = [RedditorEngine getUserSubscribedSubReddit];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //[cell setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
+    //[UIColor colorWithPatternImage:[UIImage imageNamed:@"IMG_5649.JPG"]];
+
+    
 }
 
 @end

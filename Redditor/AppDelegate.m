@@ -18,6 +18,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     */
+    [application setStatusBarHidden:NO];
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
     return YES;
 }
 
