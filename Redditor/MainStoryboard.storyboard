@@ -206,7 +206,7 @@
                     </connections>
                 </tableView>
             </objects>
-            <point key="canvasLocation" x="1129" y="-371"/>
+            <point key="canvasLocation" x="1655" y="-371"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="dmK-Dd-Go6">
@@ -263,7 +263,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </objects>
-            <point key="canvasLocation" x="1529" y="-329"/>
+            <point key="canvasLocation" x="2055" y="-329"/>
         </scene>
         <!--Reply View Controller-->
         <scene sceneID="du2-jG-hgf">
@@ -312,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XNM-do-E60" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1912" y="-347"/>
+            <point key="canvasLocation" x="2438" y="-347"/>
         </scene>
         <!--Add Link View Controller-->
         <scene sceneID="6Gh-yW-c5q">
@@ -826,10 +826,11 @@
                             <outlet property="delegate" destination="Meq-yH-YF6" id="C52-d2-AjR"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="dmN-7b-RQM"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pan-AZ-D0k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="577" y="-371"/>
+            <point key="canvasLocation" x="1103" y="-371"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5Z6-ag-ZQ1">
@@ -1198,13 +1199,31 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="Meq-yH-YF6" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegue" id="dc2-3A-eHQ"/>
+                        <segue destination="imb-KV-0E8" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegue" id="dc2-3A-eHQ"/>
                         <segue destination="5D7-fp-3iF" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegue" id="kE7-cD-dAI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4c-d4-88L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="71" y="-5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pDl-1c-mFw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="imb-KV-0E8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mvf-11-epE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Meq-yH-YF6" kind="relationship" relationship="rootViewController" id="o35-QN-8F1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iid-Tj-afg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="577" y="-371"/>
         </scene>
     </scenes>
     <resources>
