@@ -36,6 +36,9 @@
     [bgView setImage:[UIImage imageNamed:@"sibebar_bg.png"]];
     [self.tableView setBackgroundView: bgView];
     searchBarClicked = NO;
+    
+    // set the text color of search bar to white
+    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor whiteColor]];
 }
 
 /*
