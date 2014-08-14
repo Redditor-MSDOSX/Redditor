@@ -699,6 +699,7 @@
     
 }
 
+/*
 - (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
 {
     if(position == FrontViewPositionLeft) {
@@ -709,4 +710,5 @@
         sidebarMenuOpen = YES;
     }
 }
+ */
 @end
