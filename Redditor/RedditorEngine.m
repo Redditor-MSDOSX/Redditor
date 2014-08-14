@@ -104,7 +104,9 @@
         NSArray* list = [temp1 objectForKey:@"children"];
         for (NSDictionary* item in list) {
             //NSLog([[item objectForKey:@"data" ] objectForKey:@"title" ]);
-            [returnData addObject: [[RedditPost alloc] initWithDict:[item objectForKey:@"data"]]];
+            // NSFW check
+            if ([[[item objectForKey:@"data"] objectForKey:@"over_18"] intValue] == 0)
+                [returnData addObject: [[RedditPost alloc] initWithDict:[item objectForKey:@"data"]]];
         }
         
     }
@@ -278,7 +280,9 @@
         NSArray* list = [temp1 objectForKey:@"children"];
         for (NSDictionary* item in list) {
             //NSLog([[item objectForKey:@"data" ] objectForKey:@"title" ]);
-            [returnData addObject: [[RedditPost alloc] initWithDict:[item objectForKey:@"data"]]];
+            // NSFW filter
+            if ([[[item objectForKey:@"data"] objectForKey:@"over_18"] intValue] == 0)
+                [returnData addObject: [[RedditPost alloc] initWithDict:[item objectForKey:@"data"]]];
         }
         
     }

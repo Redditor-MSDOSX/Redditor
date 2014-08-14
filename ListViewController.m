@@ -23,6 +23,7 @@
 
 @implementation ListViewController:UIViewController {
     NSInteger prevPage;
+    BOOL sidebarMenuOpen;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,6 +39,7 @@
 {
     [super viewDidLoad];
     prevPage = 0;
+    sidebarMenuOpen = NO;
     // Change button color
     //_sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
 
@@ -47,6 +49,7 @@
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    self.revealViewController.delegate = self;
     self.indicator.center = self.view.center;
     [self.indicator setHidesWhenStopped:YES];
     [self.view addSubview:self.indicator];
@@ -696,35 +699,14 @@
     
 }
 
-/*
- - (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
- {
- if (revealController.frontViewPosition == FrontViewPositionRight) {
- UIView *lockingView = [UIView new];
- lockingView.translatesAutoresizingMaskIntoConstraints = NO;
- 
- UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:revealController action:@selector(revealToggle:)];
- [lockingView addGestureRecognizer:tap];
- [lockingView addGestureRecognizer:revealController.panGestureRecognizer];
- [lockingView setTag:1000];
- [revealController.frontViewController.view addSubview:lockingView];
- 
- NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(lockingView);
- 
- [revealController.frontViewController.view addConstraints:
- [NSLayoutConstraint constraintsWithVisualFormat:@"|[lockingView]|"
- options:0
- metrics:nil
- views:viewsDictionary]];
- [revealController.frontViewController.view addConstraints:
- [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[lockingView]|"
- options:0
- metrics:nil
- views:viewsDictionary]];
- [lockingView sizeToFit];
- }
- else
- [[revealController.frontViewController.view viewWithTag:1000] removeFromSuperview];
- }
- */
+- (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
+{
+    if(position == FrontViewPositionLeft) {
+        self.view.userInteractionEnabled = YES;
+        sidebarMenuOpen = NO;
+    } else {
+        self.view.userInteractionEnabled = NO;
+        sidebarMenuOpen = YES;
+    }
+}
 @end
