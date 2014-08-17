@@ -709,7 +709,6 @@
     
 }
 
-/*
 - (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
 {
     if(position == FrontViewPositionLeft) {
@@ -722,5 +721,4 @@
         self.bar.userInteractionEnabled = NO;
     }
 }
- */
 @end
