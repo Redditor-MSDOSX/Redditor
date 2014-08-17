@@ -23,7 +23,6 @@
 
 @implementation ListViewController:UIViewController {
     NSInteger prevPage;
-    BOOL sidebarMenuOpen;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -39,7 +38,8 @@
 {
     [super viewDidLoad];
     prevPage = 0;
-    sidebarMenuOpen = NO;
+    self.current = self.hotTable;
+    
     // Change button color
     //_sidebarButton.tintColor = [UIColor colorWithWhite:0.1f alpha:0.9f];
 
@@ -431,18 +431,23 @@
     [self.scrollView scrollRectToVisible:frame animated:YES];
     if (page == 0) {
         [self.hotTable setAlpha:.1];
+        self.current = self.hotTable;
     }
     else if(page == 1) {
         [self.theNewTable setAlpha:.1];
+        self.current = self.theNewTable;
     }
     else if(page == 2) {
         [self.risingTable setAlpha:.1];
+        self.current = self.risingTable;
     }
     else if(page == 3) {
         [self.controversialTable setAlpha:.1];
+        self.current = self.controversialTable;
     }
     else if(page == 4) {
         [self.topTable setAlpha:.1];
+        self.current = self.topTable;
     }
     
     
@@ -500,18 +505,23 @@
     //[self.post removeAllObjects];
     if (page == 0) {
         [self.hotTable setAlpha:.1];
+        self.current = self.hotTable;
     }
     else if(page == 1) {
         [self.theNewTable setAlpha:.1];
+        self.current = self.theNewTable;
     }
     else if(page == 2) {
         [self.risingTable setAlpha:.1];
+        self.current = self.risingTable;
     }
     else if(page == 3) {
         [self.controversialTable setAlpha:.1];
+        self.current = self.controversialTable;
     }
     else if(page == 4) {
         [self.topTable setAlpha:.1];
+        self.current = self.topTable;
     }
     prevPage = page;
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -702,11 +712,13 @@
 - (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
 {
     if(position == FrontViewPositionLeft) {
-        self.view.userInteractionEnabled = YES;
-        sidebarMenuOpen = NO;
+        self.current.userInteractionEnabled = YES;
+        self.scrollView.userInteractionEnabled = YES;
+        self.bar.userInteractionEnabled = YES;
     } else {
-        self.view.userInteractionEnabled = NO;
-        sidebarMenuOpen = YES;
+        self.current.userInteractionEnabled = NO;
+        self.scrollView.userInteractionEnabled = NO;
+        self.bar.userInteractionEnabled = NO;
     }
 }
 @end

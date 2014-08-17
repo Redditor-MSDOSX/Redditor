@@ -8,6 +8,7 @@
 @property BOOL isRandom;
 @property NSMutableArray* post; // the reddit posts
 @property BOOL displayAddButton; // to hide add link button or not
+@property UITableView* current; // current viewing table
 
 -(NSInteger)numberOfSectionsInTableView: (UITableView *)tableView;
 
