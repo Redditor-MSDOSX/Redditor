@@ -23,7 +23,8 @@
 @property NSMutableArray* post;
 @end
 
-@implementation SearchListViewController
+@implementation SearchListViewController {
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -41,6 +42,8 @@
     // Set the side bar button action. When it's tapped, it'll show up the sidebar.
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
+    
+    self.revealViewController.delegate = self;
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
@@ -317,5 +320,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
+{
+    if(position == FrontViewPositionLeft) {
+        self.tableView.userInteractionEnabled = YES;
+    } else {
+        self.tableView.userInteractionEnabled = NO;
+    }
+}
 
 @end
